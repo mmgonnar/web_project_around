@@ -1,0 +1,15 @@
+h1, h2, h3, h4, h5, h6, p, li {
+  margin: 0;
+}
+
+.page {
+  max-width: 100%;
+  min-width: 320px;
+  margin: auto;
+  font-family: 'Inter';
+  background-color: black;
+  color: #fff;
+  display: flex;
+  flex: column;
+  align-items: center;
+}
