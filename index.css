@@ -1,7 +1,10 @@
 @import url(./fonts/fonts.css);
 @import url(./styles/normalize.css);
 
-h1, h2, h3, h4, h5, h6, p, li, ul {
+/* Header */
+@import url(./blocks/header/header.css);
+
+h1, h2, h3, h4, h5, h6, p, li, ul, {
   margin: 0;
 }
 
@@ -11,7 +14,7 @@ body {
   font-family: 'Inter';
   font-size: 16px;
   line-height: 1.5;
-  color: #333;
+  background-color: #000;
   min-width: 320px;
   display: flex;
   flex-direction: column;
