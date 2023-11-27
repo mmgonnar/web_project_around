@@ -24,6 +24,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   background-color: #000;
+  color: #fff;
   min-width: 320px;
   display: flex;
   flex-direction: column;
