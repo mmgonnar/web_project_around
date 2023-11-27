@@ -1,8 +1,14 @@
-h1, h2, h3, h4, h5, h6, p, li {
+@import url(./fonts/fonts.css);
+@import url(./styles/normalize.css);
+/* Header */
+@import url(./blocks/header/header.css);
+
+
+h1, h2, h3, h4, h5, h6, p, li, ul, ol, figure, figcaption, blockquote, dl, dd, dt, table, th, td, hr, pre, code, .header, .footer, .main, .page {
   margin: 0;
 }
 
-.page {
+/* .page {
   max-width: 100%;
   min-width: 320px;
   margin: auto;
@@ -12,15 +18,7 @@ h1, h2, h3, h4, h5, h6, p, li {
   display: flex;
   flex: column;
   align-items: center;
-}@import url(./fonts/fonts.css);
-@import url(./styles/normalize.css);
-/* Header */
-@import url(./blocks/header/header.css);
-
-
-h1, h2, h3, h4, h5, h6, p, li, ul, ol, figure, figcaption, blockquote, dl, dd, dt, table, th, td, hr, pre, code, .header, .footer, .main, .page {
-  margin: 0;
-}
+} */
 
 body {
   max-width: 100%;
