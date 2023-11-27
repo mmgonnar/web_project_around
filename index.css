@@ -1,10 +1,10 @@
 @import url(./fonts/fonts.css);
 @import url(./styles/normalize.css);
-
 /* Header */
 @import url(./blocks/header/header.css);
 
-h1, h2, h3, h4, h5, h6, p, li, ul, {
+
+h1, h2, h3, h4, h5, h6, p, li, ul, ol, figure, figcaption, blockquote, dl, dd, dt, table, th, td, hr, pre, code, .header, .footer, .main, .page {
   margin: 0;
 }
 
@@ -19,4 +19,5 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+/*   border: 1px solid red; */
 }
