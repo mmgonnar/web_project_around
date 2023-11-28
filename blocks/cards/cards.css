@@ -1,12 +1,13 @@
 .cards {
   width: 100%;
   padding-top: 2.25em;
-  padding-bottom: 10em;
   display: flex;
   padding-bottom: 1.25em;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
 }
 
 .card {
@@ -16,7 +17,6 @@
   background: #fff;
   border-radius: 11px;
   height: 361px;
-  margin-bottom: 1.25em;
 }
 
 .card__image {
