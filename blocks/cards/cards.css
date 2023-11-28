@@ -2,12 +2,13 @@
   width: 100%;
   padding-top: 2.25em;
   display: flex;
-  padding-bottom: 1.25em;
+  padding-bottom: 4em;
   justify-content: center;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
   gap: 1em;
+
 }
 
 .card {
