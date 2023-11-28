@@ -50,9 +50,9 @@
   padding-bottom: 2.25rem;
 }
 
-@media screen and (min-width: 880px) {
+/* @media screen and (min-width: 600px) {
   .profile {
-    width: 880px;
+    width: 10%;
     height: 120px;
     flex-direction: row;
     align-content: center;
@@ -85,6 +85,7 @@
   .profile__job {
     font-weight: 400;
     font-size: 1.1em;
-    height: 22px;
-    padding: 0;
+    align-items: center;
+    justify-content: center;
   }
+} */
