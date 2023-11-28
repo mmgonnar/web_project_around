@@ -1,9 +1,11 @@
 .profile {
   width: 100%;
   display: flex;
+  max-width: 880px;
   flex-direction: column;
   align-items: center;
   padding: 2.4em 0 2.4em;
+  margin: auto;
 
 }
 
@@ -14,12 +16,6 @@
   height: 120px;
   border-radius: 50%;
   margin-bottom: 1.6rem;
-}
-
-.profile__info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .profile__info {
@@ -50,42 +46,62 @@
   padding-bottom: 2.25rem;
 }
 
-/* @media screen and (min-width: 600px) {
+@media screen and (min-width: 600px) {
   .profile {
-    width: 10%;
-    height: 120px;
+    width: 100%;
     flex-direction: row;
-    align-content: center;
-    justify-content: center;
-    margin-top: 40px;
-  }
-
-  .profile__avatar {
-    margin: 0 40px 0 0;
+    gap: 30px;
   }
 
   .profile__info {
+    display: flex;
+    flex-direction: column;
     align-items: flex-start;
   }
 
   .profile__info-container {
-    width: 100%;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-    align-items: flex-end;
-    padding-bottom: 0;
+    justify-content: left;
+    padding: 0;
   }
 
   .profile__name {
-    font-weight: 500;
-    font-size: 2.5em;
+    font-size: 1.7em;
   }
 
   .profile__job {
     font-weight: 400;
     font-size: 1.1em;
-    align-items: center;
-    justify-content: center;
+    padding: 0;
   }
-} */
+}
+
+@media screen and (min-width: 880px) {
+  .profile {
+    width: 880px;
+  }
+
+  .profile__avatar {
+    margin: 0;
+  }
+
+  .profile__info {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile__info-container {
+    width: 100%;
+  }
+
+  .profile__name {
+    font-size: 2.6em;
+  }
+
+  .profile__job {
+    font-weight: 400;
+    font-size: 1.1em;
+    padding: 0;
+  }
+}
