@@ -1,0 +1,34 @@
+.cards {
+  width: 100%;
+  padding-top: 2.25em;
+  padding-bottom: 10em;
+  display: flex;
+}
+
+.card {
+  width: 282px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 11px;
+  height: 361px;
+}
+
+.card__image {
+  width: 100%;
+}
+
+.card__info {
+  display: flex;
+  flex-direction: row;
+  height: 73px;
+  margin: auto;
+  gap: 1.8em;
+  align-items: center;
+}
+
+.card__title {
+  color: black;
+  font-weight: 900;
+  font-size: 1.5em;
+}

@@ -3,6 +3,7 @@
   box-sizing: border-box;
   width: 24px;
   height: 24px;
+  border: 1px solid #fff;
 }
 
 .button__type-add {
@@ -12,6 +13,14 @@
   height: 50px;
   border-radius: 2px;
   border: 1px solid #fff;
+}
+
+.button__type-like {
+  background: url(../../images/heart__button.svg) no-repeat center;
+  box-sizing: border-box;
+  width: 21px;
+  height: 19px;
+  border: none;
 }
 
 @media screen and (min-width: 600px){
