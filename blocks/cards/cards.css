@@ -8,7 +8,6 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 1em;
-
 }
 
 .card {
@@ -18,10 +17,15 @@
   background: #fff;
   border-radius: 11px;
   height: 361px;
+  border-radius: 11px;
+  border-radius: 11px;
+  overflow: hidden;
 }
 
 .card__image {
   width: 100%;
+  /* border-top-left-radius: 11px;
+  border-top-right-radius: 11px; */
 }
 
 .card__info {
