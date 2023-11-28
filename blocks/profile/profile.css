@@ -1,0 +1,52 @@
+.profile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.4em 0 2.4em;
+
+}
+
+.profile__avatar {
+  display: block;
+  margin: auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 1.6rem;
+}
+
+.profile__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile__info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile__info-container {
+  width: 282px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom: 14px;
+}
+
+.profile__name {
+  font-weight: 400;
+  font-size: 1.3em;
+}
+
+.profile__job {
+  font-weight: 400;
+  font-size: 1em;
+  padding-bottom: 2.25rem;
+}
+
+
