@@ -6,6 +6,8 @@
 @import url(./blocks/profile/profile.css);
 /* Button */
 @import url(./blocks/button/button.css);
+/* Cards */
+@import url(./blocks/cards/cards.css);
 
 /* .page {
   max-width: 100%;
@@ -45,5 +47,4 @@ body {
 
 .button {
   cursor: pointer;
-  border: 1px solid #fff;
 }
