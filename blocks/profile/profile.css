@@ -68,19 +68,39 @@
     width: 50%;
   }
 
+  .profile__name {
+    font-size: 1.7em;
+  }
+
+  .profile__job {
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (min-width: 880px) {
+  .profile {
+    width: 100%;
+  }
+
+  .profile__info {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .profile__info-container {
-    justify-content: flex-start;
-    padding: 0;
+    width: 100%;
   }
 
   .profile__name {
-    font-weight: 400;
-    font-size: 1.3em;
+    font-size: 2.6em;
   }
 
   .profile__job {
     font-weight: 400;
-    font-size: 1em;
+    font-size: 1.1em;
+    padding: 0;
   }
 }
 /*
