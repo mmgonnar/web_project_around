@@ -17,6 +17,18 @@
   top: 19%;
   left: 6%;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.popup__title {
+  font-size: 1.1em;
+  font-weight: 900;
+  line-height: 44px;
+  text-align: left;
+  color: #000;
+  margin-bottom: 24px;
+  width: 90%;
 }
 
 .popup__form {
@@ -47,4 +59,5 @@
 .popup__input {
   border: none;
   border-bottom: 1px solid #000;
+  width: 90%;
 }
