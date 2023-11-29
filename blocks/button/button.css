@@ -31,8 +31,8 @@
   border: none;
   rotate: 90deg;
   position: absolute;
-  top: 10%;
-  right: 34%;
+  top: 6%;
+  right: 6%;
 }
 
 @media screen and (min-width: 600px){
