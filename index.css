@@ -47,13 +47,17 @@ body {
   align-items: center;
   flex-wrap: wrap;
   align-content: center;
-  /* border: 1px solid red; */
 }
 
 .button {
   cursor: pointer;
   box-sizing: border-box;
   border: none;
+  /* border: 1px solid #fff; */
+}
+
+.button:hover {
+  opacity: 0.6;
 }
 
 .link {
