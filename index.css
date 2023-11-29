@@ -8,6 +8,8 @@
 @import url(./blocks/button/button.css);
 /* Cards */
 @import url(./blocks/cards/cards.css);
+/* Footer */
+@import url(./blocks/footer/footer.css);
 
 /* .page {
   max-width: 100%;
@@ -46,5 +48,11 @@ body {
 }
 
 .button {
+  cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  color: rgba(84, 84, 84, 1);
   cursor: pointer;
 }
