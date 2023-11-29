@@ -23,6 +23,18 @@
   border: none;
 }
 
+.button__type-close {
+  background: url(../../images/close_button.svg) no-repeat center;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  border: none;
+  rotate: 90deg;
+  position: absolute;
+  top: 10%;
+  right: 34%;
+}
+
 @media screen and (min-width: 600px){
   .button__type-add {
     width: 150px;
