@@ -1,0 +1,31 @@
+.popup {
+  display: none;
+}
+
+.popup__overlay {
+  opacity: .7;
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.popup__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.popup_show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup__content {
+  width: 430px;
+  background-color: #fff;
+
+}
