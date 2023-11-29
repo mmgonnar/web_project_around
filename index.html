@@ -89,7 +89,13 @@
     <button class="button button button__type-close"></button>
     <div class="popup__content">
       <form action="" class="popup__form">
-        <label for="input-name" class="popup__label">Edit profile</label>
+        <fieldset class="form__set">
+          <label for="input-name" class="popup__label">Name</label>
+          <input type="text" name="input-name" id="input-name" class="popup__input" placeholder="Name" required minlength="2" maxlength="40">
+          <span class="form__error"></span>
+          <lable class="popup__label">Job</lable>
+          <span class="form__error"></span>
+        </fieldset>
       </form>
     </div>
   </div>

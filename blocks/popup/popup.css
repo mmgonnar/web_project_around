@@ -1,5 +1,5 @@
 .popup {
-  display: none;
+  /* display: none; */
 }
 
 .popup__overlay {
@@ -14,18 +14,22 @@
 
 .popup__content {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 12%;
+  left: 34%;
+  display: flex;
 }
 
 .popup_show {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .popup__content {
   width: 430px;
+  height: 330px;
   background-color: #fff;
+  border-radius: 10px;
 
 }
