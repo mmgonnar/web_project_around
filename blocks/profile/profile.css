@@ -77,16 +77,13 @@
   }
 }
 
-@media screen and (min-width: 880px) {
+@media screen and (min-width: 750px) {
   .profile {
-    width: 100%;
+    width: 95%;
   }
 
   .profile__info {
-    width: 65%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    width: 58%;
   }
 
   .profile__info-container {
@@ -98,11 +95,11 @@
   }
 
   .profile__job {
-    font-weight: 400;
     font-size: 1.1em;
-    padding: 0;
   }
 }
+
+
 /*
 @media screen and (min-width: 600px) {
   .profile {
