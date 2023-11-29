@@ -1,6 +1,5 @@
 .button__type-edit {
   background: url(../../images/edit_button.svg) no-repeat center;
-  box-sizing: border-box;
   width: 24px;
   height: 24px;
   border: 1px solid #fff;
@@ -8,7 +7,6 @@
 
 .button__type-add {
   background: url(../../images/add_button.svg) no-repeat center;
-  box-sizing: border-box;
   width: 288px;
   height: 50px;
   border-radius: 2px;
@@ -17,23 +15,33 @@
 
 .button__type-like {
   background: url(../../images/heart__button.svg) no-repeat center;
-  box-sizing: border-box;
   width: 21px;
   height: 19px;
-  border: none;
+/*   border: none; */
 }
 
 .button__type-close {
   background: url(../../images/close_button.svg) no-repeat center;
-  box-sizing: border-box;
   width: 24px;
   height: 24px;
-  border: none;
+/*   border: none; */
   rotate: 90deg;
   position: absolute;
   top: 13%;
   right: 6%;
 }
+
+.button__type-submit {
+  background-color: #000;
+  color: #fff;
+  width: 238px;
+  height: 46px;
+  border-radius: 2px;
+  margin-top: 2.5em;
+
+}
+
+
 
 @media screen and (min-width: 600px){
   .button__type-add {

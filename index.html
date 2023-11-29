@@ -87,19 +87,24 @@
     </div>
   </footer>
   <!------------- PopUp -------------->
-  <div class="popup popup__content_edit-profile">
+  <div class="popup popup__content_edit-profile popup_show">
     <div class="popup__overlay"></div>
     <button class="button button button__type-close"></button>
     <div class="popup__content">
-      <span class="popup__title">Edit profile</span>
-      <form action="" class="popup__form">
+      <div class="popup__container">
+        <span class="popup__title">Edit profile</span>
+        <form action="" class="popup__form">
         <fieldset class="form__set">
           <input type="text" name="input-name" id="input-name" class="popup__input" placeholder="Name" required minlength="2" maxlength="40">
           <span class="form__error"></span>
           <input type="text" name="input-job" id="input-job" class="popup__input" placeholder="Job" required minlength="2" maxlength="40">
           <span class="form__error"></span>
         </fieldset>
+        <fieldset class="form__set">
+          <input type="submit" class="button button__type-submit" placeholder="Save">
+        </fieldset>
       </form>
+      </div>
     </div>
   </div>
   <script src="./index.js"></script>
