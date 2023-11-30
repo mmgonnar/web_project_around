@@ -5,6 +5,30 @@
 //3. Hacer clic afuera del modal (popup) y que se cierre
 //4. escribir un input y que se muestre en la pantalla
 
+//console.log(document.querySelector('.button__type-edit'))
+//console.dir(document.querySelector('.button__type-edit'))
+
+const buttonEdit = document.querySelector('.button__type-edit');
+const buttonAdd = document.querySelector('.button__type-add');
+const buttonLike = document.querySelector('.button__type-like')
+const buttonClose = document.querySelector('.button__type-close')
+const buttonSubmit = document.querySelector('.button__type-submit')
+
+buttonAdd.addEventListener('click', function () {
+    console.log('hiciste click')
+})
+
+/*
+function hacerClick () {
+    console.log("hiciste click")
+}
+
+let button = document.querySelector(".button__type-edit");
+
+button.addEventListener("click", click); */
+
+
+
 //ASIGNAR EVENTOS
 //1. seleccionar el elemento (querrySelector, getElementById, etc)
 //2. aasignar el evento (addEventListener)
