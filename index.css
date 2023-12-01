@@ -10,6 +10,8 @@
 @import url(./blocks/cards/cards.css);
 /* Footer */
 @import url(./blocks/footer/footer.css);
+/* PopUp */
+@import url(./blocks/popup/popup.css);
 
 /* .page {
   max-width: 100%;
@@ -32,6 +34,7 @@
 }
 body {
   width: 100%;
+  height: 100%;
   max-width: 880px;
   margin: auto;
   font-family: 'Inter';
@@ -44,11 +47,17 @@ body {
   align-items: center;
   flex-wrap: wrap;
   align-content: center;
-  /* border: 1px solid red; */
 }
 
 .button {
   cursor: pointer;
+  box-sizing: border-box;
+  /* border: none; */
+  /* border: 1px solid #fff; */
+}
+
+.button:hover {
+  opacity: 0.6;
 }
 
 .link {
