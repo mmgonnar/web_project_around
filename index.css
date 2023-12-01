@@ -52,8 +52,8 @@ body {
 .button {
   cursor: pointer;
   box-sizing: border-box;
-  border: none;
-  border: 1px solid #fff;
+  /* border: none; */
+  /* border: 1px solid #fff; */
 }
 
 .button:hover {

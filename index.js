@@ -8,8 +8,7 @@
 //console.log
 //console.dir ??
 
-
-//Funciones
+//Variables
 const buttonEdit = document.querySelector(".button__type-edit");
 const popupProfile = document.querySelector(".popup__content_edit-profile");
 const buttonAdd = document.querySelector('.button__type-add');
@@ -38,25 +37,11 @@ buttonClose.addEventListener("click", function(){
 
 profileForm.addEventListener("submit", function(event){
   event.preventDefault();
-  profileForm.textContent = inputName.value;
-  profileForm.textContent = inputJob.value;
+  profileName.textContent = inputName.value;
+  profileJob.textContent = inputJob.value;
   profileForm.reset();
   togglePopup(popupProfile);
 })
-
-
-
-
-/*
-function hacerClick () {
-    console.log("hiciste click")
-}
-
-let button = document.querySelector(".button__type-edit");
-
-button.addEventListener("click", click); */
-
-
 
 //ASIGNAR EVENTOS
 //1. seleccionar el elemento (querrySelector, getElementById, etc)
