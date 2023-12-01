@@ -5,13 +5,108 @@
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
   <meta name="autor" content="Mariela González">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <link rel="stylesheet" href="">
-  <link rel="icon" href="">
-  <title>Arround The U.S.</title>
+  <meta name="description" content="Around The U.S. is a simple web page that displays the profile of an explorer named Jacques Cousteau.">
+  <meta name="keywords" content="html, css, javascript">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="icon" href="./images/favicon_nd.ico">
+  <title>Around The U.S.</title>
 </head>
 <body>
+  <!--- Header --->
+  <header class="header">
+    <img src="./images/logo_aus.svg" alt="Logo Around the US" class="header__logo">
+  </header>
+  <main class="content">
+    <!--- Profile --->
+    <section class="profile">
+      <img src="./images/profile.png" alt="profile__avatar" class="profile__avatar">
+      <div class="profile__info">
+        <div class="profile__info-container">
+          <p class="profile__name
+          ">Jacques Cousteau</p>
+          <button class="button button__type-edit"></button>
+        </div>
+        <p class="profile__job">Explorer</p>
+      </div>
+      <button class="button button__type-add"></button>
+    </section>
+    <!--- Cards --->
+    <section class="cards">
+      <div class="card">
+        <img src="./images/places/chicago.png" alt="Chicago's landscape" class="card__image">
+        <div class="card__info">
+          <span class="card__title">Chicago</span>
+          <button class="button button__type-like"></button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./images/places/arizona.png" alt="Arizona landscape" class="card__image">
+        <div class="card__info">
+          <span class="card__title">Arizona</span>
+          <button class="button button__type-like"></button>
+        </div>
 
+      </div>
+      <div class="card">
+        <img src="./images/places/miami.png" alt="Miami landscape" class="card__image">
+        <div class="card__info">
+          <span class="card__title">Miami</span>
+          <button class="button button__type-like"></button>
+        </div>
+
+      </div>
+      <div class="card">
+        <img src="./images/places/santa_monica.png" alt="Santa Monica's landscape" class="card__image">
+        <div class="card__info">
+          <span class="card__title">Santa Monica</span>
+          <button class="button button__type-like"></button>
+        </div>
+
+      </div>
+      <div class="card">
+        <img src="./images/places/vegas.png" alt="Las Vegas landscape" class="card__image">
+        <div class="card__info">
+          <span class="card__title">Las Vegas</span>
+          <button class="button button__type-like"></button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./images/places/yellowstone_np.png" alt="Yellowstone landscape" class="card__image">
+        <div class="card__info">
+          <span class="card__title">Yellowstone</span>
+          <button class="button button__type-like"></button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!--- Footer --->
+  <footer class="footer">
+    <div class="footer__text">
+      <span class="footer__copyright">© 2023 Around The U.S. |</span>
+      <a href="#" class="link footer__link">Mariela González</a>
+    </div>
+  </footer>
+  <!------------- PopUp -------------->
+  <div class="popup popup__content_edit-profile">
+    <div class="popup__overlay"></div>
+    <div class="popup__content">
+      <div class="popup__container">
+        <button class="button button button__type-close"></button>
+        <span class="popup__title">Edit profile</span>
+        <form action="" class="popup__form">
+        <fieldset class="form__set">
+          <input type="text" name="input-name" id="input-name" class="popup__input popup__input-name" placeholder="Name" required minlength="2" maxlength="40">
+          <span class="form__error"></span>
+          <input type="text" name="input-job" id="input-job" class="popup__input popup__input-job" placeholder="Job" required minlength="2" maxlength="40">
+          <span class="form__error"></span>
+        </fieldset>
+        <fieldset class="form__set">
+          <button href="#" type="submit" class="button button__type-submit">Save</button>
+        </fieldset>
+      </form>
+      </div>
+    </div>
+  </div>
+  <script src="./index.js"></script>
 </body>
 </html>
