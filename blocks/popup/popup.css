@@ -71,6 +71,8 @@
 .form__set {
   border: none;
   width: 100%;
+  border: none;
+  text-align: center;
 }
 
 .popup__input {
