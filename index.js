@@ -11,6 +11,11 @@ const profileJob = document.querySelector(".profile__job");
 const profileForm = document.querySelector(".popup__form");
 const inputName = document.querySelector(".popup__input-name");
 const inputJob = document.querySelector(".popup__input-job")
+const currentName = profileName.textContent;
+const currentJob = profileJob.textContent;
+
+inputName.value = currentName;
+inputJob.value = currentJob;
 
 //Funciones
 function togglePopup(popup){
