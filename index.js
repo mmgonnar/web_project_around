@@ -14,11 +14,29 @@ const inputJob = document.querySelector(".popup__input-job")
 const currentName = profileName.textContent;
 const currentJob = profileJob.textContent;
 const cardsArea = document.querySelector(".cards");
-/* const cardsData = [
+const cardsData = [
   [
-    link:"", title; ""
+    link:'', title; ''
   ]
-] */
+]
+
+//Template
+//Clonar Node
+//buscar nodo de la imagen
+//buscar nodo del titulo
+//buscar nodo del boton like
+//buscar nodo del boton borrar
+function createCard(title, link) {
+  const cardsTemplate = document.querySelector(".cards-template").content;
+  const cardsElement = cardsTemplate.querySelector(".cards").cloneNode(true);
+
+  cardsElement.querrySelector(".card__image").content = link:
+  cardsElement.querySelector(".card__title").textContent = title;
+  cardsElement.querySelector(".button__type-like").content = ??;
+  cardsElement.querySelector(".button__type-delete").content = ??;
+
+  cardsContainer.apend(cardsElement);
+}
 
 inputName.value = currentName;
 inputJob.value = currentJob;
@@ -45,11 +63,7 @@ profileForm.addEventListener("submit", function(event){
   togglePopup(popupProfile);
 })
 
-//Clonar Node
-//buscar nodo de la imagen
-//buscar nodo del titulo
-//buscar nodo del boton like
-//buscar nodo del boton borrar
+
 
 
 //a la imagen poner src = link
