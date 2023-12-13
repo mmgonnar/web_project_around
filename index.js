@@ -20,6 +20,34 @@ const cardsData = [
   ]
 ]
 
+//Initial Cards
+const initialCards = [
+  {
+    name: "Chicago",
+    link: "https://images.unsplash.com/photo-1597933534024-debb6104af15?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    name: "Arizona",
+    link: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    name: "Miami",
+    link: "https://images.unsplash.com/photo-1535498730771-e735b998cd64?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    name: "Santa Monica",
+    link: "https://images.unsplash.com/photo-1565096940315-d3831bee0fb1?q=80&w=1113&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    name: "Las Vegas",
+    link: "https://images.unsplash.com/photo-1605833556294-ea5c7a74f57d?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+  },
+  {
+    name: "Yellostone",
+    link: "https://images.unsplash.com/photo-1529439322271-42931c09bce1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  }
+];
+
 //Template
 //Clonar Node
 //buscar nodo de la imagen
