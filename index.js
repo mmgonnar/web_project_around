@@ -13,6 +13,12 @@ const inputName = document.querySelector(".popup__input-name");
 const inputJob = document.querySelector(".popup__input-job")
 const currentName = profileName.textContent;
 const currentJob = profileJob.textContent;
+const cardsArea = document.querySelector(".cards");
+/* const cardsData = [
+  [
+    link:"", title; ""
+  ]
+] */
 
 inputName.value = currentName;
 inputJob.value = currentJob;
@@ -38,3 +44,19 @@ profileForm.addEventListener("submit", function(event){
   profileForm.reset();
   togglePopup(popupProfile);
 })
+
+//Clonar Node
+//buscar nodo de la imagen
+//buscar nodo del titulo
+//buscar nodo del boton like
+//buscar nodo del boton borrar
+
+
+//a la imagen poner src = link
+//textconten = titulo
+//botón borrar agregar event listener de click que haga que se borre el nodo node.remover()
+//boton like agregar event listener del clic en donde imagen del popup se le ponga src = link
+//el titulo del popup de la imagen = title
+//return nodo
+
+
