@@ -22,6 +22,10 @@
   border: none;
 }
 
+.button__type-like.liked {
+  background: url(../images/like-black.svg);
+}
+
 .button__type-close {
   background: url(../../images/close_button.svg) no-repeat center;
   width: 24px;

@@ -3,8 +3,9 @@
 const buttonEdit = document.querySelector(".button__type-edit");
 const popupProfile = document.querySelector(".popup__content_edit-profile");
 const buttonAdd = document.querySelector('.button__type-add');
-//const buttonLike = document.querySelector('.button__type-like')
+const buttonLike = document.querySelector('.button__type-like')
 const buttonClose = document.querySelector('.button__type-close');
+const buttonDelete = document.querySelector(".button__type-delete")
 //const buttonSubmit = document.querySelector('.button__type-submit')
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__job");
@@ -18,11 +19,11 @@ const currentJob = profileJob.textContent;
 const initialCards = [
   {
     name: "Chicago",
-    image: "./images/places/chicago.png"
+    link: "./images/places/chicago.png"
   },
   {
-    name: "./images/places/arizona.png",
-    link: ""
+    name: "Arizona",
+    link: "./images/places/arizona.png"
   },
   {
     name: "Miami",
@@ -37,8 +38,8 @@ const initialCards = [
     link: "./images/places/vegas.png"
   },
   {
-    name: "Yellostone",
-    link: "./images/places/yellowstone.png"
+    name: "Yellowstone",
+    link: "./images/places/yellowstone_np.png"
   }
 ];
 
@@ -52,14 +53,23 @@ initialCards.forEach(function (cardData){
   const cardImage = card.querySelector(".card__image");
   const cardTitle = card.querySelector(".card__title");
 
+  buttonLike.addEventListener("click", function(){
+    buttonLike.classList.toggle("liked");
+  })
+
+  /* buttonDelete.addEventListener("click", function(){
+    const card = buttonDelete.closest(".card");
+    card.remove();
+  }) */
+
   cardImage.src = cardData.link
   cardTitle.innerText = cardData.name
 
   container.append(card)
 
-  console.log(card)
 })
 
+console.log(card)
 //botón borrar agregar event listener de click que haga que se borre el nodo node.remover()
 //boton like agregar event listener del clic en donde imagen del popup se le ponga src = link
 //el titulo del popup de la imagen = title
