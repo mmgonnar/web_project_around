@@ -21,7 +21,7 @@ const initialCards = [
     image: "./images/places/chicago.png"
   },
   {
-    name: "./images/places/arizona.pnga",
+    name: "./images/places/arizona.png",
     link: ""
   },
   {
@@ -43,21 +43,22 @@ const initialCards = [
 ];
 
 //Template
-const template = document.querySelector("#cards-template");
-const div = template.querrySelector(".card").clodeNode(true);
-console.log(template)
+const container = document.querySelector(".cards");
 
-//bucle for cards
-cards.forEach()
+initialCards.forEach(function (cardData){
+  const template = document.querySelector("#cards-template").content;
+  const card = template.querySelector(".card").cloneNode(true);
 
-//Chris
-const cardsArea = document.querySelector(".cards");
-const cardsData = [
-  [
-    link:'', title; ''
-  ]
-]
+  const cardImage = card.querySelector(".card__image");
+  const cardTitle = card.querySelector(".card__title");
 
+  cardImage.src = cardData.link
+  cardTitle.innerText = cardData.name
+
+  container.append(card)
+
+  console.log(card)
+})
 
 
 //Template
@@ -66,7 +67,7 @@ const cardsData = [
 //buscar nodo del titulo
 //buscar nodo del boton like
 //buscar nodo del boton borrar
-function createCard(title, link) {
+/* function createCard(title, link) {
   const cardsTemplate = document.querySelector(".cards-template").content;
   const cardsElement = cardsTemplate.querySelector(".cards").cloneNode(true);
 
@@ -101,7 +102,7 @@ profileForm.addEventListener("submit", function(event){
   profileJob.textContent = inputJob.value;
   profileForm.reset();
   togglePopup(popupProfile);
-})
+}) */
 
 
 
