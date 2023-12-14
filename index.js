@@ -3,9 +3,9 @@
 const buttonEdit = document.querySelector(".button__type-edit");
 const popupProfile = document.querySelector(".popup__content_edit-profile");
 const buttonAdd = document.querySelector('.button__type-add');
-const buttonLike = document.querySelector('.button__type-like')
+
 const buttonClose = document.querySelector('.button__type-close');
-const buttonDelete = document.querySelector(".button__type-delete")
+
 //const buttonSubmit = document.querySelector('.button__type-submit')
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__job");
@@ -53,23 +53,37 @@ initialCards.forEach(function (cardData){
   const cardImage = card.querySelector(".card__image");
   const cardTitle = card.querySelector(".card__title");
 
+  const buttonLike = card.querySelector('.button__type-like')
   buttonLike.addEventListener("click", function(){
     buttonLike.classList.toggle("liked");
   })
 
-  /* buttonDelete.addEventListener("click", function(){
+  const buttonDelete = card.querySelector(".button__type-delete")
+  buttonDelete.addEventListener("click", function(){
     const card = buttonDelete.closest(".card");
     card.remove();
-  }) */
+  })
 
   cardImage.src = cardData.link
   cardTitle.innerText = cardData.name
 
   container.append(card)
 
+  console.log(buttonLike)
 })
+//Like Button
+/* document.getElementById("#buton-like").addEventListener("click", funcion(){
+  var buttonLike = document.querySelector(".button__type-like");
 
-console.log(card)
+  if(buttonLike.style.background === "url(./images/heart__button.svg)") {
+    buttonLike.style.background = "url(./images/like-black.svg)";
+  } else {
+    buttonLike.style.background = "url(./images/heart__button.svg)";
+  }
+})
+ */
+
+
 //botón borrar agregar event listener de click que haga que se borre el nodo node.remover()
 //boton like agregar event listener del clic en donde imagen del popup se le ponga src = link
 //el titulo del popup de la imagen = title

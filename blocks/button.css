@@ -15,8 +15,8 @@
 
 .button__type-like {
   background: url(../../images/heart__button.svg) no-repeat center;
-  width: 23px;
-  height: 23px;
+  width: 21px;
+  height: 19px;
   display: flex;
   align-items: center;
   border: none;
