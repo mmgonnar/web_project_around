@@ -60,58 +60,35 @@ initialCards.forEach(function (cardData){
   console.log(card)
 })
 
+//botón borrar agregar event listener de click que haga que se borre el nodo node.remover()
+//boton like agregar event listener del clic en donde imagen del popup se le ponga src = link
+//el titulo del popup de la imagen = title
+//return nodo
 
-//Template
-//Clonar Node
-//buscar nodo de la imagen
-//buscar nodo del titulo
-//buscar nodo del boton like
-//buscar nodo del boton borrar
-/* function createCard(title, link) {
-  const cardsTemplate = document.querySelector(".cards-template").content;
-  const cardsElement = cardsTemplate.querySelector(".cards").cloneNode(true);
 
-  cardsElement.querrySelector(".card__image").content = link:
-  cardsElement.querySelector(".card__title").textContent = title;
-  cardsElement.querySelector(".button__type-like").content = ??;
-  cardsElement.querySelector(".button__type-delete").content = ??;
-
-  cardsContainer.apend(cardsElement);
-}
-
+//PopUp ---------------
 inputName.value = currentName;
 inputJob.value = currentJob;
-
-//Funciones
+//Funciones popUp
 function togglePopup(popup){
     popup.classList.toggle("popup_show");
 }
-
-//Event Listeners
+//Event Listeners popUp
 buttonEdit.addEventListener('click', function(){
   togglePopup(popupProfile);
 });
-
 buttonClose.addEventListener("click", function(){
   togglePopup(popupProfile);
 });
-
 profileForm.addEventListener("submit", function(event){
   event.preventDefault();
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
   profileForm.reset();
   togglePopup(popupProfile);
-}) */
+})
+//PopUp finished ---------
 
 
-
-
-//a la imagen poner src = link
-//textconten = titulo
-//botón borrar agregar event listener de click que haga que se borre el nodo node.remover()
-//boton like agregar event listener del clic en donde imagen del popup se le ponga src = link
-//el titulo del popup de la imagen = title
-//return nodo
 
 
