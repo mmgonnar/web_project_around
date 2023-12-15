@@ -26,6 +26,10 @@
   justify-content: center;
 }
 
+.popup-add-active{
+  display: block;
+}
+
 .popup__content {
   width: 100vw;
   height: 100vh;
