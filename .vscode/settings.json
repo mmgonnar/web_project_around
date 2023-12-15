@@ -1,6 +1,5 @@
 {
-    "conventionalCommits.scopes": [
-        "html",
-        "css"
-    ]
+  "conventionalCommits.scopes": ["html", "css"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
 }
