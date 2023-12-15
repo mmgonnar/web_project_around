@@ -15,11 +15,16 @@
 
 .button__type-like {
   background: url(../../images/heart__button.svg) no-repeat center;
-  width: 23px;
-  height: 23px;
+  width: 21px;
+  height: 19px;
   display: flex;
   align-items: center;
   border: none;
+}
+
+.button__type-like.liked {
+  background: url(../images/like-black.svg);
+  opacity: 1;
 }
 
 .button__type-close {
@@ -41,6 +46,18 @@
   height: 46px;
   border-radius: 2px;
   margin-top: 2em;
+}
+
+.button__type-delete {
+  background: url(/images/trash_button.svg);
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  width: 19px;
+  height: 19px;
+  border: none;
+  filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5))
+  /* text-shadow:2px 2px 2px 1px rgba(0, 0, 0, 0.2); */
 }
 
 @media screen and (min-width: 600px){
