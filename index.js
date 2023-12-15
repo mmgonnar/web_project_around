@@ -9,7 +9,6 @@ const popupAdd = document.querySelector(".popup-add__content_edit");
 const buttonClose = popupProfile.querySelector(".button__type-close");
 const buttonCloseAdd = popupAdd.querySelector(".button__type-close");
 
-//const buttonSubmit = document.querySelector('.button__type-submit')
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__job");
 const profileForm = document.querySelector(".popup__form");
@@ -121,11 +120,11 @@ buttonCloseAdd.addEventListener("click", function () {
   togglePopup(popupAdd);
 });
 
-addForm.addEventListener("submit", function (e) {
-  e.preventDefault();
+addForm.addEventListener("submit", function (event) {
+  event.preventDefault();
 
   createCard(inputTitle.value, inputImage.value);
 
   addForm.reset();
-  togglePopup(popupProfile);
+  togglePopup(popupAdd);
 });
