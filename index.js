@@ -1,8 +1,11 @@
 
-//Variables
+//VARIABLES
+//Popup Edit Profile
 const buttonEdit = document.querySelector(".button__type-edit");
 const popupProfile = document.querySelector(".popup__content_edit-profile");
+//PopupAdd Edit Img
 const buttonAdd = document.querySelector('.button__type-add');
+const popupAdd = document.querySelector(".popup-add__content_edit");
 
 const buttonClose = document.querySelector('.button__type-close');
 
@@ -11,9 +14,17 @@ const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__job");
 const profileForm = document.querySelector(".popup__form");
 const inputName = document.querySelector(".popup__input-name");
-const inputJob = document.querySelector(".popup__input-job")
+const inputJob = document.querySelector(".popup__input-job");
 const currentName = profileName.textContent;
 const currentJob = profileJob.textContent;
+//PopupAdd Img
+const addTitle = document.querySelector(".card__title");
+const addImage = document.querySelector(".card__image");
+const addForm = document.querySelector(".popup-add__form");
+const inputTitle = document.querySelector(".popup__input-title");
+const inputImage = document.querySelector("popup__input-image");
+//const currentTitle = "addTitle.textContent";
+//const currentImage = addImage.link;
 
 //Initial Cards
 const initialCards = [
@@ -43,7 +54,7 @@ const initialCards = [
   }
 ];
 
-//Template
+//Template Cards
 const container = document.querySelector(".cards");
 
 initialCards.forEach(function (cardData){
@@ -53,7 +64,7 @@ initialCards.forEach(function (cardData){
   const cardImage = card.querySelector(".card__image");
   const cardTitle = card.querySelector(".card__title");
 
-  const buttonLike = card.querySelector('.button__type-like')
+  const buttonLike = card.querySelector('.button__type-like')//Like Button option a
   buttonLike.addEventListener("click", function(){
     buttonLike.classList.toggle("liked");
   })
@@ -69,9 +80,8 @@ initialCards.forEach(function (cardData){
 
   container.append(card)
 
-  console.log(buttonLike)
 })
-//Like Button
+//Like Button option b
 /* document.getElementById("#buton-like").addEventListener("click", funcion(){
   var buttonLike = document.querySelector(".button__type-like");
 
@@ -83,21 +93,14 @@ initialCards.forEach(function (cardData){
 })
  */
 
-
-//botón borrar agregar event listener de click que haga que se borre el nodo node.remover()
-//boton like agregar event listener del clic en donde imagen del popup se le ponga src = link
-//el titulo del popup de la imagen = title
-//return nodo
-
-
-//PopUp ---------------
+//Popup Profile > start ---------------
 inputName.value = currentName;
 inputJob.value = currentJob;
-//Funciones popUp
+//Funciones
 function togglePopup(popup){
     popup.classList.toggle("popup_show");
 }
-//Event Listeners popUp
+//Event Listeners
 buttonEdit.addEventListener('click', function(){
   togglePopup(popupProfile);
 });
@@ -111,8 +114,30 @@ profileForm.addEventListener("submit", function(event){
   profileForm.reset();
   togglePopup(popupProfile);
 })
-//PopUp finished ---------
+//PopUp Profile > finish ---------
+
+//PopupAdd--------------
+const currentTitle = "Default Title";
+const currentImage = "Default Image";
+
+if (addTitle) {
+  inputTitle.value = addTitle.textContent;
+}
+
+inputTitle.value = currentTitle;
+inputImage.value = currentImage;
 
 
 
+buttonAdd.addEventListener("click", function(){
+  togglePopup(popupAdd);
+});
+console.log(buttonAdd);
 
+addForm.addEventListener("submit", function(){
+  event.preventDefault();
+  addTitle.textContent = inputTitle.value;
+  addImage.link = inputImage.value;
+  addForm.reset();
+  togglePopup(popupProfile);
+})

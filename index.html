@@ -108,6 +108,27 @@
       </div>
     </div>
   </div>
+  <!------------- PopUp Add ---------->
+  <div class="popup popup-add__content_edit">
+    <div class="popup__overlay"></div>
+    <div class="popup__content">
+      <div class="popup__container">
+        <button class="button button button__type-close"></button>
+        <span class="popup__title">Edit profile</span>
+        <form class="popup__form">
+        <fieldset class="form__set">
+          <input type="text" name="input-title" id="input-title" class="popup__input popup__input-name" placeholder="Title" required minlength="2" maxlength="40">
+          <span class="form__error"></span>
+          <input type="text" name="input-image" id="input-image" class="popup__input popup__input-job" placeholder="Image URL" required minlength="2" maxlength="40">
+          <span class="form__error"></span>
+        </fieldset>
+        <fieldset class="form__set">
+          <button type="submit" class="button button__type-submit">Save</button>
+        </fieldset>
+      </form>
+      </div>
+    </div>
+  </div>
   <!------------- Template -------------->
   <template class="cards" id="cards-template">
     <div class="card">
