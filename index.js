@@ -79,7 +79,7 @@ function createCard(title, link) {
   cardTitle.innerText = title;
   cardImage.src = link;
 
-  container.append(card);
+  container.prepend(card);
 }
 
 initialCards.forEach(function (cardData) {
