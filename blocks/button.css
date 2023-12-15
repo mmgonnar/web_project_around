@@ -24,6 +24,7 @@
 
 .button__type-like.liked {
   background: url(../images/like-black.svg);
+  opacity: 1;
 }
 
 .button__type-close {
