@@ -59,8 +59,6 @@ const initialCards = [
 const container = document.querySelector(".cards");
 
 function createCard(title, link) {
-  console.log(link);
-
   const template = document.querySelector("#cards-template").content;
   const card = template.querySelector(".card").cloneNode(true);
 
