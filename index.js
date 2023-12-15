@@ -7,7 +7,8 @@ const popupProfile = document.querySelector(".popup__content_edit-profile");
 const buttonAdd = document.querySelector('.button__type-add');
 const popupAdd = document.querySelector(".popup-add__content_edit");
 
-const buttonClose = document.querySelector('.button__type-close');
+const buttonClose = popupProfile.querySelector('.button__type-close');
+const buttonCloseAdd = popupAdd.querySelector('.button__type-close');
 
 //const buttonSubmit = document.querySelector('.button__type-submit')
 const profileName = document.querySelector(".profile__name");
@@ -125,7 +126,7 @@ buttonAdd.addEventListener("click", function(){
   togglePopup(popupAdd);
 });
 
-buttonClose.addEventListener("click", function(){
+buttonCloseAdd.addEventListener("click", function(){
   togglePopup(popupAdd);
 });
 
