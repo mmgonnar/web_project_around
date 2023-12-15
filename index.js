@@ -18,6 +18,7 @@ const inputJob = document.querySelector(".popup__input-job");
 const currentName = profileName.textContent;
 const currentJob = profileJob.textContent;
 //PopupAdd Img
+//const popupAdd = document.querySelector(".popup-add");
 const addTitle = document.querySelector(".card__title");
 const addImage = document.querySelector(".card__image");
 const addForm = document.querySelector(".popup-add__form");
@@ -93,6 +94,9 @@ initialCards.forEach(function (cardData){
 })
  */
 
+//-------------------------------------------------------------------
+//-------------------------------------------------------------------
+
 //Popup Profile > start ---------------
 inputName.value = currentName;
 inputJob.value = currentJob;
@@ -117,7 +121,31 @@ profileForm.addEventListener("submit", function(event){
 //PopUp Profile > finish ---------
 
 //PopupAdd--------------
-const currentTitle = "Default Title";
+buttonAdd.addEventListener("click", function(){
+  togglePopup(popupAdd);
+});
+
+buttonClose.addEventListener("click", function(){
+  togglePopup(popupAdd);
+});
+
+addForm.addEventListener("submit", function(event){
+  event.preventDefault();
+  addTitle.textContent = inputTitle.value;
+  addImage.textContent = inputImage.value;
+  addForm.reset();
+  togglePopup(popupAdd);
+});
+
+/* buttonAdd.addEventListener("click", () ==>{
+  popupAdd.classList.add("`popupAdd??");
+}) */
+
+
+
+
+
+/* const currentTitle = "Default Title";
 const currentImage = "Default Image";
 
 if (addTitle) {
@@ -140,4 +168,4 @@ addForm.addEventListener("submit", function(){
   addImage.link = inputImage.value;
   addForm.reset();
   togglePopup(popupProfile);
-})
+}) */
