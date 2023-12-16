@@ -75,6 +75,11 @@ function createCard(title, link) {
     card.remove();
   });
 
+  const buttonImage = card.querySelector(".card__image");
+  buttonImage.addEventListener("click", function () {
+    buttonImage.classList.toggle("opened");
+  });
+
   cardTitle.innerText = title;
   cardImage.src = link;
 
@@ -131,3 +136,5 @@ addForm.addEventListener("submit", function (event) {
 //--------------------------------------
 
 //Popup Image
+const popupImage = document.querySelector(".popup-image");
+console.log(popupImage);
