@@ -23,6 +23,9 @@ const addImage = document.querySelector(".card__image");
 const addForm = document.querySelector(".popup-add__form");
 const inputTitle = document.querySelector(".popup__input-title");
 const inputImage = document.querySelector(".popup__input-image");
+//Popup Image
+const popupImage = document.querySelector(".popup_image");
+const buttonCloseImage = popupImage.querySelector(".button__type-close");
 //const currentTitle = "addTitle.textContent";
 //const currentImage = addImage.link;
 
@@ -116,7 +119,7 @@ profileForm.addEventListener("submit", function (event) {
   profileForm.reset();
   togglePopup(popupProfile);
 });
-//PopUp Profile > finish ---------
+//PopUp Profile > finish --------
 
 //PopupAdd--------------
 buttonAdd.addEventListener("click", function () {
@@ -136,6 +139,3 @@ addForm.addEventListener("submit", function (event) {
   togglePopup(popupAdd);
 });
 //--------------------------------------
-
-//Popup Image
-const popupImage = document.querySelector(".popup_image");
