@@ -26,7 +26,7 @@
   justify-content: center;
 }
 
-.popup-add-active{
+.popup-add-active {
   display: block;
 }
 
@@ -43,7 +43,11 @@
 .popup__container {
   width: 85%;
   margin: 1.5em auto;
+}
 
+.popup__container-image {
+  width: 75%;
+  height: 75%;
 }
 
 .popup__title {
@@ -83,11 +87,11 @@
   border: none;
   border-bottom: 1px solid #888;
   width: 100%;
-  padding-bottom: .7em;
+  padding-bottom: 0.7em;
   margin-bottom: 2em;
 }
 
-@media screen and (min-width: 600px){
+@media screen and (min-width: 600px) {
   .popup__content {
     width: 430px;
     height: 330px;

@@ -128,3 +128,6 @@ addForm.addEventListener("submit", function (event) {
   addForm.reset();
   togglePopup(popupAdd);
 });
+//--------------------------------------
+
+//Popup Image
