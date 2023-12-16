@@ -66,6 +66,7 @@ function createCard(title, link) {
 
   const cardImage = card.querySelector(".card__image");
   const cardTitle = card.querySelector(".card__title");
+  const popupImageElement = document.querySelector(".popup-image__element");
 
   const buttonLike = card.querySelector(".button__type-like");
   buttonLike.addEventListener("click", function () {
@@ -79,8 +80,9 @@ function createCard(title, link) {
   });
 
   const buttonImage = card.querySelector(".card__image");
-  buttonImage.addEventListener("click", function () {
-    buttonImage.classList.toggle("opened");
+  cardImage.addEventListener("click", function () {
+    popupImageElement.src = cardImage.src;
+    togglePopup(popupImage);
   });
 
   cardTitle.innerText = title;
@@ -137,5 +139,3 @@ addForm.addEventListener("submit", function (event) {
   togglePopup(popupAdd);
 });
 //--------------------------------------
-
-const popupImage = document.querySelector(".popup-image");
