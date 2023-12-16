@@ -20,12 +20,12 @@
   /* border-radius: 11px;
   border-radius: 11px; */
   overflow: hidden;
+  position: relative;
 }
 
 .card__image {
-  width: 100%;
-  /* border-top-left-radius: 11px;
-  border-top-right-radius: 11px; */
+  width: 288px;
+  height: 288px;
 }
 
 .card__info {
