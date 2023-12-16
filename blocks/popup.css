@@ -39,6 +39,8 @@
   top: 0;
   left: 0;
   object-fit: cover;
+  background-color: #fff;
+  border-radius: 10px;
 }
 
 .popup__content-image {

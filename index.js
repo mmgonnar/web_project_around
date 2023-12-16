@@ -25,6 +25,8 @@ const inputTitle = document.querySelector(".popup__input-title");
 const inputImage = document.querySelector(".popup__input-image");
 const popupImage = document.querySelector(".popup_image");
 const buttonCloseImage = popupImage.querySelector(".button__type-close");
+const popupImageTitle = document.querySelector("card__title");
+
 //const currentTitle = "addTitle.textContent";
 //const currentImage = addImage.link;
 
@@ -78,16 +80,17 @@ function createCard(title, link) {
     card.remove();
   });
 
-  const buttonImage = card.querySelector(".card__image");
-  buttonImage.addEventListener("click", function () {
-    popupImageElement.src = cardImage.src;
-    togglePopup(popupImage);
-  });
-
   cardTitle.innerText = title;
   cardImage.src = link;
 
   container.prepend(card);
+
+  const buttonImage = card.querySelector(".card__image");
+  buttonImage.addEventListener("click", function () {
+    popupImageElement.src = cardImage.src;
+    togglePopup(popupImage);
+    popupImageTitle.textContent = title;
+  });
 }
 
 initialCards.forEach(function (cardData) {
@@ -142,5 +145,4 @@ addForm.addEventListener("submit", function (event) {
 //Popup Image
 buttonCloseImage.addEventListener("click", function () {
   togglePopup(popupImage);
-  console.log(buttonCloseImage);
 });
