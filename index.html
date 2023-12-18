@@ -1,107 +1,176 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-  <meta name="autor" content="Mariela González">
-  <meta name="description" content="Around The U.S. is a simple web page that displays the profile of an explorer named Jacques Cousteau.">
-  <meta name="keywords" content="html, css, javascript">
-  <link rel="stylesheet" href="./index.css">
-  <link rel="icon" href="./images/favicon_nd.ico">
-  <title>Around The U.S.</title>
-</head>
-<body>
-  <!--- Header --->
-  <header class="header">
-    <img src="./images/logo_aus.svg" alt="Logo Around the US" class="header__logo">
-  </header>
-  <main class="content">
-    <!--- Profile --->
-    <section class="profile">
-      <img src="./images/profile.png" alt="profile__avatar" class="profile__avatar">
-      <div class="profile__info">
-        <div class="profile__info-container">
-          <p class="profile__name
-          ">Jacques Cousteau</p>
-          <button class="button button__type-edit"></button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1"
+    />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <meta name="autor" content="Mariela González" />
+    <meta
+      name="description"
+      content="Around The U.S. is a simple web page that displays the profile of an explorer named Jacques Cousteau."
+    />
+    <meta name="keywords" content="html, css, javascript" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="icon" href="./images/favicon_nd.ico" />
+    <title>Around The U.S.</title>
+  </head>
+  <body>
+    <!--- Header --->
+    <header class="header">
+      <img
+        src="./images/logo_aus.svg"
+        alt="Logo Around the US"
+        class="header__logo"
+      />
+    </header>
+    <main class="content">
+      <!--- Profile --->
+      <section class="profile">
+        <img
+          src="./images/profile.png"
+          alt="profile__avatar"
+          class="profile__avatar"
+        />
+        <div class="profile__info">
+          <div class="profile__info-container">
+            <p class="profile__name">Jacques Cousteau</p>
+            <button class="button button__type-edit"></button>
+          </div>
+          <p class="profile__job">Explorer</p>
         </div>
-        <p class="profile__job">Explorer</p>
+        <button class="button button__type-add"></button>
+      </section>
+      <!--- Cards --->
+      <section class="cards"></section>
+    </main>
+    <!--- Footer --->
+    <footer class="footer">
+      <div class="footer__text">
+        <span class="footer__copyright">© 2023 Around The U.S. |</span>
+        <a
+          href="https://github.com/mmgonnar"
+          target="_blank"
+          class="link footer__link"
+          >Mariela González</a
+        >
       </div>
-      <button class="button button__type-add"></button>
-    </section>
-    <!--- Cards --->
-    <section class="cards">
-    </section>
-  </main>
-  <!--- Footer --->
-  <footer class="footer">
-    <div class="footer__text">
-      <span class="footer__copyright">© 2023 Around The U.S. |</span>
-      <a href="https://github.com/mmgonnar" target="_blank" class="link footer__link">Mariela González</a>
+    </footer>
+    <!------------- PopUp -------------->
+    <div class="popup popup__content_edit-profile">
+      <div class="popup__overlay"></div>
+      <div class="popup__content">
+        <div class="popup__container">
+          <button class="button button button__type-close"></button>
+          <span class="popup__title">Edit profile</span>
+          <form class="popup__form">
+            <fieldset class="form__set">
+              <input
+                type="text"
+                name="input-name"
+                id="input-name"
+                class="popup__input popup__input-name"
+                placeholder="Name"
+                required
+                minlength="2"
+                maxlength="40"
+              />
+              <span class="form__error"></span>
+              <input
+                type="text"
+                name="input-job"
+                id="input-job"
+                class="popup__input popup__input-job"
+                placeholder="Job"
+                required
+                minlength="2"
+                maxlength="40"
+              />
+              <span class="form__error"></span>
+            </fieldset>
+            <fieldset class="form__set">
+              <button type="submit" class="button button__type-submit">
+                Save
+              </button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
     </div>
-  </footer>
-  <!------------- PopUp -------------->
-  <div class="popup popup__content_edit-profile">
-    <div class="popup__overlay"></div>
-    <div class="popup__content">
-      <div class="popup__container">
+    <!------------- PopUp Add ---------->
+    <div class="popup popup-add popup-add__content_edit">
+      <div class="popup__overlay"></div>
+      <div class="popup__content">
+        <div class="popup__container">
+          <button class="button button button__type-close"></button>
+          <span class="popup__title">New Place</span>
+          <form class="popup-add__form popup__form">
+            <fieldset class="form__set">
+              <input
+                type="text"
+                name="input-title"
+                id="input-title"
+                class="popup__input popup__input-title"
+                placeholder="Title"
+                required
+                minlength="2"
+                maxlength="40"
+              />
+              <span class="form__error"></span>
+              <input
+                type="text"
+                name="input-image"
+                id="input-image"
+                class="popup__input popup__input-image"
+                placeholder="Image URL"
+                required
+                minlength="2"
+                maxlength="40"
+              />
+              <span class="form__error"></span>
+            </fieldset>
+            <fieldset class="form__set">
+              <button type="submit" class="button button__type-submit">
+                Save
+              </button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!------------- PopUp Image ---------->
+    <div class="popup popup_image">
+      <div class="popup__overlay"></div>
+      <div class="popup__content popup__content-image">
         <button class="button button button__type-close"></button>
-        <span class="popup__title">Edit profile</span>
-        <form class="popup__form">
-        <fieldset class="form__set">
-          <input type="text" name="input-name" id="input-name" class="popup__input popup__input-name" placeholder="Name" required minlength="2" maxlength="40">
-          <span class="form__error"></span>
-          <input type="text" name="input-job" id="input-job" class="popup__input popup__input-job" placeholder="Job" required minlength="2" maxlength="40">
-          <span class="form__error"></span>
-        </fieldset>
-        <fieldset class="form__set">
-          <button type="submit" class="button button__type-submit">Save</button>
-        </fieldset>
-      </form>
-      </div>
-    </div>
-  </div>
-  <!------------- PopUp Add ---------->
-  <div class="popup popup-add popup-add__content_edit">
-    <div class="popup__overlay"></div>
-    <div class="popup__content">
-      <div class="popup__container">
-        <button class="button button button__type-close"></button>
-        <span class="popup__title">New Place</span>
-        <form class="popup-add__form popup__form">
-        <fieldset class="form__set">
-          <input type="text" name="input-title" id="input-title" class="popup__input popup__input-title" placeholder="Title" required minlength="2" maxlength="40">
-          <span class="form__error"></span>
-          <input type="text" name="input-image" id="input-image" class="popup__input popup__input-image" placeholder="Image URL" required minlength="2" maxlength="40">
-          <span class="form__error"></span>
-        </fieldset>
-        <fieldset class="form__set">
-          <button type="submit" class="button button__type-submit">Save</button>
-        </fieldset>
-      </form>
-      </div>
-    </div>
-  </div>
-  <!------------- PopUp Image ---------->
-  <div class="popup popup_image">
-    <div class="popup__overlay"></div>
-    <div class="popup__content popup__content-image">
-      <button class="button button button__type-close"></button>
-        <img src="./images/places/chicago.png" alt="" class="popup-image__element">
+        <img
+          src="./images/places/chicago.png"
+          alt=""
+          class="popup-image__element"
+        />
         <span class="popup-image__title">Yellowstone</span>
-    </div>
-  </div>
-  <!------------- Template -------------->
-  <template class="cards" id="cards-template">
-    <div class="card">
-      <img src="./images/places/chicago.png" alt="Chicago's landscape" class="card__image">
-      <div class="card__info">
-        <h6 class="card__title">Chicago</h6>
-        <button id="buton-like" class="button button__type-like"></button>
-        <button id="button-delete" class="button button__type-delete"></button>
       </div>
-  </template>
-  <script src="./index.js"></script>
-</body>
+    </div>
+    <!------------- Template -------------->
+    <template class="cards" id="cards-template">
+      <div class="card">
+        <img
+          src="./images/places/chicago.png"
+          alt="Chicago's landscape"
+          class="card__image"
+        />
+        <div class="card__info">
+          <h6 class="card__title">Chicago</h6>
+          <button id="buton-like" class="button button__type-like"></button>
+          <button
+            id="button-delete"
+            class="button button__type-delete"
+          ></button>
+        </div>
+      </div>
+    </template>
+    <script src="./index.js"></script>
+  </body>
 </html>
