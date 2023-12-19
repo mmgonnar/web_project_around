@@ -1,10 +1,10 @@
 //VARIABLES
 //Popup Edit Profile
 const buttonEdit = document.querySelector(".button_edit");
-const popupProfile = document.querySelector(".popup__content_edit");
+const popupProfile = document.querySelector(".popup__edit");
 //PopupAdd Edit Img
 const buttonAdd = document.querySelector(".button_add");
-const popupAdd = document.querySelector(".popup-add__content_edit");
+const popupAdd = document.querySelector(".popup_add");
 
 const buttonClose = popupProfile.querySelector(".button_close");
 const buttonCloseAdd = popupAdd.querySelector(".button_close");
@@ -20,12 +20,12 @@ const currentJob = profileJob.textContent;
 //const popupAdd = document.querySelector(".popup-add");
 const addTitle = document.querySelector(".card__title");
 const addImage = document.querySelector(".card__image");
-const addForm = document.querySelector(".popup-add__form");
+const addForm = document.querySelector(".popup__form");
 const inputTitle = document.querySelector(".popup__input-title");
 const inputImage = document.querySelector(".popup__input-image");
 const popupImage = document.querySelector(".popup_image");
 const buttonCloseImage = popupImage.querySelector(".button_close");
-const popupImageTitle = document.querySelector(".popup-image__title");
+const popupImageTitle = document.querySelector(".popup__title_img");
 
 //Initial Cards
 const initialCards = [

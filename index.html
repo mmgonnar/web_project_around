@@ -59,14 +59,14 @@
       </div>
     </footer>
     <!------------- PopUp -------------->
-    <div class="popup popup__content_edit">
+    <div class="popup popup__edit">
       <div class="popup__overlay"></div>
       <div class="popup__content">
         <div class="popup__container">
           <button class="button button button_close"></button>
           <span class="popup__title">Edit profile</span>
           <form class="popup__form">
-            <fieldset class="popup__form_set">
+            <fieldset class="popup__set">
               <input
                 type="text"
                 name="input-name"
@@ -77,7 +77,7 @@
                 minlength="2"
                 maxlength="40"
               />
-              <span class="popup__form_error"></span>
+              <span class="popup_error"></span>
               <input
                 type="text"
                 name="input-job"
@@ -88,9 +88,9 @@
                 minlength="2"
                 maxlength="40"
               />
-              <span class="form-error"></span>
+              <span class="popup_error"></span>
             </fieldset>
-            <fieldset class="form-set">
+            <fieldset class="popup__set">
               <button type="submit" class="button button_submit">Save</button>
             </fieldset>
           </form>
@@ -98,14 +98,14 @@
       </div>
     </div>
     <!------------- PopUp Add ---------->
-    <div class="popup popup-add popup-add__content_edit">
+    <div class="popup popup-add popup_add">
       <div class="popup__overlay"></div>
       <div class="popup__content">
         <div class="popup__container">
           <button class="button button button_close"></button>
           <span class="popup__title">New Place</span>
-          <form class="popup-add__form popup__form">
-            <fieldset class="popup__form-set">
+          <form class="popup_add popup__form_add">
+            <fieldset class="popup__set">
               <input
                 type="text"
                 name="input-title"
@@ -116,7 +116,7 @@
                 minlength="2"
                 maxlength="40"
               />
-              <span class="form-error"></span>
+              <span class="popup_error"></span>
               <input
                 type="text"
                 name="input-image"
@@ -127,9 +127,9 @@
                 minlength="2"
                 maxlength="40"
               />
-              <span class="form-error"></span>
+              <span class="popup_error"></span>
             </fieldset>
-            <fieldset class="form-set">
+            <fieldset class="popup__set">
               <button type="submit" class="button button_submit">Save</button>
             </fieldset>
           </form>
@@ -146,7 +146,7 @@
           alt=""
           class="popup-image__element"
         />
-        <span class="popup-image__title">Yellowstone</span>
+        <span class="popup__title popup__title_img">Yellowstone</span>
       </div>
     </div>
     <!------------- Template -------------->
