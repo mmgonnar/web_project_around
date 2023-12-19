@@ -1,11 +1,11 @@
-.button__type_edit {
+.button_edit {
   background: url(../../images/edit_button.svg) no-repeat center;
   width: 24px;
   height: 24px;
   border: 1px solid #fff;
 }
 
-.button__type_add {
+.button_add {
   background: url(../../images/add_button.svg) no-repeat center;
   width: 288px;
   height: 50px;
@@ -13,7 +13,7 @@
   border: 1px solid #fff;
 }
 
-.button__type-like {
+.button_like {
   background: url(../../images/heart__button.svg) no-repeat center;
   width: 21px;
   height: 19px;
@@ -22,12 +22,12 @@
   border: none;
 }
 
-.button__type_like.liked {
+.button_like.liked {
   background: url(../images/like-black.svg);
   opacity: 1;
 }
 
-.button__type_close {
+.button_close {
   background: url(../../images/close_button.svg) no-repeat center;
   width: 24px;
   height: 24px;
@@ -39,7 +39,7 @@
   right: 0%;
 }
 
-.button__type_submit {
+.button_submit {
   background-color: #000;
   color: #fff;
   width: 238px;
@@ -48,7 +48,7 @@
   margin-top: 2em;
 }
 
-.button__type_delete {
+.button_delete {
   background: url(/images/trash_button.svg);
   position: absolute;
   top: 18px;
@@ -61,12 +61,12 @@
 }
 
 @media screen and (min-width: 600px) {
-  .button__type_add {
+  .button_add {
     width: 150px;
     height: 50px;
   }
 
-  .button__type_close {
+  .button_close {
     top: -10%;
     right: -5%;
   }

@@ -1,13 +1,13 @@
 //VARIABLES
 //Popup Edit Profile
-const buttonEdit = document.querySelector(".button__type_edit");
+const buttonEdit = document.querySelector(".button_edit");
 const popupProfile = document.querySelector(".popup__content_edit");
 //PopupAdd Edit Img
-const buttonAdd = document.querySelector(".button__type_add");
+const buttonAdd = document.querySelector(".button_add");
 const popupAdd = document.querySelector(".popup-add__content_edit");
 
-const buttonClose = popupProfile.querySelector(".button__type_close");
-const buttonCloseAdd = popupAdd.querySelector(".button__type_close");
+const buttonClose = popupProfile.querySelector(".button_close");
+const buttonCloseAdd = popupAdd.querySelector(".button_close");
 
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__job");
@@ -24,7 +24,7 @@ const addForm = document.querySelector(".popup-add__form");
 const inputTitle = document.querySelector(".popup__input-title");
 const inputImage = document.querySelector(".popup__input-image");
 const popupImage = document.querySelector(".popup_image");
-const buttonCloseImage = popupImage.querySelector(".button__type_close");
+const buttonCloseImage = popupImage.querySelector(".button_close");
 const popupImageTitle = document.querySelector(".popup-image__title");
 
 //Initial Cards
@@ -66,12 +66,12 @@ function createCard(title, link) {
   const cardTitle = card.querySelector(".card__title");
   const popupImageElement = document.querySelector(".popup-image__element");
 
-  const buttonLike = card.querySelector(".button__type_like");
+  const buttonLike = card.querySelector(".button_like");
   buttonLike.addEventListener("click", function () {
     buttonLike.classList.toggle("liked");
   });
 
-  const buttonDelete = card.querySelector(".button__type_delete");
+  const buttonDelete = card.querySelector(".button_delete");
   buttonDelete.addEventListener("click", function () {
     const card = buttonDelete.closest(".card");
     card.remove();
