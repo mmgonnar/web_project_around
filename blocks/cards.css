@@ -26,6 +26,7 @@
 .card__image {
   width: 288px;
   height: 288px;
+  background-color: #000;
 }
 
 .card__info {
