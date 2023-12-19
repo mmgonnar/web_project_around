@@ -1,7 +1,7 @@
 //VARIABLES
 //Popup Edit Profile
 const buttonEdit = document.querySelector(".button_edit");
-const popupProfile = document.querySelector(".popup__edit");
+const popupProfile = document.querySelector(".popup_edit");
 //PopupAdd Edit Img
 const buttonAdd = document.querySelector(".button_add");
 const popupAdd = document.querySelector(".popup_add");
@@ -64,7 +64,7 @@ function createCard(title, link) {
 
   const cardImage = card.querySelector(".card__image");
   const cardTitle = card.querySelector(".card__title");
-  const popupImageElement = document.querySelector(".popup-image__element");
+  const popupImageElement = document.querySelector(".popup__element");
 
   const buttonLike = card.querySelector(".button_like");
   buttonLike.addEventListener("click", function () {
