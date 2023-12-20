@@ -27,6 +27,7 @@
   width: 288px;
   height: 288px;
   background-color: #000;
+  cursor: pointer;
 }
 
 .card__info {
@@ -48,5 +49,5 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 100%;
+  max-width: 75%;
 }
