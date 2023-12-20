@@ -1,5 +1,8 @@
 //VARIABLES
 //Popup Edit Profile
+alert(
+  "No entendí tu primera correción:generalas un poco mas pequeñas y centradas, pero qué cosa ¿podrías ser más claro?."
+);
 const buttonEdit = document.querySelector(".button_edit");
 const popupProfile = document.querySelector(".popup_edit");
 //PopupAdd Edit Img
