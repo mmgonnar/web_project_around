@@ -49,7 +49,7 @@
 .profile__job {
   font-weight: 400;
   font-size: 1em;
-  ext-overflow: ellipsis;
+  text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   max-width: 80%;
