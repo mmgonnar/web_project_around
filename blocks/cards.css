@@ -49,5 +49,5 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 75%;
+  width: 75%;
 }
