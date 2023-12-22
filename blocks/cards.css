@@ -42,6 +42,7 @@
 }
 
 .card__title {
+  width: 75%;
   color: black;
   font-weight: 900;
   font-size: 1.5em;
@@ -49,5 +50,4 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  width: 75%;
 }
