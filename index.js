@@ -29,6 +29,8 @@ const inputImage = document.querySelector(".popup__input-image");
 const popupImage = document.querySelector(".popup_image");
 const buttonCloseImage = popupImage.querySelector(".button_close");
 const popupImageTitle = document.querySelector(".popup__title_img");
+let lastInputName = currentName;
+let lastInputJob = currentJob;
 
 //Initial Cards
 const initialCards = [
@@ -109,6 +111,8 @@ function togglePopup(popup) {
 //Event Listeners
 buttonEdit.addEventListener("click", function () {
   togglePopup(popupProfile);
+  inputName.value = lastInputName;
+  inputJob.value = lastInputJob;
 });
 buttonClose.addEventListener("click", function () {
   togglePopup(popupProfile);
@@ -117,6 +121,8 @@ profileForm.addEventListener("submit", function (event) {
   event.preventDefault();
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
+  lastInputName = inputName.value;
+  lastInputJob = inputJob.value;
   profileForm.reset();
   togglePopup(popupProfile);
 });
