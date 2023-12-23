@@ -1,8 +1,8 @@
 //VARIABLES
 //Popup Edit Profile
-alert(
+/* alert(
   "No entendí tu primera correción:generalas un poco mas pequeñas y centradas, pero qué cosa ¿podrías ser más claro?."
-);
+); */
 const buttonEdit = document.querySelector(".button_edit");
 const popupProfile = document.querySelector(".popup_edit");
 //PopupAdd Edit Img
@@ -143,4 +143,15 @@ addForm.addEventListener("submit", function (event) {
 //Popup Image
 buttonCloseImage.addEventListener("click", function () {
   togglePopup(popupImage);
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    const popups = document.querySelectorAll(".popup");
+    popups.forEach(function (popup) {
+      if (popup.classList.contains("popup_show")) {
+        togglePopup(popup);
+      }
+    });
+  }
 });
