@@ -1,8 +1,8 @@
 //VARIABLES
 //Popup Edit Profile
-/* alert(
-  "No entendí tu primera correción:generalas un poco mas pequeñas y centradas, pero qué cosa ¿podrías ser más claro?."
-); */
+alert(
+  "Espero haber entendido todas tus instrucciones, el tercer punto sobre todo. Ojalá sea la última correccción, si sí ¡Feliz navidad!"
+);
 const buttonEdit = document.querySelector(".button_edit");
 const popupProfile = document.querySelector(".popup_edit");
 //PopupAdd Edit Img
