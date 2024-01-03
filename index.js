@@ -191,3 +191,43 @@ popupOverlay.addEventListener("click", function (event) {
     togglePopup(popup);
   });
 });
+
+//EnableValidation
+
+//Habilitar validación
+//validación input
+//error input
+//toggle button habilitar-deshabilitar botones
+
+/* function enableValidation(config) {
+  const forms = Array.form(document.form);
+
+  forms.forEach((form) => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+    });
+
+    const inputs = form.querySelectorAll(config.inputSelector);
+
+    inputs.forEach((input) => {
+
+      input.addEventListener("input", ()=>{
+        checkInputValidity(input);
+    });
+  });
+} */
+
+//form
+const form = document.querySelector("form");
+const formInput = form.querySelector(".popup__input");
+console.log(".popup__input");
+
+function enableValidation(config) {}
+enableValidation({
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".button_submit",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+});

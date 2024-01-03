@@ -121,6 +121,14 @@
   overflow: hidden;
 }
 
+.popup__input:invalid {
+  border-bottom: 1px solid red;
+}
+
+.popup__input:invalid {
+  border-bottom: 1px solid green;
+}
+
 @media screen and (min-width: 600px) {
   .popup__content {
     width: 430px;
