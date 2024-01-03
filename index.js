@@ -31,6 +31,7 @@ const buttonCloseImage = popupImage.querySelector(".button_close");
 const popupImageTitle = document.querySelector(".popup__title_img");
 let lastInputName = currentName;
 let lastInputJob = currentJob;
+const popupOverlay = document.querySelector(".popup__overlay");
 
 //Initial Cards
 const initialCards = [
@@ -146,13 +147,24 @@ addForm.addEventListener("submit", function (event) {
 });
 //--------------------------------------
 
-//Popup Image
+//Close actions
 buttonCloseImage.addEventListener("click", function () {
   togglePopup(popupImage);
 });
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
+    const popups = document.querySelectorAll(".popup");
+    popups.forEach(function (popup) {
+      if (popup.classList.contains("popup_show")) {
+        togglePopup(popup);
+      }
+    });
+  }
+});
+
+popupOverlay.addEventListener("click", function (event) {
+  if (event.target === popupOverlay) {
     const popups = document.querySelectorAll(".popup");
     popups.forEach(function (popup) {
       if (popup.classList.contains("popup_show")) {
