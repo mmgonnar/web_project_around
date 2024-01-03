@@ -17,10 +17,11 @@ const profileJob = document.querySelector(".profile__job");
 const profileForm = document.querySelector(".popup__form");
 const inputName = document.querySelector(".popup__input-name");
 const inputJob = document.querySelector(".popup__input-job");
-const currentName = profileName.textContent;
-const currentJob = profileJob.textContent;
-//PopupAdd Img
-//const popupAdd = document.querySelector(".popup-add");
+let inputNameValue = inputName.value;
+let inputJobValue = inputJob.value;
+let lastInputName = profileName.textContent;
+let lastInputJob = profileJob.textContent;
+
 const addTitle = document.querySelector(".card__title");
 const addImage = document.querySelector(".card__image");
 const addForm = document.querySelector(".popup__form_add");
@@ -29,8 +30,8 @@ const inputImage = document.querySelector(".popup__input-image");
 const popupImage = document.querySelector(".popup_image");
 const buttonCloseImage = popupImage.querySelector(".button_close");
 const popupImageTitle = document.querySelector(".popup__title_img");
-let lastInputName = currentName;
-let lastInputJob = currentJob;
+
+const container = document.querySelector(".cards");
 
 //Initial Cards
 const initialCards = [
@@ -60,8 +61,16 @@ const initialCards = [
   },
 ];
 
+function popupButtonClose(popupElement) {
+  console.log(popupElement);
+  togglePopup(popupElement);
+}
+
+function togglePopup(popup) {
+  popup.classList.toggle("popup_show");
+}
+
 //Template Cards
-const container = document.querySelector(".cards");
 
 function createCard(title, link) {
   const template = document.querySelector("#cards-template").content;
@@ -90,7 +99,7 @@ function createCard(title, link) {
   const buttonImage = card.querySelector(".card__image");
   buttonImage.addEventListener("click", function () {
     popupImageElement.src = cardImage.src;
-    togglePopup(popupImage);
+    popupButtonClose(popupImage);
     popupImageTitle.textContent = cardTitle.textContent;
   });
 }
@@ -98,42 +107,39 @@ function createCard(title, link) {
 initialCards.forEach(function (cardData) {
   createCard(cardData.name, cardData.link);
 });
-
+console.log(lastInputName);
 //Popup Profile > start ---------------
-inputName.value = currentName;
-inputJob.value = currentJob;
-
+inputNameValue = inputName.value;
+inputJobValue = lastInputJob;
+console.log(inputNameValue);
 //Funciones
-function togglePopup(popup) {
-  popup.classList.toggle("popup_show");
-}
+
 //Event Listeners
 buttonEdit.addEventListener("click", function () {
-  togglePopup(popupProfile);
-  inputName.value = lastInputName;
-  inputJob.value = lastInputJob;
+  popupButtonClose(popupProfile);
+  inputNameValue = lastInputName;
+  inputJobValue = lastInputJob;
 });
 buttonClose.addEventListener("click", function () {
-  togglePopup(popupProfile);
+  popupButtonClose(popupProfile);
 });
 profileForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  profileName.textContent = inputName.value;
-  profileJob.textContent = inputJob.value;
-  lastInputName = inputName.value;
-  lastInputJob = inputJob.value;
+  profileName.textContent = inputNameValue;
+  profileJob.textContent = inputJobValue;
+  lastInputName = inputNameValue;
+  lastInputJob = inputJobValue;
   profileForm.reset();
-  togglePopup(popupProfile);
+  popupButtonClose(popupProfile);
 });
 
 //PopupAdd--------------
 buttonAdd.addEventListener("click", function () {
-  togglePopup(popupAdd);
-  console.log(buttonAdd);
+  popupButtonClose(popupAdd);
 });
 
 buttonCloseAdd.addEventListener("click", function () {
-  togglePopup(popupAdd);
+  popupButtonClose(popupAdd);
 });
 
 addForm.addEventListener("submit", function (event) {
@@ -142,13 +148,13 @@ addForm.addEventListener("submit", function (event) {
   createCard(inputTitle.value, inputImage.value);
 
   addForm.reset();
-  togglePopup(popupAdd);
+  popupButtonClose(popupAdd);
 });
 //--------------------------------------
 
 //Close actions
 buttonCloseImage.addEventListener("click", function () {
-  togglePopup(popupImage);
+  popupButtonClose(popupImage);
 });
 
 document.addEventListener("keydown", function (event) {
@@ -220,7 +226,13 @@ popupOverlay.addEventListener("click", function (event) {
 //form
 const form = document.querySelector("form");
 const formInput = form.querySelector(".popup__input");
-console.log(".popup__input");
+//const formError = form.querySelector(?);
+
+const showError = ".popup__input_error";
+
+formInput.addEventListener("input", function (evt) {
+  console.log(evt.target.validity);
+});
 
 function enableValidation(config) {}
 enableValidation({
@@ -231,3 +243,8 @@ enableValidation({
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
 });
+
+/* document.addEventListener("DOMContentLoaded", function (){
+
+});
+ */
