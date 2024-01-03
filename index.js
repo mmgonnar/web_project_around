@@ -17,8 +17,12 @@ const profileJob = document.querySelector(".profile__job");
 const profileForm = document.querySelector(".popup__form");
 const inputName = document.querySelector(".popup__input-name");
 const inputJob = document.querySelector(".popup__input-job");
-let inputNameValue = inputName.value;
-let inputJobValue = inputJob.value;
+
+const PROFILE_DATA = {
+  name: profileName.textContent,
+  job: profileJob.textContent,
+};
+
 let lastInputName = profileName.textContent;
 let lastInputJob = profileJob.textContent;
 
@@ -30,8 +34,15 @@ const inputImage = document.querySelector(".popup__input-image");
 const popupImage = document.querySelector(".popup_image");
 const buttonCloseImage = popupImage.querySelector(".button_close");
 const popupImageTitle = document.querySelector(".popup__title_img");
-
+const popupOverlay = document.querySelector(".popup__overlay");
 const container = document.querySelector(".cards");
+
+//form
+const form = document.querySelector("form");
+const formInput = form.querySelector(".popup__input");
+//const formError = form.querySelector(?);
+
+const showError = ".popup__input_error";
 
 //Initial Cards
 const initialCards = [
@@ -104,25 +115,21 @@ function createCard(title, link) {
   });
 }
 
-initialCards.forEach(function (cardData) {
-  createCard(cardData.name, cardData.link);
+function enableValidation(config) {}
+enableValidation({
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".button_submit",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
 });
-console.log(lastInputName);
-//Popup Profile > start ---------------
-inputNameValue = inputName.value;
-inputJobValue = lastInputJob;
-console.log(inputNameValue);
-//Funciones
 
+//Funciones
 //Event Listeners
-buttonEdit.addEventListener("click", function () {
-  popupButtonClose(popupProfile);
-  inputNameValue = lastInputName;
-  inputJobValue = lastInputJob;
-});
-buttonClose.addEventListener("click", function () {
-  popupButtonClose(popupProfile);
-});
+buttonEdit.addEventListener("click", () => popupButtonClose(popupProfile));
+buttonClose.addEventListener("click", () => popupButtonClose(popupProfile));
+
 profileForm.addEventListener("submit", function (event) {
   event.preventDefault();
   profileName.textContent = inputNameValue;
@@ -134,13 +141,8 @@ profileForm.addEventListener("submit", function (event) {
 });
 
 //PopupAdd--------------
-buttonAdd.addEventListener("click", function () {
-  popupButtonClose(popupAdd);
-});
-
-buttonCloseAdd.addEventListener("click", function () {
-  popupButtonClose(popupAdd);
-});
+buttonAdd.addEventListener("click", () => popupButtonClose(popupAdd));
+buttonCloseAdd.addEventListener("click", () => popupButtonClose(popupAdd));
 
 addForm.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -153,20 +155,7 @@ addForm.addEventListener("submit", function (event) {
 //--------------------------------------
 
 //Close actions
-buttonCloseImage.addEventListener("click", function () {
-  popupButtonClose(popupImage);
-});
-
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape") {
-    const popups = document.querySelectorAll(".popup");
-    popups.forEach(function (popup) {
-      if (popup.classList.contains("popup_show")) {
-        togglePopup(popup);
-      }
-    });
-  }
-});
+buttonCloseImage.addEventListener("click", () => popupButtonClose(popupImage));
 
 //close popup outside modal
 /* popupOverlay.addEventListener("click", function (event) {
@@ -188,7 +177,6 @@ document.addEventListener("keydown", function (event) {
     popup.classList.remove("popup_show");
   }
 }); */
-const popupOverlay = document.querySelector(".popup__overlay");
 
 popupOverlay.addEventListener("click", function (event) {
   console.log("Click on popupOverlay");
@@ -223,28 +211,26 @@ popupOverlay.addEventListener("click", function (event) {
   });
 } */
 
-//form
-const form = document.querySelector("form");
-const formInput = form.querySelector(".popup__input");
-//const formError = form.querySelector(?);
-
-const showError = ".popup__input_error";
-
 formInput.addEventListener("input", function (evt) {
   console.log(evt.target.validity);
 });
 
-function enableValidation(config) {}
-enableValidation({
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".button_submit",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    const popups = document.querySelectorAll(".popup");
+    popups.forEach(function (popup) {
+      if (popup.classList.contains("popup_show")) {
+        togglePopup(popup);
+      }
+    });
+  }
 });
 
-/* document.addEventListener("DOMContentLoaded", function (){
-
+document.addEventListener("DOMContentLoaded", function () {
+  inputName.value = PROFILE_DATA.name;
+  inputJob.value = PROFILE_DATA.job;
 });
- */
+
+initialCards.forEach(function (cardData) {
+  createCard(cardData.name, cardData.link);
+});
