@@ -169,6 +169,7 @@ popupOverlay.addEventListener("click", function (event) {
     popups.forEach(function (popup) {
       if (popup.classList.contains("popup_show")) {
         togglePopup(popup);
+        console.log(popups);
       }
     });
   }
