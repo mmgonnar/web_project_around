@@ -1,8 +1,8 @@
-//VARIABLES
-//Popup Edit Profile
-alert(
+/* alert(
   "Espero haber entendido todas tus instrucciones, el tercer punto sobre todo. Ojalá sea la última correccción, si sí ¡Feliz navidad!"
-);
+); */
+//VARIABLES
+//-----> Popup Edit Profile
 const buttonEdit = document.querySelector(".button_edit");
 const popupProfile = document.querySelector(".popup_edit");
 //PopupAdd Edit Img
@@ -98,12 +98,11 @@ function createCard(title, link) {
 initialCards.forEach(function (cardData) {
   createCard(cardData.name, cardData.link);
 });
-//-------------------------------------------------------------------
-//const popup = document.querySelector(".popup");
-//popup.classList.add("popup_show");
+
 //Popup Profile > start ---------------
 inputName.value = currentName;
 inputJob.value = currentJob;
+
 //Funciones
 function togglePopup(popup) {
   popup.classList.toggle("popup_show");
@@ -130,6 +129,7 @@ profileForm.addEventListener("submit", function (event) {
 //PopupAdd--------------
 buttonAdd.addEventListener("click", function () {
   togglePopup(popupAdd);
+  console.log(buttonAdd);
 });
 
 buttonCloseAdd.addEventListener("click", function () {
