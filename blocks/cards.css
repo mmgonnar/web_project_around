@@ -17,8 +17,6 @@
   background: #fff;
   border-radius: 11px;
   height: 361px;
-  /* border-radius: 11px;
-  border-radius: 11px; */
   overflow: hidden;
   position: relative;
 }
@@ -26,6 +24,8 @@
 .card__image {
   width: 288px;
   height: 288px;
+  background-color: #000;
+  cursor: pointer;
 }
 
 .card__info {
@@ -40,12 +40,12 @@
 }
 
 .card__title {
+  width: 75%;
   color: black;
   font-weight: 900;
   font-size: 1.5em;
   line-height: 1.2em;
-  text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 100%;
+  text-overflow: ellipsis;
 }
