@@ -20,7 +20,6 @@
   display: flex;
   align-items: center;
   border: none;
-  opacity: 0.5;
   transition: 0.3s;
 }
 
