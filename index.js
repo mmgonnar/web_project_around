@@ -31,7 +31,6 @@ const buttonCloseImage = popupImage.querySelector(".button_close");
 const popupImageTitle = document.querySelector(".popup__title_img");
 let lastInputName = currentName;
 let lastInputJob = currentJob;
-const popupOverlay = document.querySelector(".popup__overlay");
 
 //Initial Cards
 const initialCards = [
@@ -163,7 +162,8 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-popupOverlay.addEventListener("click", function (event) {
+//close popup outside modal
+/* popupOverlay.addEventListener("click", function (event) {
   if (event.target === popupOverlay) {
     const popups = document.querySelectorAll(".popup");
     popups.forEach(function (popup) {
@@ -173,4 +173,21 @@ popupOverlay.addEventListener("click", function (event) {
       }
     });
   }
+}); */
+
+//revisar porqué no funciona
+/* popupOverlay.addEventListener("click", function (event) {
+  const popup = document.querySelector(".popup.popup_show");
+  if (popup && event.target === popupOverlay) {
+    popup.classList.remove("popup_show");
+  }
+}); */
+const popupOverlay = document.querySelector(".popup__overlay");
+
+popupOverlay.addEventListener("click", function (event) {
+  console.log("Click on popupOverlay");
+  const openPopups = document.querySelectorAll(".popup.popup_show");
+  openPopups.forEach(function (popup) {
+    togglePopup(popup);
+  });
 });
