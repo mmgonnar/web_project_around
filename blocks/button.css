@@ -52,6 +52,15 @@
   border-radius: 2px;
 }
 
+.button__submit_disabled {
+  border: 1px solid #cccccc;
+  opacity: 0.5;
+  cursor: default;
+  background: white;
+  color: #cccccc;
+  margin-top: 20px;
+}
+
 .button_delete {
   background: url(/images/trash_button.svg);
   position: absolute;
