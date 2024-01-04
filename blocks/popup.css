@@ -122,12 +122,20 @@
 }
 
 .popup__input:invalid {
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid rgba(255, 0, 0, 1);
 }
 
 /* .popup__input:valid {
   border-bottom: 1px solid green;
 } */
+
+.popup__input_error {
+  margin: 0;
+  color: red;
+  font-size: 12px;
+  font-weight: 400;
+  padding-top: 7px;
+}
 
 @media screen and (min-width: 600px) {
   .popup__content {

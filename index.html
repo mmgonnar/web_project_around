@@ -76,8 +76,9 @@
                 required
                 minlength="2"
                 maxlength="40"
+                data-target="#input__error-name"
               />
-              <span class="popup__input_error"
+              <span class="popup__input_error" id="input__error-name"
                 >Please, fill out this field</span
               >
               <input
@@ -90,8 +91,9 @@
                 required
                 minlength="2"
                 maxlength="200"
+                data-target="#input__error-error"
               />
-              <span class="popup__input_error"></span>
+              <span class="popup__input_error" id="input__error-job"></span>
             </fieldset>
             <fieldset class="popup__set">
               <button type="submit" class="button button_submit">Save</button>
@@ -118,8 +120,9 @@
                 required
                 minlength="2"
                 maxlength="30"
+                data-target="#input__error-title"
               />
-              <span class="popup__input_error"></span>
+              <span class="popup__input_error" id="input__error-title"></span>
               <input
                 type="url"
                 name="input-image"
@@ -127,8 +130,9 @@
                 class="popup__input popup__input-image"
                 placeholder="Image URL"
                 required
+                data-target="#input__error-url"
               />
-              <span class="popup__input_error"></span>
+              <span class="popup__input_url" id="input__error-image"></span>
             </fieldset>
             <fieldset class="popup__set">
               <button type="submit" class="button button_submit">Save</button>

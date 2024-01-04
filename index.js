@@ -33,6 +33,7 @@ const popupImageTitle = document.querySelector(".popup__title_img");
 const popupOverlay = document.querySelector(".popup__overlay");
 const container = document.querySelector(".cards");
 const overlays = [popupOverlayProfile, popupOverlayAdd, popupOverlayImage];
+const form = document.querySelector(".popup__form");
 //FORM
 
 //Initial Cards
@@ -141,15 +142,38 @@ overlays.forEach(function (overlay) {
 });
 
 //-----------------------
-//EnableValidation
+/* function hideError(errorSelector, config) {
+  const errorElement = document.querySelector(errorSelector);
+  errorElement.textContent = "";
+  errorElement.classList.remove(config.errorClass);
+}
 
-//Habilitar validación
-//validación input
-//error input
-//toggle button habilitar-deshabilitar botones
+function showError(errorSelector, config, errorMessage) {
+  const errorElement = document.querySelector(errorSelector);
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add(config.errorClass);
+}
 
-/* function enableValidation(config) {
-  const forms = Array.form(document.form);
+function toggleButton(form, config, state) {
+  const submitButton = form.querySelector(config.submitButtonSelector);
+  submitButton.disabled = state;
+}
+
+function checkInputValidity(input, config) {
+  if (input.validity.valid) {
+    //esto es válido
+    toggleButton(input.form, config, false);
+    //hide error
+    hideError(input.dataset.target, config);
+  } else {
+    //esto es inválido
+    toggleButton(input.form, config, true);
+    showError(input.dataset.target, config, input.validationMessage);
+  }
+}
+
+function enableValidation(config) {
+  const forms = Array.from(document.forms);
 
   forms.forEach((form) => {
     form.addEventListener("submit", (e) => {
@@ -159,84 +183,9 @@ overlays.forEach(function (overlay) {
     const inputs = form.querySelectorAll(config.inputSelector);
 
     inputs.forEach((input) => {
-
-      input.addEventListener("input", ()=>{
-        checkInputValidity(input);
-    });
-  });
-} */
-/*
-const form = document.querySelector(".popup__form");
-const formInput = form.querySelector(".popup__input");
-const formError = form.querySelector(".popup__input_error");
-
-const showError = (input, errorMessage) => {
-  input.classList.add("popup__input_error");
-  formError.textContent = errorMessage;
-  formError.classList.add("popup__input_error_active");
-};
-
-const hideError = (input) => {
-  input.classList.remove("input-name_type_error");
-};
-
-const checkInputValidity = () => {
-  if (!formInput.validity.valid) {
-    showError(formInput);
-  } else {
-    hideError(formInput);
-  }
-};
-
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
-});
-
-formInput.addEventListener("input", function (event) {
-  const isValid = inputName.value.length > 1 && inputJob.value.length > 1;
-  checkInputValidity();
-});
-
-function enableValidation(config) {}
-enableValidation({
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".button_submit",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-});
-
-//Close popups with esc
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape") {
-    const popups = document.querySelectorAll(".popup");
-    popups.forEach(function (popup) {
-      if (popup.classList.contains("popup_show")) {
-        togglePopup(popup);
-      }
-    });
-  }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  inputName.value = PROFILE_DATA.name;
-  inputJob.value = PROFILE_DATA.job;
-});
-
-initialCards.forEach(function (cardData) {
-  createCard(cardData.name, cardData.link);
-});
- */
-
-//-----------------------
-
-function enableValidation(config) {
-  const forms = Array.form(document.form);
-
-  forms.forEach((form) => {
-    form.adEventListener("submit", (e) => {
-      e.preventDefault();
+      input.addEventListener("input", () => {
+        checkInputValidity(input, config);
+      });
     });
   });
 }
@@ -245,9 +194,8 @@ enableValidation({
   formSelector: ".form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".button_submit",
-  /* inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error", */
+  //inactiveButtonClass: "popup__button_disabled",
+  //inputErrorClass: "popup__input_type_error",
   errorClass: ".popup__input-error",
 });
-
-//enable validation - setEventListeners - checkInputValidity - toggleButton - toggleErrorMessege (o 2 distintas: showError - hideError)
+ */
