@@ -1,17 +1,12 @@
-/* alert(
-  "Espero haber entendido todas tus instrucciones, el tercer punto sobre todo. Ojalá sea la última correccción, si sí ¡Feliz navidad!"
-); */
 //VARIABLES
-//-----> Popup Edit Profile
 const buttonEdit = document.querySelector(".button_edit");
 const popupProfile = document.querySelector(".popup_edit");
-//PopupAdd Edit Img
+const popupOverlayProfile = popupProfile.querySelector(".popup__overlay");
 const buttonAdd = document.querySelector(".button_add");
 const popupAdd = document.querySelector(".popup_add");
-
+const popupOverlayAdd = popupAdd.querySelector(".popup__overlay");
 const buttonClose = popupProfile.querySelector(".button_close");
 const buttonCloseAdd = popupAdd.querySelector(".button_close");
-
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__job");
 const profileForm = document.querySelector(".popup__form");
@@ -32,17 +27,13 @@ const addForm = document.querySelector(".popup__form_add");
 const inputTitle = document.querySelector(".popup__input-title");
 const inputImage = document.querySelector(".popup__input-image");
 const popupImage = document.querySelector(".popup_image");
+const popupOverlayImage = popupImage.querySelector(".popup__overlay");
 const buttonCloseImage = popupImage.querySelector(".button_close");
 const popupImageTitle = document.querySelector(".popup__title_img");
 const popupOverlay = document.querySelector(".popup__overlay");
 const container = document.querySelector(".cards");
-
-//form
-const form = document.querySelector("form");
-const formInput = form.querySelector(".popup__input");
-//const formError = form.querySelector(?);
-
-const showError = ".popup__input_error";
+const overlays = [popupOverlayProfile, popupOverlayAdd, popupOverlayImage];
+//FORM
 
 //Initial Cards
 const initialCards = [
@@ -73,7 +64,6 @@ const initialCards = [
 ];
 
 function popupButtonClose(popupElement) {
-  console.log(popupElement);
   togglePopup(popupElement);
 }
 
@@ -81,8 +71,7 @@ function togglePopup(popup) {
   popup.classList.toggle("popup_show");
 }
 
-//Template Cards
-
+//Crear Card
 function createCard(title, link) {
   const template = document.querySelector("#cards-template").content;
   const card = template.querySelector(".card").cloneNode(true);
@@ -114,21 +103,7 @@ function createCard(title, link) {
     popupImageTitle.textContent = cardTitle.textContent;
   });
 }
-
-function enableValidation(config) {}
-enableValidation({
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".button_submit",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-});
-
-//Funciones
-//Event Listeners
-buttonEdit.addEventListener("click", () => popupButtonClose(popupProfile));
-buttonClose.addEventListener("click", () => popupButtonClose(popupProfile));
+//Form Validator
 
 profileForm.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -139,9 +114,12 @@ profileForm.addEventListener("submit", function (event) {
   profileForm.reset();
   popupButtonClose(popupProfile);
 });
+buttonEdit.addEventListener("click", () => popupButtonClose(popupProfile));
 
-//PopupAdd--------------
+buttonClose.addEventListener("click", () => popupButtonClose(popupProfile));
+
 buttonAdd.addEventListener("click", () => popupButtonClose(popupAdd));
+
 buttonCloseAdd.addEventListener("click", () => popupButtonClose(popupAdd));
 
 addForm.addEventListener("submit", function (event) {
@@ -152,37 +130,13 @@ addForm.addEventListener("submit", function (event) {
   addForm.reset();
   popupButtonClose(popupAdd);
 });
-//--------------------------------------
 
-//Close actions
 buttonCloseImage.addEventListener("click", () => popupButtonClose(popupImage));
 
-//close popup outside modal
-/* popupOverlay.addEventListener("click", function (event) {
-  if (event.target === popupOverlay) {
-    const popups = document.querySelectorAll(".popup");
-    popups.forEach(function (popup) {
-      if (popup.classList.contains("popup_show")) {
-        togglePopup(popup);
-        console.log(popups);
-      }
-    });
-  }
-}); */
-
-//revisar porqué no funciona
-/* popupOverlay.addEventListener("click", function (event) {
-  const popup = document.querySelector(".popup.popup_show");
-  if (popup && event.target === popupOverlay) {
-    popup.classList.remove("popup_show");
-  }
-}); */
-
-popupOverlay.addEventListener("click", function (event) {
-  console.log("Click on popupOverlay");
-  const openPopups = document.querySelectorAll(".popup.popup_show");
-  openPopups.forEach(function (popup) {
-    togglePopup(popup);
+overlays.forEach(function (overlay) {
+  overlay.addEventListener("click", function (event) {
+    const openPopup = overlay.closest(".popup");
+    togglePopup(openPopup);
   });
 });
 
@@ -211,10 +165,48 @@ popupOverlay.addEventListener("click", function (event) {
   });
 } */
 
-formInput.addEventListener("input", function (evt) {
-  console.log(evt.target.validity);
+const form = document.querySelector(".popup__form");
+const formInput = form.querySelector(".popup__input");
+const formError = form.querySelector(".popup__input_error");
+
+const showError = (input, errorMessage) => {
+  input.classList.add("popup__input_error");
+  formError.textContent = errorMessage;
+  formError.classList.add("popup__input_error_active");
+};
+
+const hideError = (input) => {
+  input.classList.remove("input-name_type_error");
+};
+
+const checkInputValidity = () => {
+  if (!formInput.validity.valid) {
+    showError(formInput);
+  } else {
+    hideError(formInput);
+  }
+};
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
 });
 
+formInput.addEventListener("input", function (event) {
+  const isValid = inputName.value.length > 1 && inputJob.value.length > 1;
+  checkInputValidity();
+});
+
+function enableValidation(config) {}
+enableValidation({
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".button_submit",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+});
+
+//Close popups with esc
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     const popups = document.querySelectorAll(".popup");

@@ -125,9 +125,9 @@
   border-bottom: 1px solid red;
 }
 
-.popup__input:invalid {
+/* .popup__input:valid {
   border-bottom: 1px solid green;
-}
+} */
 
 @media screen and (min-width: 600px) {
   .popup__content {

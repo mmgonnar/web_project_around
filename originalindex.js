@@ -182,7 +182,7 @@ document.addEventListener("keydown", function (event) {
     popup.classList.remove("popup_show");
   }
 }); */
-const popupOverlay = document.querySelector(".popup__overlay");
+/* const popupOverlay = document.querySelector(".popup__overlay");
 
 popupOverlay.addEventListener("click", function (event) {
   console.log("Click on popupOverlay");
@@ -190,7 +190,7 @@ popupOverlay.addEventListener("click", function (event) {
   openPopups.forEach(function (popup) {
     togglePopup(popup);
   });
-});
+}); */
 
 //EnableValidation
 
