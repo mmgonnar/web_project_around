@@ -72,6 +72,10 @@ function togglePopup(popup) {
   popup.classList.toggle("popup_show");
 }
 
+initialCards.forEach(function (card) {
+  createCard(card.name, card.link);
+});
+
 //Crear Card
 function createCard(title, link) {
   const template = document.querySelector("#cards-template").content;
