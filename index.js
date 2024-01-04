@@ -140,6 +140,7 @@ overlays.forEach(function (overlay) {
   });
 });
 
+//-----------------------
 //EnableValidation
 
 //Habilitar validación
@@ -164,7 +165,7 @@ overlays.forEach(function (overlay) {
     });
   });
 } */
-
+/*
 const form = document.querySelector(".popup__form");
 const formInput = form.querySelector(".popup__input");
 const formError = form.querySelector(".popup__input_error");
@@ -226,3 +227,27 @@ document.addEventListener("DOMContentLoaded", function () {
 initialCards.forEach(function (cardData) {
   createCard(cardData.name, cardData.link);
 });
+ */
+
+//-----------------------
+
+function enableValidation(config) {
+  const forms = Array.form(document.form);
+
+  forms.forEach((form) => {
+    form.adEventListener("submit", (e) => {
+      e.preventDefault();
+    });
+  });
+}
+
+enableValidation({
+  formSelector: ".form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".button_submit",
+  /* inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error", */
+  errorClass: ".popup__input-error",
+});
+
+//enable validation - setEventListeners - checkInputValidity - toggleButton - toggleErrorMessege (o 2 distintas: showError - hideError)
