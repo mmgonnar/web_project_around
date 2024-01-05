@@ -138,6 +138,19 @@ addForm.addEventListener("submit", function (event) {
 
 buttonCloseImage.addEventListener("click", () => popupButtonClose(popupImage));
 
+//close with esc
+/* document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    const popups = document.querySelectorAll(".popup");
+    popups.forEach(function (popup) {
+      if (popup.classList.contains("popup_show")) {
+        togglePopup(popup);
+      }
+    });
+  }
+}); */
+
+//close with click outside modal
 overlays.forEach(function (overlay) {
   overlay.addEventListener("click", function (event) {
     const openPopup = overlay.closest(".popup");
