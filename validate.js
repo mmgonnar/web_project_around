@@ -1,27 +1,27 @@
 //Hides any error messages for the given form and input.
 function hideError(form, errorSelector, config) {
-  const errorElement = form.querySelector(errorSelector); //Select error element
-  errorElement.textContent = ""; //Deletes error message content
-  errorElement.classList.remove(config.errorClass); //removes error class
+  const errorElement = form.querySelector(errorSelector);
+  errorElement.textContent = "";
+  errorElement.classList.remove(config.errorClass);
 }
 
 //Shows an error message for the given form and input.
 function showError(form, errorSelector, config, errorMessage) {
-  const errorElement = form.querySelector(errorSelector); //Selects error element
-  errorElement.textContent = errorMessage; //Stablish error message
-  errorElement.classList.add(config.errorClass); //Adds error class
+  const errorElement = form.querySelector(errorSelector);
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add(config.errorClass);
 }
 
 //Shows submit button if inputs are valid
 function toggleButton(form, config) {
-  const inputs = Array.from(form.querySelectorAll(config.inputSelector)); //Gets all inputs
-  const submitButton = form.querySelector(config.submitButtonSelector); //Selects submit button
+  const inputs = Array.from(form.querySelectorAll(config.inputSelector));
+  const submitButton = form.querySelector(config.submitButtonSelector);
   if (inputs.every((item) => item.validity.valid)) {
-    submitButton.disabled = false; //Enable submit button
+    submitButton.disabled = false;
     submitButton.classList.remove(config.inactiveButtonClass);
   } else {
-    submitButton.disabled = true; //Disable submit button
-    submitButton.classList.add(config.inactiveButtonClass); //Adds idle class
+    submitButton.disabled = true;
+    submitButton.classList.add(config.inactiveButtonClass);
   }
 }
 
@@ -42,21 +42,21 @@ function checkInputValidity(input, config) {
 
 //Enable form validation
 function enableValidation(config) {
-  const forms = Array.from(document.forms); //Gets all forms
+  const forms = Array.from(document.forms);
 
   forms.forEach((form) => {
     form.addEventListener("submit", (e) => {
-      e.preventDefault(); //Avoid submittinf the form
+      e.preventDefault();
     });
 
     const inputs = Array.from(form.querySelectorAll(config.inputSelector));
 
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
-        checkInputValidity(input, config); //Validate input
+        checkInputValidity(input, config);
       });
     });
-    toggleButton(form, config); //Shows or hide subbmit button
+    toggleButton(form, config);
   });
 }
 //Starts validation of the form with the provided settings.
