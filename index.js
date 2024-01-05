@@ -12,15 +12,6 @@ const profileJob = document.querySelector(".profile__job");
 const profileForm = document.querySelector(".popup__form");
 const inputName = document.querySelector(".popup__input-name");
 const inputJob = document.querySelector(".popup__input-job");
-
-const PROFILE_DATA = {
-  name: profileName.textContent,
-  job: profileJob.textContent,
-};
-
-let lastInputName = profileName.textContent;
-let lastInputJob = profileJob.textContent;
-
 const addTitle = document.querySelector(".card__title");
 const addImage = document.querySelector(".card__image");
 const addForm = document.querySelector(".popup__form_add");
@@ -35,6 +26,9 @@ const container = document.querySelector(".cards");
 const overlays = [popupOverlayProfile, popupOverlayAdd, popupOverlayImage];
 const form = document.querySelector(".popup__form");
 //FORM
+
+inputName.value = profileName.textContent;
+inputJob.value = profileJob.textContent;
 
 //Initial Cards
 const initialCards = [
@@ -112,13 +106,12 @@ function createCard(title, link) {
 
 profileForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  profileName.textContent = inputNameValue;
-  profileJob.textContent = inputJobValue;
-  lastInputName = inputNameValue;
-  lastInputJob = inputJobValue;
+  profileName.textContent = inputName.value;
+  profileJob.textContent = inputJob.value;
   profileForm.reset();
   popupButtonClose(popupProfile);
 });
+
 buttonEdit.addEventListener("click", () => popupButtonClose(popupProfile));
 
 buttonClose.addEventListener("click", () => popupButtonClose(popupProfile));
@@ -126,6 +119,8 @@ buttonClose.addEventListener("click", () => popupButtonClose(popupProfile));
 buttonAdd.addEventListener("click", () => popupButtonClose(popupAdd));
 
 buttonCloseAdd.addEventListener("click", () => popupButtonClose(popupAdd));
+
+buttonCloseImage.addEventListener("click", () => popupButtonClose(popupImage));
 
 addForm.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -135,8 +130,6 @@ addForm.addEventListener("submit", function (event) {
   addForm.reset();
   popupButtonClose(popupAdd);
 });
-
-buttonCloseImage.addEventListener("click", () => popupButtonClose(popupImage));
 
 //close with esc
 /* document.addEventListener("keydown", function (event) {
@@ -168,6 +161,7 @@ function hideError(errorSelector, config) {
 
 function showError(errorSelector, config, errorMessage) {
   const errorElement = document.querySelector(errorSelector);
+  console.log(errorSelector);
   errorElement.textContent = errorMessage;
   errorElement.classList.add(config.errorClass);
 }
@@ -187,7 +181,7 @@ function checkInputValidity(input, config) {
     //esto es inválido
     toggleButton(input.form, config, true);
     //show error
-    showError(input.dataset, config, input.validationMessage);
+    showError(input.dataset.target, config, input.validationMessage);
     //showError("input__error-job", config, input.validationMessage);
     //showError("input__error-title", "Please fill out this field", config);
     //showError("input__error-url", "Please enter a web url", config);
