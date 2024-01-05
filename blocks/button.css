@@ -50,6 +50,7 @@
   width: 238px;
   height: 46px;
   border-radius: 2px;
+  margin: auto;
 }
 
 .button__submit_disabled {
