@@ -65,7 +65,7 @@
         <div class="popup__container">
           <button class="button button_close"></button>
           <span class="popup__title">Edit profile</span>
-          <form class="popup__form" id="form-edit-profile">
+          <form class="popup__form" id="form-edit-profile" novalidate>
             <fieldset class="popup__set">
               <input
                 type="text"
@@ -94,7 +94,12 @@
               <span class="popup__input_error" id="input__error-job"></span>
             </fieldset>
             <fieldset class="popup__set">
-              <button type="submit" class="button button_submit">Save</button>
+              <button
+                type="submit"
+                class="button button_submit button__submit_disabled"
+              >
+                Save
+              </button>
             </fieldset>
           </form>
         </div>
@@ -107,7 +112,11 @@
         <div class="popup__container">
           <button class="button button_close"></button>
           <span class="popup__title">New Place</span>
-          <form class="popup__form popup__form_add" id="form-add-place">
+          <form
+            class="popup__form popup__form_add"
+            id="form-add-place"
+            novalidate
+          >
             <fieldset class="popup__set">
               <input
                 type="text"
@@ -134,7 +143,12 @@
               <span class="popup__input_url" id="input__error-image"></span>
             </fieldset>
             <fieldset class="popup__set">
-              <button type="submit" class="button button_submit">Save</button>
+              <button
+                type="submit"
+                class="button button_submit button__submit_disabled"
+              >
+                Save
+              </button>
             </fieldset>
           </form>
         </div>

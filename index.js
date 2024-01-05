@@ -145,18 +145,18 @@ overlays.forEach(function (overlay) {
   });
 });
 
-//-----------------------
-
-function showError(errorSelector, config, errorMessage) {
-  const errorElement = document.getElementById(errorSelector);
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add(config.errorClass);
-}
+//----------------------- Validation
 
 function hideError(errorSelector, config) {
-  const errorElement = document.getElementById(errorSelector);
+  const errorElement = document.querySelector(errorSelector);
   errorElement.textContent = "";
   errorElement.classList.remove(config.errorClass);
+}
+
+function showError(errorSelector, config, errorMessage) {
+  const errorElement = document.querySelector(errorSelector);
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add(config.errorClass);
 }
 
 function toggleButton(form, config, state) {
@@ -174,7 +174,7 @@ function checkInputValidity(input, config) {
     //esto es inválido
     toggleButton(input.form, config, true);
     //show error
-    showError("input__error-name", config, input.validationMessage);
+    showError(input.dataset, config, input.validationMessage);
     //showError("input__error-job", config, input.validationMessage);
     //showError("input__error-title", "Please fill out this field", config);
     //showError("input__error-url", "Please enter a web url", config);
@@ -208,3 +208,15 @@ enableValidation({
   //inputErrorClass: "popup__input_error",
   errorClass: ".popup__inputerror",
 });
+
+//____________________ 5th version
+
+/* form.addEventListener("input", (e) => {
+  const target = e.target;
+  cosnt errorClass = form.querySelector()
+  if (target.validity.valid) {
+    target.classList.remove(popup__input_error);
+  } else {
+    target.classList.add(popup__input_error);
+  }
+}); */
