@@ -120,11 +120,15 @@
   white-space: nowrap;
   overflow: hidden;
 }
-
+/*
 .popup__input:invalid {
   border-bottom: 1px solid red;
 }
+*/
 
+.popup__input_error {
+  border-bottom: 1px solid red;
+}
 /* .popup__input:valid {
   border-bottom: 1px solid green;
 } */

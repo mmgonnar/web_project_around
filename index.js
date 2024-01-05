@@ -24,7 +24,9 @@ const popupImageTitle = document.querySelector(".popup__title_img");
 const popupOverlay = document.querySelector(".popup__overlay");
 const container = document.querySelector(".cards");
 const overlays = [popupOverlayProfile, popupOverlayAdd, popupOverlayImage];
+const buttons = [];
 const form = document.querySelector(".popup__form");
+
 //FORM
 
 inputName.value = profileName.textContent;
@@ -112,6 +114,15 @@ profileForm.addEventListener("submit", function (event) {
   popupButtonClose(popupProfile);
 });
 
+/* const buttons =[buttonEdit, buttonClose, buttonAdd, buttonCloseAdd, buttonCloseImage];
+
+buttons.forEach(fucntion (buttons){
+  button.addEventListener("click", function (event) {
+    const popupClose = button.closest(".button_close");
+    togglePopup(popupClose)
+  })
+}) */
+
 buttonEdit.addEventListener("click", () => popupButtonClose(popupProfile));
 
 buttonClose.addEventListener("click", () => popupButtonClose(popupProfile));
@@ -132,7 +143,7 @@ addForm.addEventListener("submit", function (event) {
 });
 
 //close with esc
-/* document.addEventListener("keydown", function (event) {
+document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     const popups = document.querySelectorAll(".popup");
     popups.forEach(function (popup) {
@@ -141,7 +152,7 @@ addForm.addEventListener("submit", function (event) {
       }
     });
   }
-}); */
+});
 
 //close with click outside modal
 overlays.forEach(function (overlay) {
@@ -153,39 +164,50 @@ overlays.forEach(function (overlay) {
 
 //----------------------- Validation
 
-function hideError(errorSelector, config) {
-  const errorElement = document.querySelector(errorSelector);
+function hideError(form, errorSelector, config) {
+  const errorElement = form.querySelector(errorSelector);
   errorElement.textContent = "";
   errorElement.classList.remove(config.errorClass);
 }
 
-function showError(errorSelector, config, errorMessage) {
-  const errorElement = document.querySelector(errorSelector);
-  console.log(errorSelector);
+function showError(form, errorSelector, config, errorMessage) {
+  const errorElement = form.querySelector(errorSelector);
   errorElement.textContent = errorMessage;
   errorElement.classList.add(config.errorClass);
 }
 
-function toggleButton(form, config, state) {
+function toggleButton(form, config) {
+  const inputs = Array.from(form.querySelectorAll(config.inputSelector));
   const submitButton = form.querySelector(config.submitButtonSelector);
-  submitButton.disabled = state;
+  if (inputs.every((item) => item.validity.valid)) {
+    submitButton.disabled = false;
+    submitButton.classList.remove(config.inactiveButtonClass);
+  } else {
+    submitButton.disabled = true;
+    submitButton.classList.add(config.inactiveButtonClass);
+  }
 }
 
 function checkInputValidity(input, config) {
   if (input.validity.valid) {
     //esto es válido
-    toggleButton(input.form, config, false);
+
     //hide error
-    hideError(input.dataset.target, config);
+    hideError(input.form, `#input__error-${input.name}`, config);
   } else {
     //esto es inválido
-    toggleButton(input.form, config, true);
     //show error
-    showError(input.dataset.target, config, input.validationMessage);
+    showError(
+      input.form,
+      `#input__error-${input.name}`,
+      config,
+      input.validationMessage
+    );
     //showError("input__error-job", config, input.validationMessage);
     //showError("input__error-title", "Please fill out this field", config);
     //showError("input__error-url", "Please enter a web url", config);
   }
+  toggleButton(input.form, config);
 }
 
 function enableValidation(config) {
@@ -196,13 +218,14 @@ function enableValidation(config) {
       e.preventDefault();
     });
 
-    const inputs = form.querySelectorAll(config.inputSelector);
+    const inputs = Array.from(form.querySelectorAll(config.inputSelector));
 
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
         checkInputValidity(input, config);
       });
     });
+    toggleButton(form, config);
   });
 }
 
@@ -212,18 +235,6 @@ enableValidation({
   inputSelector: ".popup__input",
   submitButtonSelector: ".button_submit",
   inactiveButtonClass: "button__submit_disabled",
-  //inputErrorClass: "popup__input_error",
-  errorClass: ".popup__inputerror",
+  inputErrorClass: "popup__input_error",
+  errorClass: ".popup__input_error",
 });
-
-//____________________ 5th version
-
-/* form.addEventListener("input", (e) => {
-  const target = e.target;
-  cosnt errorClass = form.querySelector()
-  if (target.validity.valid) {
-    target.classList.remove(popup__input_error);
-  } else {
-    target.classList.add(popup__input_error);
-  }
-}); */

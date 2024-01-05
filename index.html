@@ -69,27 +69,25 @@
             <fieldset class="popup__set">
               <input
                 type="text"
-                name="input-name"
+                name="name"
                 id="input-name"
                 class="popup__input popup__input-name"
                 placeholder="Name"
-                required
                 minlength="2"
                 maxlength="40"
-                data-target="#input__error-name"
+                required
               />
               <span class="popup__input_error" id="input__error-name"></span>
               <input
                 type="text"
-                name="input-job"
+                name="job"
                 º
                 id="input-job"
                 class="popup__input popup__input-job"
                 placeholder="Job"
-                required
                 minlength="2"
                 maxlength="200"
-                data-target="#input__error-job"
+                required
               />
               <span class="popup__input_error" id="input__error-job"></span>
             </fieldset>
@@ -120,27 +118,28 @@
             <fieldset class="popup__set">
               <input
                 type="text"
-                name="input-title"
+                name="title"
                 id="input-title"
                 class="popup__input popup__input-title"
                 placeholder="Title"
-                required
                 minlength="2"
                 maxlength="30"
-                data-target="#input__error-title"
+                required
               />
               <span class="popup__input_error" id="input__error-title"></span>
               <input
                 type="url"
-                name="input-image"
+                name="url"
                 id="input-image"
                 class="popup__input popup__input-image"
                 placeholder="Image URL"
-                required
-                data-target="#input__error-url"
                 minlength="6"
+                required
               />
-              <span class="popup__input_url" id="input__error-image"></span>
+              <span
+                class="popup__input_error popup__input_url"
+                id="input__error-url"
+              ></span>
             </fieldset>
             <fieldset class="popup__set">
               <button
