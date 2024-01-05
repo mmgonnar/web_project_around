@@ -1,5 +1,5 @@
 import "./validate.js";
-//VARIABLES
+//VARIABLE
 const buttonEdit = document.querySelector(".button_edit");
 const popupProfile = document.querySelector(".popup_edit");
 const popupOverlayProfile = popupProfile.querySelector(".popup__overlay");
@@ -25,16 +25,13 @@ const popupImageTitle = document.querySelector(".popup__title_img");
 const popupOverlay = document.querySelector(".popup__overlay");
 const container = document.querySelector(".cards");
 const overlays = [popupOverlayProfile, popupOverlayAdd, popupOverlayImage];
-//const buttons = [];
-
 const form = document.querySelector(".popup__form");
 
-//FORM
-
+//Adds value to inputs
 inputName.value = profileName.textContent;
 inputJob.value = profileJob.textContent;
 
-//Initial Cards
+//Array with all initial cards
 const initialCards = [
   {
     name: "Chicago",
@@ -62,19 +59,21 @@ const initialCards = [
   },
 ];
 
+//Close popup
 function popupButtonClose(popupElement) {
   togglePopup(popupElement);
 }
-
+//Hide or shows popups
 function togglePopup(popup) {
   popup.classList.toggle("popup_show");
 }
 
+//Creates initial cards
 initialCards.forEach(function (card) {
   createCard(card.name, card.link);
 });
 
-//Crear Card
+//Creates cards
 function createCard(title, link) {
   const template = document.querySelector("#cards-template").content;
   const card = template.querySelector(".card").cloneNode(true);
@@ -106,10 +105,12 @@ function createCard(title, link) {
     popupImageTitle.textContent = cardTitle.textContent;
   });
 }
-//Form Validator
-
+//EVENT LISTENERS
+//Sends profile form info
 profileForm.addEventListener("submit", function (event) {
   event.preventDefault();
+  inputName.value = profileName.textContent;
+  inputJob.value = profileJob.textContent;
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
   profileForm.reset();
@@ -144,7 +145,7 @@ addForm.addEventListener("submit", function (event) {
   popupButtonClose(popupAdd);
 });
 
-//close with esc
+//close modal with esc key
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     const popups = document.querySelectorAll(".popup");
@@ -156,12 +157,10 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-//close with click outside modal
+//Close with click outside modal
 overlays.forEach(function (overlay) {
   overlay.addEventListener("click", function (event) {
     const openPopup = overlay.closest(".popup");
     togglePopup(openPopup);
   });
 });
-
-//----------------------- Validation

@@ -67,7 +67,8 @@
           <span class="popup__title">Edit profile</span>
           <form class="popup__form" id="form-edit-profile" novalidate>
             <fieldset class="popup__set">
-              <input
+              <div class="popup__container_input">
+                <input
                 type="text"
                 name="name"
                 id="input-name"
@@ -78,7 +79,9 @@
                 required
               />
               <span class="popup__input_error" id="input__error-name"></span>
-              <input
+              </div>
+              <div class="popup__container_input">
+                <input
                 type="text"
                 name="job"
                 º
@@ -90,6 +93,7 @@
                 required
               />
               <span class="popup__input_error" id="input__error-job"></span>
+              </div>
             </fieldset>
             <fieldset class="popup__set">
               <button
@@ -116,18 +120,20 @@
             novalidate
           >
             <fieldset class="popup__set">
+             <div class="popup__container_input">
               <input
-                type="text"
-                name="title"
-                id="input-title"
-                class="popup__input popup__input-title"
-                placeholder="Title"
-                minlength="2"
-                maxlength="30"
-                required
-              />
-              <span class="popup__input_error" id="input__error-title"></span>
-              <input
+              type="text"
+              name="title"
+              id="input-title"
+              class="popup__input popup__input-title"
+              placeholder="Title"
+              minlength="2"
+              maxlength="30"
+              required
+            />
+            <span class="popup__input_error" id="input__error-title"></span></div>
+              <div class="popup__container_input">
+                <input
                 type="url"
                 name="url"
                 id="input-image"
@@ -140,6 +146,7 @@
                 class="popup__input_error popup__input_url"
                 id="input__error-url"
               ></span>
+              </div>
             </fieldset>
             <fieldset class="popup__set">
               <button

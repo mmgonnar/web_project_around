@@ -101,34 +101,32 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 2.5em;
+  margin-top: 1.5em;
+  gap: 2em;
 }
 
 .popup__set {
   border: none;
   width: 100%;
   text-align: center;
+  padding: 0;
+  position: relative;
+  display: flex;
+  gap: 3em;
+  flex-direction: column;
 }
 
 .popup__input {
   border: none;
   border-bottom: 1px solid #888;
   width: 100%;
-  padding-bottom: 0.7em;
+  padding-bottom: 0.2em;
   /* margin-bottom: 2em; */
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-/*
-.popup__input:invalid {
-  border-bottom: 1px solid red;
-}
-*/
 
-.popup__input_error {
-  border-bottom: 1px solid red;
-}
 /* .popup__input:valid {
   border-bottom: 1px solid green;
 } */
@@ -138,9 +136,18 @@
   color: red;
   font-size: 12px;
   font-weight: 400;
-  padding-top: 7px;
+  padding-top: 2px;
   line-height: 9px;
+  top: 100%;
+  position: absolute;
+  width: 100%;
+  left: 0;
   text-align: left;
+  line-height: 16px;
+}
+
+.popup__container_input {
+  position: relative;
 }
 
 @media screen and (min-width: 600px) {
