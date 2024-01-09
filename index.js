@@ -136,6 +136,9 @@ buttonCloseAdd.addEventListener("click", () => popupButtonClose(popupAdd));
 
 buttonCloseImage.addEventListener("click", () => popupButtonClose(popupImage));
 
+document.addEventListener("keydown", keydownhandler); //Event for keydown esc
+document.removeEventListener("keydown", keydownHandler); //Remove event for keydown esc
+
 addForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -146,7 +149,7 @@ addForm.addEventListener("submit", function (event) {
 });
 
 //close modal with esc key
-document.addEventListener("keydown", function (event) {
+function keydownhandler(event) {
   if (event.key === "Escape") {
     const popups = document.querySelectorAll(".popup");
     popups.forEach(function (popup) {
@@ -155,7 +158,7 @@ document.addEventListener("keydown", function (event) {
       }
     });
   }
-});
+}
 
 //Close with click outside modal
 overlays.forEach(function (overlay) {
