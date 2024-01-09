@@ -46,7 +46,7 @@ Around The U.S. is a simple web page that displays the profile of an explorer na
 - [BEM Validator](https://nglazov.github.io/bem-validator-page/)
 - [Autoprefixer](https://autoprefixer.github.io/)
 - [HTML Validator](https://validator.w3.org/)
-- [Project link](https://epulvis.github.io/web_project_around)
+- [Project link](https://mmgonnar.github.io/web_project_around/)
 
 **Figma**
 

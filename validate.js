@@ -16,6 +16,7 @@ function showError(form, errorSelector, config, errorMessage) {
 function toggleButton(form, config) {
   const inputs = Array.from(form.querySelectorAll(config.inputSelector));
   const submitButton = form.querySelector(config.submitButtonSelector);
+
   if (inputs.every((item) => item.validity.valid)) {
     submitButton.disabled = false;
     submitButton.classList.remove(config.inactiveButtonClass);
@@ -24,6 +25,7 @@ function toggleButton(form, config) {
     submitButton.classList.add(config.inactiveButtonClass);
   }
 }
+console.log(toggleButton);
 
 //Validate inputs
 function checkInputValidity(input, config) {
@@ -65,6 +67,6 @@ enableValidation({
   inputSelector: ".popup__input",
   submitButtonSelector: ".button_submit",
   inactiveButtonClass: "button_submit-disabled",
-  inputErrorClass: "popup__input_error",
-  errorClass: ".popup__input_error",
+  inputErrorClass: "popup__error",
+  errorClass: ".popup__error",
 });

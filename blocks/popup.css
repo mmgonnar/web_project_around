@@ -127,10 +127,6 @@
   overflow: hidden;
 }
 
-/* .popup__input:valid {
-  border-bottom: 1px solid green;
-} */
-
 .popup__error {
   margin: 0;
   color: red;
