@@ -1,6 +1,5 @@
 .button {
   cursor: pointer;
-  box-sizing: border-box;
 }
 
 .button:hover {
@@ -62,7 +61,7 @@
   margin: auto;
 }
 
-.button__submit-disabled {
+.button_submit-disabled {
   border: 1px solid #cccccc;
   opacity: 0.5;
   cursor: default;
@@ -84,6 +83,12 @@
 
 .button_delete:hover {
   transform: scale(1.2);
+}
+
+.button_link {
+  text-decoration: none;
+  color: rgba(84, 84, 84, 1);
+  cursor: pointer;
 }
 
 @media screen and (min-width: 600px) {
