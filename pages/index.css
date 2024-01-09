@@ -1,17 +1,17 @@
 @import url(./vendor/normalize.css);
-@import url(./fonts/fonts.css);
+@import url(../fonts/fonts.css);
 /* Header */
-@import url(./blocks/header.css);
+@import url(../blocks/header.css);
 /* Profile */
-@import url(./blocks/profile.css);
+@import url(../blocks/profile.css);
 /* Button */
-@import url(./blocks/button.css);
+@import url(../blocks/button.css);
 /* Cards */
-@import url(./blocks/cards.css);
+@import url(../blocks/cards.css);
 /* Footer */
-@import url(./blocks/footer.css);
+@import url(../blocks/footer.css);
 /* PopUp */
-@import url(./blocks/popup.css);
+@import url(../blocks/popup.css);
 
 * {
   box-sizing: border-box;
