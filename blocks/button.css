@@ -1,3 +1,12 @@
+.button {
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.button:hover {
+  opacity: 0.6;
+}
+
 .button_edit {
   background: url(../../images/edit_button.svg) no-repeat center;
   width: 24px;

@@ -36,20 +36,3 @@ body {
   flex-wrap: wrap;
   align-content: center;
 }
-
-.button {
-  cursor: pointer;
-  box-sizing: border-box;
-  /* border: none; */
-  /* border: 1px solid #fff; */
-}
-
-.button:hover {
-  opacity: 0.6;
-}
-
-.link {
-  text-decoration: none;
-  color: rgba(84, 84, 84, 1);
-  cursor: pointer;
-}
