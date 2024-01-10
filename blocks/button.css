@@ -1,3 +1,11 @@
+.button {
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.6;
+}
+
 .button_edit {
   background: url(../../images/edit_button.svg) no-repeat center;
   width: 24px;
@@ -51,6 +59,7 @@
   height: 46px;
   border-radius: 2px;
   margin: auto;
+  border: none;
 }
 
 .button_submit-disabled {
@@ -75,6 +84,12 @@
 
 .button_delete:hover {
   transform: scale(1.2);
+}
+
+.button_link {
+  text-decoration: none;
+  color: rgba(84, 84, 84, 1);
+  cursor: pointer;
 }
 
 @media screen and (min-width: 600px) {

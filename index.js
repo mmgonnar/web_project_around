@@ -59,8 +59,8 @@ const initialCards = [
   },
 ];
 
-//Close popup
-function popupButtonClose(popupElement) {
+//Switch popup
+function popupButtonSwitch(popupElement) {
   togglePopup(popupElement);
 }
 //Hide or shows popups
@@ -101,7 +101,9 @@ function createCard(title, link) {
   const buttonImage = card.querySelector(".card__image");
   buttonImage.addEventListener("click", function () {
     popupImageElement.src = cardImage.src;
-    popupButtonClose(popupImage);
+    popupButtonSwitch(popupImage);
+    popupImageElement.setAttribute("alt", title);
+
     popupImageTitle.textContent = cardTitle.textContent;
   });
 }
@@ -109,12 +111,10 @@ function createCard(title, link) {
 //Sends profile form info
 profileForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  inputName.value = profileName.textContent;
-  inputJob.value = profileJob.textContent;
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
   profileForm.reset();
-  popupButtonClose(popupProfile);
+  popupButtonSwitch(popupProfile);
 });
 
 /* const buttons =[buttonEdit, buttonClose, buttonAdd, buttonCloseAdd, buttonCloseImage];
@@ -126,15 +126,28 @@ buttons.forEach(fucntion (buttons){
   })
 }) */
 
-buttonEdit.addEventListener("click", () => popupButtonClose(popupProfile));
+buttonEdit.addEventListener("click", () => {
+  inputName.value = profileName.textContent;
+  inputJob.value = profileJob.textContent;
+  popupButtonSwitch(popupProfile);
+});
 
-buttonClose.addEventListener("click", () => popupButtonClose(popupProfile));
+buttonClose.addEventListener("click", () => {
+  popupButtonSwitch(popupProfile);
+  document.removeEventListener("keydown", keydownHandler);
+});
 
-buttonAdd.addEventListener("click", () => popupButtonClose(popupAdd));
+buttonAdd.addEventListener("click", () => popupButtonSwitch(popupAdd));
 
-buttonCloseAdd.addEventListener("click", () => popupButtonClose(popupAdd));
+buttonCloseAdd.addEventListener("click", () => {
+  popupButtonSwitch(popupAdd);
+  document.removeEventListener("keydown", keydownHandler);
+});
 
-buttonCloseImage.addEventListener("click", () => popupButtonClose(popupImage));
+buttonCloseImage.addEventListener("click", () => {
+  popupButtonSwitch(popupImage);
+  document.removeEventListener("keydown", keydownHandler);
+});
 
 addForm.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -142,11 +155,11 @@ addForm.addEventListener("submit", function (event) {
   createCard(inputTitle.value, inputImage.value);
 
   addForm.reset();
-  popupButtonClose(popupAdd);
+  popupButtonSwitch(popupAdd);
 });
 
 //close modal with esc key
-document.addEventListener("keydown", function (event) {
+/* document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     const popups = document.querySelectorAll(".popup");
     popups.forEach(function (popup) {
@@ -155,7 +168,20 @@ document.addEventListener("keydown", function (event) {
       }
     });
   }
-});
+}); */
+
+function keydownHandler(event) {
+  if (event.key === "Escape") {
+    const popups = document.querySelectorAll(".popup");
+    popups.forEach(function (popup) {
+      if (popup.classList.contains("popup_show")) {
+        togglePopup(popup);
+      }
+    });
+  }
+}
+
+document.addEventListener("keydown", keydownHandler); //Event for keydown esc
 
 //Close with click outside modal
 overlays.forEach(function (overlay) {

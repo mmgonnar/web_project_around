@@ -13,7 +13,7 @@
       content="Around The U.S. is a simple web page that displays the profile of an explorer named Jacques Cousteau."
     />
     <meta name="keywords" content="html, css, javascript" />
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" href="./images/favicon_nd.ico" />
     <title>Around The U.S.</title>
   </head>
@@ -49,11 +49,11 @@
     <!--- Footer --->
     <footer class="footer">
       <div class="footer__text">
-        <span class="footer__copyright">© 2023 Around The U.S. |</span>
+        <span class="footer__copyright">&#169 2023 Around The U.S. |</span>
         <a
           href="https://github.com/mmgonnar"
           target="_blank"
-          class="link footer__link"
+          class="footer__link"
           >Mariela González</a
         >
       </div>
@@ -77,6 +77,7 @@
                   minlength="2"
                   maxlength="40"
                   required
+                  autocomplete="on"
                 />
                 <span class="popup__error" id="input__error-name"></span>
               </div>
@@ -91,6 +92,7 @@
                   minlength="2"
                   maxlength="200"
                   required
+                  autocomplete="on"
                 />
                 <span class="popup__error" id="input__error-job"></span>
               </div>
@@ -130,6 +132,7 @@
                   minlength="2"
                   maxlength="30"
                   required
+                  autocomplete="on"
                 />
                 <span class="popup__error" id="input__error-title"></span>
               </div>
@@ -142,6 +145,7 @@
                   placeholder="Image URL"
                   minlength="6"
                   required
+                  autocomplete="on"
                 />
                 <span class="popup__error" id="input__error-url"></span>
               </div>
@@ -173,12 +177,11 @@
         <img class="card__image" />
         <div class="card__info">
           <h6 class="card__title">Chicago</h6>
-          <button id="buton-like" class="button button_like"></button>
-          <button id="button-delete" class="button button_delete"></button>
+          <button class="button button_like"></button>
+          <button class="button button_delete"></button>
         </div>
       </div>
     </template>
     <script type="module" src="./index.js"></script>
-    s
   </body>
 </html>
