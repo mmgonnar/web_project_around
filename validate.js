@@ -25,7 +25,6 @@ function toggleButton(form, config) {
     submitButton.classList.add(config.inactiveButtonClass);
   }
 }
-console.log(toggleButton);
 
 //Validate inputs
 function checkInputValidity(input, config) {
@@ -61,12 +60,13 @@ function enableValidation(config) {
     toggleButton(form, config);
   });
 }
+
 //Starts validation of the form with the provided settings.
 enableValidation({
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".button_submit",
   inactiveButtonClass: "button_submit-disabled",
-  inputErrorClass: "popup__error",
-  errorClass: ".popup__error",
+  inputErrorClass: "popup__input_has-error",
+  errorClass: "popup__error",
 });

@@ -102,6 +102,8 @@ function createCard(title, link) {
   buttonImage.addEventListener("click", function () {
     popupImageElement.src = cardImage.src;
     popupButtonSwitch(popupImage);
+    popupImageElement.setAttribute("alt", title);
+
     popupImageTitle.textContent = cardTitle.textContent;
   });
 }
@@ -109,8 +111,6 @@ function createCard(title, link) {
 //Sends profile form info
 profileForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  inputName.value = profileName.textContent;
-  inputJob.value = profileJob.textContent;
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
   profileForm.reset();
@@ -126,7 +126,11 @@ buttons.forEach(fucntion (buttons){
   })
 }) */
 
-buttonEdit.addEventListener("click", () => popupButtonSwitch(popupProfile));
+buttonEdit.addEventListener("click", () => {
+  inputName.value = profileName.textContent;
+  inputJob.value = profileJob.textContent;
+  popupButtonSwitch(popupProfile);
+});
 
 buttonClose.addEventListener("click", () => {
   popupButtonSwitch(popupProfile);
