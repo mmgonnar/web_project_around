@@ -159,17 +159,6 @@ addForm.addEventListener("submit", function (event) {
 });
 
 //close modal with esc key
-/* document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape") {
-    const popups = document.querySelectorAll(".popup");
-    popups.forEach(function (popup) {
-      if (popup.classList.contains("popup_show")) {
-        togglePopup(popup);
-      }
-    });
-  }
-}); */
-
 function keydownHandler(event) {
   if (event.key === "Escape") {
     const popups = document.querySelectorAll(".popup");
