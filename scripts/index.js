@@ -102,7 +102,7 @@ function createCard(title, link) {
   buttonImage.addEventListener("click", function () {
     popupImageElement.src = cardImage.src;
     popupButtonSwitch(popupImage);
-    popupImageElement.setAttribute("alt", "A beautiful landscape of " + title);
+    popupImageElement.setAttribute("alt", title);
 
     popupImageTitle.textContent = cardTitle.textContent;
   });
