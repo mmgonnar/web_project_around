@@ -60,8 +60,11 @@ const initialCards = [
 ];
 
 //Creates initial cards
-initialCards.forEach(function (card) {
-  const card = new Card(item.name, item.link, "#cards-template");
+initialCards.forEach(function ({ name, link }) {
+  const cardTemplate = new Card(name, link, "#cards-template");
+
+  const cardElement = cardTemplate.generateCard();
+  container.prepend(cardElement);
 });
 
 //Creates initial cards
