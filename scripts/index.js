@@ -67,9 +67,73 @@ initialCards.forEach(function ({ name, link }) {
   container.prepend(cardElement);
 });
 
-//Creates initial cards
-/* initialCards.forEach(item => {
-  const card = new Card(item.name, item.link, "#cards-template");
+//Switch popup
+function popupButtonSwitch(popupElement) {
+  togglePopup(popupElement);
+}
+//Hide or shows popups
+function togglePopup(popup) {
+  popup.classList.toggle("popup_show");
+}
 
-  elementSection.prepend(newCard.generateCard());
-}); */
+profileForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  profileName.textContent = inputName.value;
+  profileJob.textContent = inputJob.value;
+  profileForm.reset();
+  popupButtonSwitch(popupProfile);
+});
+
+buttonEdit.addEventListener("click", () => {
+  inputName.value = profileName.textContent;
+  inputJob.value = profileJob.textContent;
+  popupButtonSwitch(popupProfile);
+});
+
+buttonClose.addEventListener("click", () => {
+  popupButtonSwitch(popupProfile);
+  document.removeEventListener("keydown", keydownHandler);
+});
+
+buttonAdd.addEventListener("click", () => popupButtonSwitch(popupAdd));
+
+buttonCloseAdd.addEventListener("click", () => {
+  popupButtonSwitch(popupAdd);
+  document.removeEventListener("keydown", keydownHandler);
+});
+
+buttonCloseImage.addEventListener("click", () => {
+  popupButtonSwitch(popupImage);
+  document.removeEventListener("keydown", keydownHandler);
+});
+
+addForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  createCard(inputTitle.value, inputImage.value);
+
+  addForm.reset();
+  popupButtonSwitch(popupAdd);
+});
+
+//close modal with esc key
+function keydownHandler(event) {
+  if (event.key === "Escape") {
+    const popups = document.querySelectorAll(".popup");
+    popups.forEach(function (popup) {
+      if (popup.classList.contains("popup_show")) {
+        togglePopup(popup);
+      }
+    });
+  }
+}
+
+document.addEventListener("keydown", keydownHandler); //Event for keydown esc
+
+//Close with click outside modal
+overlays.forEach(function (overlay) {
+  overlay.addEventListener("click", function (event) {
+    const openPopup = overlay.closest(".popup");
+    togglePopup(openPopup);
+  });
+});

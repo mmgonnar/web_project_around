@@ -117,15 +117,6 @@ profileForm.addEventListener("submit", function (event) {
   popupButtonSwitch(popupProfile);
 });
 
-/* const buttons =[buttonEdit, buttonClose, buttonAdd, buttonCloseAdd, buttonCloseImage];
-
-buttons.forEach(function (buttons){
-  button.addEventListener("click", function (event) {
-    const popupClose = button.closest(".button_close");
-    togglePopup(popupClose)
-  })
-}) */
-
 buttonEdit.addEventListener("click", () => {
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
