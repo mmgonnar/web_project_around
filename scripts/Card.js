@@ -28,9 +28,10 @@ export default class Card {
       buttonLike.classList.toggle("liked");
     });
 
+    const buttonDelete = card.querySelector(".button_delete");
     buttonDelete.addEventListener("click", () => {
       const card = buttonDelete.closest(".card");
-      card.remove();
+      card.remove(this.cardElement);
     });
 
     const buttonImage = cardElement.querySelector(".card__image");

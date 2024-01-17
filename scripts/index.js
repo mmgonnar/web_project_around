@@ -1,6 +1,6 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
-import ( validationConfig ) from "./utils.js";
+import { validationConfig } from "./utils.js";
 
 const buttonEdit = document.querySelector(".button_edit");
 const popupProfile = document.querySelector(".popup_edit");
@@ -15,19 +15,19 @@ const profileJob = document.querySelector(".profile__job");
 const profileForm = document.querySelector(".popup__form");
 const inputName = document.querySelector(".popup__input-name");
 const inputJob = document.querySelector(".popup__input-job");
-const addTitle = document.querySelector(".card__title");
-const addImage = document.querySelector(".card__image");
+//const addTitle = document.querySelector(".card__title");
+//const addImage = document.querySelector(".card__image");
 const addForm = document.querySelector(".popup__form_add");
 const inputTitle = document.querySelector(".popup__input-title");
 const inputImage = document.querySelector(".popup__input-image");
 const popupImage = document.querySelector(".popup_image");
 const popupOverlayImage = popupImage.querySelector(".popup__overlay");
 const buttonCloseImage = popupImage.querySelector(".button_close");
-const popupImageTitle = document.querySelector(".popup__title_img");
-const popupOverlay = document.querySelector(".popup__overlay");
+//const popupImageTitle = document.querySelector(".popup__title_img");
+//const popupOverlay = document.querySelector(".popup__overlay");
 const container = document.querySelector(".cards");
 const overlays = [popupOverlayProfile, popupOverlayAdd, popupOverlayImage];
-const form = document.querySelector(".popup__form");
+//const form = document.querySelector(".popup__form");
 
 //Adds value to inputs
 inputName.value = profileName.textContent;
@@ -139,3 +139,6 @@ overlays.forEach(function (overlay) {
     togglePopup(openPopup);
   });
 });
+
+//const new FormValidator1(validationConfig, profileForm);
+//formValidator1.enableValidation
