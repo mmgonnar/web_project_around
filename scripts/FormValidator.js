@@ -32,24 +32,26 @@ export default class FormValidator {
       submitButton.disabled = true;
       submitButton.classList.add(config.inactiveButtonClass);
     }
+  }
 
-    //Validate inputs
-    _checkInputValidity(input, config);
+  //Validate inputs
+  _checkInputValidity(input, config) {
     if (input.validity.valid) {
-      this.hideError(input.form, `#input__error-${input.name}`, config);
+      this._hideError(input.form, `#input__error-${input.name}`, config);
     } else {
-      this.showError(
+      this._showError(
         input.form,
         `#input__error-${input.name}`,
-        config,
+        this.validationConfig,
         input.validationMessage
       );
 
-      this.toggleButton(input.form);
+      this._toggleButton(input.form, config);
     }
+  }
 
-    //Enable form validation
-    _enableValidation(config);
+  //Enable form validation
+  enableValidation(config) {
     const forms = Array.from(document.forms);
 
     forms.forEach((form) => {
@@ -63,10 +65,10 @@ export default class FormValidator {
 
       inputs.forEach((input) => {
         input.addEventListener("input", () => {
-          this.checkInputValidity(input);
+          this._checkInputValidity(input, this.validationConfig);
         });
       });
-      this.toggleButton(form);
+      this._toggleButton(form, this.validationConfig);
     });
   }
 }

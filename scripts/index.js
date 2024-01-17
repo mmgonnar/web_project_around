@@ -1,6 +1,6 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
-import { validationConfig } from "./utils.js";
+import { validationConfig, popupButtonSwitch } from "./utils.js";
 
 const buttonEdit = document.querySelector(".button_edit");
 const popupProfile = document.querySelector(".popup_edit");
@@ -69,10 +69,6 @@ initialCards.forEach(function ({ name, link }) {
   container.prepend(cardElement);
 });
 
-//Switch popup
-function popupButtonSwitch(popupElement) {
-  togglePopup(popupElement);
-}
 //Hide or shows popups
 function togglePopup(popup) {
   popup.classList.toggle("popup_show");
@@ -119,7 +115,7 @@ addForm.addEventListener("submit", function (event) {
     inputImage.value,
     "#cards-template"
   );
-  container.prepend(cardTemplate.generateCard);
+  container.prepend(cardTemplate.generateCard());
 
   addForm.reset();
   popupButtonSwitch(popupAdd);
@@ -147,5 +143,8 @@ overlays.forEach(function (overlay) {
   });
 });
 
-//const new FormValidator1(validationConfig, profileForm);
-//formValidator1.enableValidation
+const formValidatorProfile = new FormValidator(validationConfig, profileForm);
+formValidatorProfile.enableValidation();
+
+const formValidatorNewCard = new FormValidator(validationConfig, addForm);
+formValidatorNewCard.enableValidation();

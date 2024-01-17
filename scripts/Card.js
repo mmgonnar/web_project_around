@@ -1,4 +1,4 @@
-import { popupImageElement } from "./utils.js";
+import { popupButtonSwitch } from "./utils.js";
 
 export default class Card {
   constructor(name, link, templateSelector) {
@@ -17,9 +17,13 @@ export default class Card {
   }
 
   openPopup() {
-    const cardImage = card.querySelector(".card__image");
-    const cardTitle = card.querySelector(".card__title");
-    const popupImageElement = document.querySelector(".popup__element");
+    const cardImage = this._cardElement.querySelector(".card__image");
+    const cardTitle = this._cardElement.querySelector(".card__title");
+    const popupImageElement = document.querySelector(".popup_image");
+    cardImage.src = this._link;
+    popupButtonSwitch(popupImageElement);
+    cardImage.setAttribute("alt", this._name);
+    cardTitle.textContent = cardTitle.textContent;
   }
 
   _setEventListeners(cardElement) {
@@ -36,11 +40,7 @@ export default class Card {
 
     const buttonImage = cardElement.querySelector(".card__image");
     buttonImage.addEventListener("click", () => {
-      popupImageElement.src = cardImage.src;
-      popupButtonSwitch(popupImage);
-      popupImageElement.setAttribute("alt", title);
-
-      popupImageTitle.textContent = cardTitle.textContent;
+      this.openPopup();
     });
   }
 
@@ -57,6 +57,7 @@ export default class Card {
   generateCard() {
     //
     const cardElement = this.getTemplate();
+    this._cardElement = cardElement;
 
     // Esta es una etiqueta <img />
     const cardImage = cardElement.querySelector(".card__image");
