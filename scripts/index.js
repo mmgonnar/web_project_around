@@ -1,4 +1,6 @@
 import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
+import ( validationConfig ) from "./utils.js";
 
 const buttonEdit = document.querySelector(".button_edit");
 const popupProfile = document.querySelector(".popup_edit");
