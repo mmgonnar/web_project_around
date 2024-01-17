@@ -112,7 +112,14 @@ buttonCloseImage.addEventListener("click", () => {
 addForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  createCard(inputTitle.value, inputImage.value);
+  //createCard(inputTitle.value, inputImage.value);
+
+  const cardTemplate = new Card(
+    inputTitle.value,
+    inputImage.value,
+    "#cards-template"
+  );
+  container.prepend(cardTemplate.generateCard);
 
   addForm.reset();
   popupButtonSwitch(popupAdd);

@@ -28,10 +28,10 @@ export default class Card {
       buttonLike.classList.toggle("liked");
     });
 
-    const buttonDelete = card.querySelector(".button_delete");
+    const buttonDelete = cardElement.querySelector(".button_delete");
     buttonDelete.addEventListener("click", () => {
       const card = buttonDelete.closest(".card");
-      card.remove(this.cardElement);
+      card.remove();
     });
 
     const buttonImage = cardElement.querySelector(".card__image");
@@ -43,6 +43,16 @@ export default class Card {
       popupImageTitle.textContent = cardTitle.textContent;
     });
   }
+
+  closePopup() {}
+
+  /**
+    generateCard() {
+      this._templateSelector = this.getTemplate();
+      this.setEventListeners();
+      return this.?
+    }
+  */
 
   generateCard() {
     //

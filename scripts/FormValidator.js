@@ -36,14 +36,16 @@ export default class FormValidator {
     //Validate inputs
     _checkInputValidity(input, config);
     if (input.validity.valid) {
-      hideError(input.form, `#input__error-${input.name}`, config);
+      this.hideError(input.form, `#input__error-${input.name}`, config);
     } else {
-      showError(
+      this.showError(
         input.form,
         `#input__error-${input.name}`,
         config,
         input.validationMessage
       );
+
+      this.toggleButton(input.form);
     }
 
     //Enable form validation
@@ -55,14 +57,16 @@ export default class FormValidator {
         e.preventDefault();
       });
 
-      const inputs = Array.from(form.querySelectorAll(config.inputSelector));
+      const inputs = Array.from(
+        form.querySelectorAll(this.validationConfig.inputSelector)
+      );
 
       inputs.forEach((input) => {
         input.addEventListener("input", () => {
-          checkInputValidity(input, config);
+          this.checkInputValidity(input);
         });
       });
-      toggleButton(form, config);
+      this.toggleButton(form);
     });
   }
 }
