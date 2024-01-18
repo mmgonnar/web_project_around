@@ -20,19 +20,14 @@ const profileJob = document.querySelector(".profile__job");
 const profileForm = document.querySelector(".popup__form");
 const inputName = document.querySelector(".popup__input-name");
 const inputJob = document.querySelector(".popup__input-job");
-//const addTitle = document.querySelector(".card__title");
-//const addImage = document.querySelector(".card__image");
 const addForm = document.querySelector(".popup__form_add");
 const inputTitle = document.querySelector(".popup__input-title");
 const inputImage = document.querySelector(".popup__input-image");
 const popupImage = document.querySelector(".popup_image");
 const popupOverlayImage = popupImage.querySelector(".popup__overlay");
 const buttonCloseImage = popupImage.querySelector(".button_close");
-//const popupImageTitle = document.querySelector(".popup__title_img");
-//const popupOverlay = document.querySelector(".popup__overlay");
 const container = document.querySelector(".cards");
 const overlays = [popupOverlayProfile, popupOverlayAdd, popupOverlayImage];
-//const form = document.querySelector(".popup__form");
 
 //Adds value to inputs
 inputName.value = profileName.textContent;

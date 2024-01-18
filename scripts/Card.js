@@ -21,9 +21,10 @@ export default class Card {
     const popupImageImg = popupImageElement.querySelector(".popup__element");
     const popupImageTitle = popupImageElement.querySelector(".popup__title");
     popupImageImg.src = this._link;
-    popupButtonSwitch(popupImageElement);
+
     popupImageImg.setAttribute("alt", this._name);
     popupImageTitle.textContent = this._name;
+    popupButtonSwitch(popupImageElement);
   }
 
   _setEventListeners(cardElement) {
@@ -51,7 +52,8 @@ export default class Card {
 
     const cardImage = cardElement.querySelector(".card__image");
 
-    const cardTitle = cardElement.querySelector(".card__title");
+    //const cardTitle = cardElement.querySelector(".card__title");
+    const cardTitle = cardElement.querySelector(".card__title-strong");
 
     cardImage.src = this._link;
     cardImage.alt = this._name;

@@ -6,9 +6,9 @@ export function togglePopup(popup) {
   //document.addEventListener("keydown", keydownHandler); //Event for keydown esc
   //document.removeEventListener("keydown", keydownHandler);
   if (popup.classList.contains("popup_show")) {
-    popup.addEventListener("keydown", keydownHandler);
+    document.addEventListener("keydown", keydownHandler);
   } else {
-    popup.removeEventListener("keydown", keydownHandler);
+    document.removeEventListener("keydown", keydownHandler);
   }
 }
 
