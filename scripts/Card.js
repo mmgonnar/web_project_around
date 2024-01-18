@@ -24,7 +24,7 @@ export default class Card {
     const popupImageTitle = popupImageElement.querySelector(".popup__title");
     popupImageImg.src = this._link;
     popupButtonSwitch(popupImageElement);
-    //cardImage.setAttribute("alt", this._name);
+    popupImageImg.setAttribute("alt", this._name);
     popupImageTitle.textContent = cardTitle.textContent;
   }
 
