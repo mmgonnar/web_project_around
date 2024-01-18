@@ -51,10 +51,8 @@ export default class Card {
     const cardElement = this.getTemplate();
     this._cardElement = cardElement;
 
-    // Esta es una etiqueta <img />
     const cardImage = cardElement.querySelector(".card__image"); //Etiqueta img
 
-    // Esta es una etiqueta <h6></h6>
     const cardTitle = cardElement.querySelector(".card__title"); //etiqueta h6
 
     // Desarrollo de atributos en <img src="" alt="" />
