@@ -1,6 +1,11 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
-import { validationConfig, popupButtonSwitch } from "./utils.js";
+import {
+  validationConfig,
+  popupButtonSwitch,
+  togglePopup,
+  keydownHandler,
+} from "./utils.js";
 
 const buttonEdit = document.querySelector(".button_edit");
 const popupProfile = document.querySelector(".popup_edit");
@@ -69,11 +74,6 @@ initialCards.forEach(function ({ name, link }) {
   container.prepend(cardElement);
 });
 
-//Hide or shows popups
-function togglePopup(popup) {
-  popup.classList.toggle("popup_show");
-}
-
 profileForm.addEventListener("submit", function (event) {
   event.preventDefault();
   profileName.textContent = inputName.value;
@@ -90,19 +90,19 @@ buttonEdit.addEventListener("click", () => {
 
 buttonClose.addEventListener("click", () => {
   popupButtonSwitch(popupProfile);
-  document.removeEventListener("keydown", keydownHandler);
+  //document.removeEventListener("keydown", keydownHandler);
 });
 
 buttonAdd.addEventListener("click", () => popupButtonSwitch(popupAdd));
 
 buttonCloseAdd.addEventListener("click", () => {
   popupButtonSwitch(popupAdd);
-  document.removeEventListener("keydown", keydownHandler);
+  //document.removeEventListener("keydown", keydownHandler);
 });
 
 buttonCloseImage.addEventListener("click", () => {
   popupButtonSwitch(popupImage);
-  document.removeEventListener("keydown", keydownHandler);
+  //  document.removeEventListener("keydown", keydownHandler);
 });
 
 addForm.addEventListener("submit", function (event) {
@@ -120,20 +120,6 @@ addForm.addEventListener("submit", function (event) {
   addForm.reset();
   popupButtonSwitch(popupAdd);
 });
-
-//close modal with esc key
-function keydownHandler(event) {
-  if (event.key === "Escape") {
-    const popups = document.querySelectorAll(".popup");
-    popups.forEach(function (popup) {
-      if (popup.classList.contains("popup_show")) {
-        togglePopup(popup);
-      }
-    });
-  }
-}
-
-document.addEventListener("keydown", keydownHandler); //Event for keydown esc
 
 //Close with click outside modal
 overlays.forEach(function (overlay) {

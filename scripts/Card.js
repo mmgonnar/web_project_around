@@ -17,8 +17,6 @@ export default class Card {
   }
 
   openPopup() {
-    //const cardImage = this._cardElement.querySelector(".card__image");
-    //const cardTitle = this._cardElement.querySelector(".card__title");
     const popupImageElement = document.querySelector(".popup_image");
     const popupImageImg = popupImageElement.querySelector(".popup__element");
     const popupImageTitle = popupImageElement.querySelector(".popup__title");
@@ -51,15 +49,13 @@ export default class Card {
     const cardElement = this.getTemplate();
     this._cardElement = cardElement;
 
-    const cardImage = cardElement.querySelector(".card__image"); //Etiqueta img
+    const cardImage = cardElement.querySelector(".card__image");
 
-    const cardTitle = cardElement.querySelector(".card__title"); //etiqueta h6
+    const cardTitle = cardElement.querySelector(".card__title");
 
-    // Desarrollo de atributos en <img src="" alt="" />
     cardImage.src = this._link;
     cardImage.alt = this._name;
 
-    // <h6>{this._name}</h6>
     cardTitle.textContent = this._name;
 
     this._setEventListeners(cardElement);
