@@ -51,8 +51,6 @@ export default class Card {
     this._cardElement = cardElement;
 
     const cardImage = cardElement.querySelector(".card__image");
-
-    //const cardTitle = cardElement.querySelector(".card__title");
     const cardTitle = cardElement.querySelector(".card__title-strong");
 
     cardImage.src = this._link;

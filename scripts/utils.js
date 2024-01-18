@@ -3,8 +3,6 @@ export const popupImageElement = document.querySelector(".popup__element");
 //Hide or shows popups
 export function togglePopup(popup) {
   popup.classList.toggle("popup_show");
-  //document.addEventListener("keydown", keydownHandler); //Event for keydown esc
-  //document.removeEventListener("keydown", keydownHandler);
   if (popup.classList.contains("popup_show")) {
     document.addEventListener("keydown", keydownHandler);
   } else {
@@ -24,7 +22,6 @@ export const validationConfig = {
 
 //Switch popup
 export function popupButtonSwitch(popupElement) {
-  //unir con toggle popup
   togglePopup(popupElement);
 }
 
