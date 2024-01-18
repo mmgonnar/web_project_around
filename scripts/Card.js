@@ -18,14 +18,14 @@ export default class Card {
 
   openPopup() {
     //const cardImage = this._cardElement.querySelector(".card__image");
-    const cardTitle = this._cardElement.querySelector(".card__title");
+    //const cardTitle = this._cardElement.querySelector(".card__title");
     const popupImageElement = document.querySelector(".popup_image");
     const popupImageImg = popupImageElement.querySelector(".popup__element");
     const popupImageTitle = popupImageElement.querySelector(".popup__title");
     popupImageImg.src = this._link;
     popupButtonSwitch(popupImageElement);
     popupImageImg.setAttribute("alt", this._name);
-    popupImageTitle.textContent = cardTitle.textContent;
+    popupImageTitle.textContent = this._name;
   }
 
   _setEventListeners(cardElement) {
