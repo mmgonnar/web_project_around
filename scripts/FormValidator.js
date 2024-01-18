@@ -1,5 +1,3 @@
-//import { validationConfig } from "./utils.js";
-
 export default class FormValidator {
   constructor(validationConfig, formElement) {
     this.validationConfig = validationConfig;
@@ -45,9 +43,8 @@ export default class FormValidator {
         this.validationConfig,
         input.validationMessage
       );
-
-      this._toggleButton(input.form, config);
     }
+    this._toggleButton(input.form, config);
   }
 
   //Enable form validation
