@@ -17,13 +17,15 @@ export default class Card {
   }
 
   openPopup() {
-    const cardImage = this._cardElement.querySelector(".card__image");
+    //const cardImage = this._cardElement.querySelector(".card__image");
     const cardTitle = this._cardElement.querySelector(".card__title");
     const popupImageElement = document.querySelector(".popup_image");
-    cardImage.src = this._link;
+    const popupImageImg = popupImageElement.querySelector(".popup__element");
+    const popupImageTitle = popupImageElement.querySelector(".popup__title");
+    popupImageImg.src = this._link;
     popupButtonSwitch(popupImageElement);
-    cardImage.setAttribute("alt", this._name);
-    cardTitle.textContent = cardTitle.textContent;
+    //cardImage.setAttribute("alt", this._name);
+    popupImageTitle.textContent = cardTitle.textContent;
   }
 
   _setEventListeners(cardElement) {
@@ -44,26 +46,16 @@ export default class Card {
     });
   }
 
-  closePopup() {}
-
-  /**
-    generateCard() {
-      this._templateSelector = this.getTemplate();
-      this.setEventListeners();
-      return this.?
-    }
-  */
-
   generateCard() {
     //
     const cardElement = this.getTemplate();
     this._cardElement = cardElement;
 
     // Esta es una etiqueta <img />
-    const cardImage = cardElement.querySelector(".card__image");
+    const cardImage = cardElement.querySelector(".card__image"); //Etiqueta img
 
     // Esta es una etiqueta <h6></h6>
-    const cardTitle = cardElement.querySelector(".card__title");
+    const cardTitle = cardElement.querySelector(".card__title"); //etiqueta h6
 
     // Desarrollo de atributos en <img src="" alt="" />
     cardImage.src = this._link;
