@@ -1,11 +1,6 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
-import {
-  validationConfig,
-  popupButtonSwitch,
-  togglePopup,
-  keydownHandler,
-} from "./utils.js";
+import { validationConfig, popupButtonSwitch, togglePopup } from "./utils.js";
 
 const buttonEdit = document.querySelector(".button_edit");
 const popupProfile = document.querySelector(".popup_edit");
@@ -85,25 +80,20 @@ buttonEdit.addEventListener("click", () => {
 
 buttonClose.addEventListener("click", () => {
   popupButtonSwitch(popupProfile);
-  //document.removeEventListener("keydown", keydownHandler);
 });
 
 buttonAdd.addEventListener("click", () => popupButtonSwitch(popupAdd));
 
 buttonCloseAdd.addEventListener("click", () => {
   popupButtonSwitch(popupAdd);
-  //document.removeEventListener("keydown", keydownHandler);
 });
 
 buttonCloseImage.addEventListener("click", () => {
   popupButtonSwitch(popupImage);
-  //  document.removeEventListener("keydown", keydownHandler);
 });
 
 addForm.addEventListener("submit", function (event) {
   event.preventDefault();
-
-  //createCard(inputTitle.value, inputImage.value);
 
   const cardTemplate = new Card(
     inputTitle.value,
