@@ -35,7 +35,6 @@ export default class Card {
   }
 
   generateCard() {
-    //
     const cardElement = this.getTemplate();
     this._cardElement = cardElement;
 
