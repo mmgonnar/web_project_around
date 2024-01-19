@@ -5,6 +5,7 @@ import {
   popupButtonSwitch,
   togglePopup,
   keydownHandler,
+  popupImageElement,
 } from "./utils.js";
 
 const buttonEdit = document.querySelector(".button_edit");

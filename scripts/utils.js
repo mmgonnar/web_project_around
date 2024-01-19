@@ -10,6 +10,16 @@ export function togglePopup(popup) {
   }
 }
 
+export function openPopup(data) {
+  const popupImageElement = document.querySelector(".popup_image");
+  const popupImageImg = popupImageElement.querySelector(".popup__element");
+  const popupImageTitle = popupImageElement.querySelector(".popup__title");
+  popupImageImg.src = data._link;
+  popupImageImg.setAttribute("alt", data._name);
+  popupImageTitle.textContent = data._name;
+  popupButtonSwitch(popupImageElement);
+}
+
 //Starts validation of the form with the provided settings.
 export const validationConfig = {
   formSelector: ".popup__form",
