@@ -86,25 +86,20 @@ buttonEdit.addEventListener("click", () => {
 
 buttonClose.addEventListener("click", () => {
   popupButtonSwitch(popupProfile);
-  //document.removeEventListener("keydown", keydownHandler);
 });
 
 buttonAdd.addEventListener("click", () => popupButtonSwitch(popupAdd));
 
 buttonCloseAdd.addEventListener("click", () => {
   popupButtonSwitch(popupAdd);
-  //document.removeEventListener("keydown", keydownHandler);
 });
 
 buttonCloseImage.addEventListener("click", () => {
   popupButtonSwitch(popupImage);
-  //  document.removeEventListener("keydown", keydownHandler);
 });
 
 addForm.addEventListener("submit", function (event) {
   event.preventDefault();
-
-  //createCard(inputTitle.value, inputImage.value);
 
   const cardTemplate = new Card(
     inputTitle.value,
