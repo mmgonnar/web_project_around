@@ -1,6 +1,7 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import { validationConfig, popupButtonSwitch, togglePopup } from "./utils.js";
+import Section from "./Section.js";
 
 const buttonEdit = document.querySelector(".button_edit");
 const popupProfile = document.querySelector(".popup_edit");
@@ -119,3 +120,12 @@ formValidatorProfile.enableValidation();
 
 const formValidatorNewCard = new FormValidator(validationConfig, addForm);
 formValidatorNewCard.enableValidation();
+
+const defaultCard = new Section({
+  data: items,
+  renderer: (item) => {
+    const card = new Card(item, "#cards-template");
+    const cardElement = card.generateCard();
+    defaultCard.addItem(cardElement);
+  },
+});
