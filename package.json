@@ -1,0 +1,16 @@
+{
+  "name": "web_project_around",
+  "version": "1.0.0",
+  "description": "## Description",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist && webpack"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Mariela Gonzalez (mmgonnar)",
+  "license": "ISC"
+}
