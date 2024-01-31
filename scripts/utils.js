@@ -1,14 +1,18 @@
 export const popupImageElement = document.querySelector(".popup__element");
 
+export const popupProfileSelector = ".popup_edit";
+export const popupAddSelector = ".popup_add";
+export const popupImageSelector = ".popup_image";
+
 //Hide or shows popups
-export function togglePopup(popup) {
+/* export function togglePopup(popup) {
   popup.classList.toggle("popup_show");
   if (popup.classList.contains("popup_show")) {
     document.addEventListener("keydown", keydownHandler);
   } else {
     document.removeEventListener("keydown", keydownHandler);
   }
-}
+} */
 
 export function openPopup(data) {
   const popupImageElement = document.querySelector(".popup_image");
@@ -30,12 +34,12 @@ export const validationConfig = {
   errorClass: "popup__error",
 };
 
-//Switch popup
+/* //Switch popup
 export function popupButtonSwitch(popupElement) {
   togglePopup(popupElement);
-}
+} */
 
-export function keydownHandler(event) {
+/* export function keydownHandler(event) {
   if (event.key === "Escape") {
     const popups = document.querySelectorAll(".popup");
     popups.forEach(function (popup) {
@@ -44,4 +48,4 @@ export function keydownHandler(event) {
       }
     });
   }
-}
+} */

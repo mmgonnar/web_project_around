@@ -1,12 +1,25 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
-import { validationConfig, popupButtonSwitch, togglePopup } from "./utils.js";
+import {
+  validationConfig,
+  popupProfileSelector,
+  popupAddSelector,
+  popupImageSelector,
+} from "./utils.js";
 import Section from "./Section.js";
+import Popup from "./Popup.js";
 
-const buttonEdit = document.querySelector(".button_edit");
+const profilePopup = new Popup(popupProfileSelector);
+profilePopup.open();
+const addPopup = new Popup(popupAddSelector);
+addPopup.open();
+//const imagePopup = new Popup(popupImageSelector);
+//imagePopup.open();
+
+const buttonEdit = document.querySelector(".button_edit"); //Opens popupEdit
 const popupProfile = document.querySelector(".popup_edit");
 const popupOverlayProfile = popupProfile.querySelector(".popup__overlay");
-const buttonAdd = document.querySelector(".button_add");
+const buttonAdd = document.querySelector(".button_add"); //Opens popupAdd
 const popupAdd = document.querySelector(".popup_add");
 const popupOverlayAdd = popupAdd.querySelector(".popup__overlay");
 const buttonClose = popupProfile.querySelector(".button_close");
@@ -73,20 +86,25 @@ profileForm.addEventListener("submit", function (event) {
   popupButtonSwitch(popupProfile);
 });
 
-buttonEdit.addEventListener("click", () => {
+function setInputValues() {
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
-  popupButtonSwitch(popupProfile);
+}
+
+buttonEdit.addEventListener("click", () => {
+  setInputValues();
+  profilePopup.open();
 });
 
 buttonClose.addEventListener("click", () => {
   popupButtonSwitch(popupProfile);
+  profilePopup.close();
 });
 
-buttonAdd.addEventListener("click", () => popupButtonSwitch(popupAdd));
+//buttonAdd.addEventListener("click", () => popupButtonSwitch(popupAdd));
 
 buttonCloseAdd.addEventListener("click", () => {
-  popupButtonSwitch(popupAdd);
+  profilePopup.close();
 });
 
 buttonCloseImage.addEventListener("click", () => {
@@ -108,12 +126,12 @@ addForm.addEventListener("submit", function (event) {
 });
 
 //Close with click outside modal
-overlays.forEach(function (overlay) {
+/* overlays.forEach(function (overlay) {
   overlay.addEventListener("click", function (event) {
     const openPopup = overlay.closest(".popup");
     togglePopup(openPopup);
   });
-});
+}); */
 
 const formValidatorProfile = new FormValidator(validationConfig, profileForm);
 formValidatorProfile.enableValidation();
@@ -121,8 +139,9 @@ formValidatorProfile.enableValidation();
 const formValidatorNewCard = new FormValidator(validationConfig, addForm);
 formValidatorNewCard.enableValidation();
 
+//nstancia Section?
 const defaultCard = new Section({
-  data: items,
+  data: initialCards,
   renderer: (item) => {
     const card = new Card(item, "#cards-template");
     const cardElement = card.generateCard();
