@@ -4,7 +4,10 @@
   "description": "## Description",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && webpack"
+    "compilar": "webpack",
+    "servidor": "webpack serve --open",
+    "build": "rm -rf dist && webpack --mode production",
+    "dev": "webpack serve --mode development"
   },
   "keywords": [
     "html",
@@ -12,5 +15,10 @@
     "javascript"
   ],
   "author": "Mariela Gonzalez (mmgonnar)",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.90.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
 }
