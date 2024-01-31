@@ -38,39 +38,3 @@ export default class Popup {
 }
 
 const popup = new Popup(".popup");
-
-// First try
-/* export default class Popup {
-  constructor(popupSelector) {
-    this._popupSelector = popupSelector;
-    this.popup = document.querySelector(popupSelector);
-    this._handleEscClose = this._handleEscClose.bind(this);
-  }
-
-  open() {
-    this.popup.classList.add("popup_show");
-    document.addEventListener("keydown", this._handleEscClose);
-  }
-
-  close() {
-    this.popup.classList.add("popup_show");
-    document.addEventListener("keydown", this._handleEscClose);
-  }
-
-  _handleEscClose(evt) {
-    if (evt.key === "Escape") {
-      this.close();
-    }
-  }
-
-  setEventListener() {
-    this._popup.addEventListener("click", (evt) => {
-      if (
-        evt.target.contains("popup") ||
-        evt.target.classList.contains("popup__close")
-      ) {
-        this.close();
-      }
-    });
-  }
-} */
