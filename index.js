@@ -9,19 +9,20 @@ import {
 import Section from "./scripts/Section.js";
 import Popup from "./scripts/Popup.js";
 
+// instancias de popup
 const profilePopup = new Popup(popupProfileSelector);
 profilePopup.open();
-const addPopup = new Popup(popupAddSelector);
-addPopup.open();
-//const imagePopup = new Popup(popupImageSelector);
+const popupAdd = new Popup(popupAddSelector);
+popupAdd.open();
+//onst imagePopup = new Popup(popupImageSelector);
 //imagePopup.open();
 
 const buttonEdit = document.querySelector(".button_edit"); //Opens popupEdit
 const popupProfile = document.querySelector(".popup_edit");
-const popupOverlayProfile = popupProfile.querySelector(".popup__overlay");
-const buttonAdd = document.querySelector(".button_add"); //Opens popupAdd
-const popupAdd = document.querySelector(".popup_add");
-const popupOverlayAdd = popupAdd.querySelector(".popup__overlay");
+//const popupOverlayProfile = popupProfile.querySelector(".popup__overlay");
+//const buttonAdd = document.querySelector(".button_add"); //Opens popupAdd
+//const popupAdd = document.querySelector(".popup_add");
+//const popupOverlayAdd = popupAdd.querySelector(".popup__overlay");
 const buttonClose = popupProfile.querySelector(".button_close");
 const buttonCloseAdd = popupAdd.querySelector(".button_close");
 const profileName = document.querySelector(".profile__name");
@@ -33,10 +34,10 @@ const addForm = document.querySelector(".popup__form_add");
 const inputTitle = document.querySelector(".popup__input-title");
 const inputImage = document.querySelector(".popup__input-image");
 const popupImage = document.querySelector(".popup_image");
-const popupOverlayImage = popupImage.querySelector(".popup__overlay");
-const buttonCloseImage = popupImage.querySelector(".button_close");
+//const popupOverlayImage = popupImage.querySelector(".popup__overlay");
+//const buttonCloseImage = popupImage.querySelector(".button_close");
 const container = document.querySelector(".cards");
-const overlays = [popupOverlayProfile, popupOverlayAdd, popupOverlayImage];
+//const overlays = [popupOverlayProfile, popupOverlayAdd, popupOverlayImage];
 
 //Adds value to inputs
 inputName.value = profileName.textContent;
@@ -97,19 +98,21 @@ buttonEdit.addEventListener("click", () => {
 });
 
 buttonClose.addEventListener("click", () => {
-  popupButtonSwitch(popupProfile);
-  profilePopup.close();
+  popupProfile.close();
+  //profilePopup.close();
+  //popupAdd.close();
+  //imagePopup.close();
 });
 
 //buttonAdd.addEventListener("click", () => popupButtonSwitch(popupAdd));
 
 buttonCloseAdd.addEventListener("click", () => {
-  profilePopup.close();
+  popupAdd.close();
 });
 
-buttonCloseImage.addEventListener("click", () => {
+/* buttonCloseImage.addEventListener("click", () => {
   popupButtonSwitch(popupImage);
-});
+}); */
 
 addForm.addEventListener("submit", function (event) {
   event.preventDefault();
