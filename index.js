@@ -7,14 +7,22 @@ import {
   popupImageSelector,
 } from "./scripts/utils.js";
 import Section from "./scripts/Section.js";
-import Popup from "./scripts/Popup.js";
+//import Popup from "./scripts/Popup.js";
+import PopupWithForm from "./scripts/PopupWithForm.js";
+//import PopupWithImage from "./scripts/PopupWithImage.js";
 
 // instancias de popup
-const profilePopup = new Popup(popupProfileSelector);
-profilePopup.open();
-const popupAdd = new Popup(popupAddSelector);
-popupAdd.open();
-//onst imagePopup = new Popup(popupImageSelector);
+const profilePopup = new PopupWithForm(popupProfileSelector, () => {
+  console.log("Funciono a la perfección");
+});
+//profilePopup.open();
+const popupAdd = new PopupWithForm(popupAddSelector, () => {
+  console.log("Funciono a la perfección");
+});
+//popupAdd.open();
+/* const imagePopup = new PopupWithImage(popupImageSelector, () => {
+  console.log("Funciono a la perfección");
+}); */
 //imagePopup.open();
 
 const buttonEdit = document.querySelector(".button_edit"); //Opens popupEdit
@@ -24,7 +32,7 @@ const popupProfile = document.querySelector(".popup_edit");
 //const popupAdd = document.querySelector(".popup_add");
 //const popupOverlayAdd = popupAdd.querySelector(".popup__overlay");
 const buttonClose = popupProfile.querySelector(".button_close");
-const buttonCloseAdd = popupAdd.querySelector(".button_close");
+//const buttonCloseAdd = popupAdd.querySelector(".button_close");
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__job");
 const profileForm = document.querySelector(".popup__form");
@@ -84,9 +92,12 @@ profileForm.addEventListener("submit", function (event) {
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
   profileForm.reset();
-  popupButtonSwitch(popupProfile);
+  // popupButtonSwitch(popupProfile);
 });
 
+//Adds value to inputs
+/* inputName.value = profileName.textContent;
+inputJob.value = profileJob.textContent; */
 function setInputValues() {
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
@@ -98,17 +109,17 @@ buttonEdit.addEventListener("click", () => {
 });
 
 buttonClose.addEventListener("click", () => {
-  popupProfile.close();
-  //profilePopup.close();
-  //popupAdd.close();
+  //popupProfile.close();
+  profilePopup.close();
+  popupAdd.close();
   //imagePopup.close();
 });
 
 //buttonAdd.addEventListener("click", () => popupButtonSwitch(popupAdd));
 
-buttonCloseAdd.addEventListener("click", () => {
+/* buttonCloseAdd.addEventListener("click", () => {
   popupAdd.close();
-});
+}); */
 
 /* buttonCloseImage.addEventListener("click", () => {
   popupButtonSwitch(popupImage);
