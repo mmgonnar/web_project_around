@@ -5,6 +5,12 @@ export default class Card {
     this._name = name;
     this._link = link;
     this._templateSelector = templateSelector;
+    this.popup = popup;
+    this._handleClick = this._handleClick.bind(this);
+  }
+
+  _handleClick() {
+    this._popup.open(this._link, this._name);
   }
 
   getTemplate() {

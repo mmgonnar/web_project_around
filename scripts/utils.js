@@ -3,6 +3,11 @@ export const popupImageElement = document.querySelector(".popup__element");
 export const popupProfileSelector = ".popup_edit";
 export const popupAddSelector = ".popup_add";
 export const popupImageSelector = ".popup_image";
+export const overlaySelector = ".popup__overlay";
+
+//export const popupOverlayProfile = popupProfile.querySelector(".popup__overlay");
+//export const popupOverlayAdd = popupAdd.querySelector(".popup__overlay");
+//const const popupOverlayImage = popupImage.querySelector(".popup__overlay");
 
 //Hide or shows popups
 /* export function togglePopup(popup) {
@@ -21,7 +26,7 @@ export function openPopup(data) {
   popupImageImg.src = data._link;
   popupImageImg.setAttribute("alt", data._name);
   popupImageTitle.textContent = data._name;
-  popupButtonSwitch(popupImageElement);
+  //popupButtonSwitch(popupImageElement);
 }
 
 //Starts validation of the form with the provided settings.

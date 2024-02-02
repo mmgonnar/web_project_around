@@ -5,30 +5,35 @@ import {
   popupProfileSelector,
   popupAddSelector,
   popupImageSelector,
+  overlaySelector,
 } from "./scripts/utils.js";
 import Section from "./scripts/Section.js";
 //import Popup from "./scripts/Popup.js";
 import PopupWithForm from "./scripts/PopupWithForm.js";
-//import PopupWithImage from "./scripts/PopupWithImage.js";
+import PopupWithImage from "./scripts/PopupWithImage.js";
 
 // instancias de popup
 const profilePopup = new PopupWithForm(popupProfileSelector, () => {
-  console.log("Funciono a la perfección");
+  console.log("Funciona?");
 });
 //profilePopup.open();
-const popupAdd = new PopupWithForm(popupAddSelector, () => {
-  console.log("Funciono a la perfección");
+const addPopup = new PopupWithForm(popupAddSelector, () => {
+  console.log("Funciona?");
 });
 //popupAdd.open();
-/* const imagePopup = new PopupWithImage(popupImageSelector, () => {
-  console.log("Funciono a la perfección");
-}); */
+const imagePopup = new PopupWithImage(popupImageSelector, () => {});
 //imagePopup.open();
+
+//const card = new Card(name, link, templateSelector, imagePopup;)
+
+//const closeOverlay
+
+//const popupCloseOverlay = new PopupWithForm(popup)
 
 const buttonEdit = document.querySelector(".button_edit"); //Opens popupEdit
 const popupProfile = document.querySelector(".popup_edit");
 //const popupOverlayProfile = popupProfile.querySelector(".popup__overlay");
-//const buttonAdd = document.querySelector(".button_add"); //Opens popupAdd
+const buttonAdd = document.querySelector(".button_add"); //Opens popupAdd
 //const popupAdd = document.querySelector(".popup_add");
 //const popupOverlayAdd = popupAdd.querySelector(".popup__overlay");
 const buttonClose = popupProfile.querySelector(".button_close");
@@ -45,7 +50,8 @@ const popupImage = document.querySelector(".popup_image");
 //const popupOverlayImage = popupImage.querySelector(".popup__overlay");
 //const buttonCloseImage = popupImage.querySelector(".button_close");
 const container = document.querySelector(".cards");
-//const overlays = [popupOverlayProfile, popupOverlayAdd, popupOverlayImage];
+//const closeOverlay = document.querySelector(".popup__overlay");
+//const overlays = new [popupOverlayProfile, popupOverlayAdd, popupOverlayImage,]();
 
 //Adds value to inputs
 inputName.value = profileName.textContent;
@@ -108,12 +114,29 @@ buttonEdit.addEventListener("click", () => {
   profilePopup.open();
 });
 
+buttonAdd.addEventListener("click", () => {
+  addPopup.open();
+});
+
 buttonClose.addEventListener("click", () => {
-  //popupProfile.close();
+  profilePopup.close();
+  addPopup.close();
+  imagePopup.close();
+});
+
+/* closeOverlay.forEach(function (overlay) {} => {
   profilePopup.close();
   popupAdd.close();
   //imagePopup.close();
-});
+}) */
+
+//Close with click outside modal
+/* overlays.forEach(function (overlay) {
+  overlay.addEventListener("click", function (event) {
+    const openPopup = overlay.closest(".popup");
+    togglePopup(openPopup);
+  });
+}); */
 
 //buttonAdd.addEventListener("click", () => popupButtonSwitch(popupAdd));
 
@@ -153,7 +176,7 @@ formValidatorProfile.enableValidation();
 const formValidatorNewCard = new FormValidator(validationConfig, addForm);
 formValidatorNewCard.enableValidation();
 
-//nstancia Section?
+//instancia Section?
 const defaultCard = new Section({
   data: initialCards,
   renderer: (item) => {
