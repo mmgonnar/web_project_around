@@ -21,16 +21,16 @@ const profilePopup = new PopupWithForm(popupProfileSelector, (data) => {
   userInfo.setUserInfo(data);
 });
 //profilePopup.open();
+
 const addPopup = new PopupWithForm(popupAddSelector, (data) => {
   const newCard = new Card(
-    inputTitle.value,
-    inputImage.value,
+    data.title,
+    data.image,
     "#cards-template",
-    function (event) {
-      imagePopup.open(inputTitle.value, inputImage.value);
-    }
+    imagePopup
   );
-  defaultCard.addItem(cardTemplate.generateCard(), true);
+  const cardElement = newCard.generateCard();
+  defaultCard.addItem(cardElement, true);
 });
 
 //popupAdd.open();
