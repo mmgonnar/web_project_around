@@ -11,15 +11,28 @@ import Section from "./scripts/Section.js";
 //import Popup from "./scripts/Popup.js";
 import PopupWithForm from "./scripts/PopupWithForm.js";
 import PopupWithImage from "./scripts/PopupWithImage.js";
+import UserInfo from "./scripts/UserInfo.js";
+const userInfo = new UserInfo(".profile__name", ".profile__job");
+
+//cntl + space = ,muestra sugerencias autocomplete
 
 // instancias de popup
-const profilePopup = new PopupWithForm(popupProfileSelector, () => {
-  console.log("Funciona?");
+const profilePopup = new PopupWithForm(popupProfileSelector, (data) => {
+  userInfo.setUserInfo(data);
 });
 //profilePopup.open();
-const addPopup = new PopupWithForm(popupAddSelector, () => {
-  console.log("Funciona?");
+const addPopup = new PopupWithForm(popupAddSelector, (data) => {
+  const newCard = new Card(
+    inputTitle.value,
+    inputImage.value,
+    "#cards-template",
+    function (event) {
+      imagePopup.open(inputTitle.value, inputImage.value);
+    }
+  );
+  defaultCard.addItem(cardTemplate.generateCard(), true);
 });
+
 //popupAdd.open();
 const imagePopup = new PopupWithImage(popupImageSelector);
 //imagePopup.open();
@@ -154,7 +167,7 @@ buttonClose.addEventListener("click", () => {
   popupButtonSwitch(popupImage);
 }); */
 
-addForm.addEventListener("submit", function (event) {
+/* addForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
   const cardTemplate = new Card(
@@ -169,7 +182,7 @@ addForm.addEventListener("submit", function (event) {
 
   addForm.reset();
   popupButtonSwitch(popupAdd);
-});
+}); */
 
 //Close with click outside modal
 /* overlays.forEach(function (overlay) {
