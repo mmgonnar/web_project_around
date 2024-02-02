@@ -7,6 +7,7 @@ export default class Popup {
       this._popupElement.querySelector(".popup__overlay");
     this._popupElement.querySelector(".popup__overlay");
     this._handleEscClose = this._handleEscClose.bind(this);
+    this.setEventListeners();
   }
 
   //DRY
@@ -30,11 +31,11 @@ export default class Popup {
     this._popupCloseButton.addEventListener("click", () => {
       this.close();
     });
-    /* this._popupCloseOverlay.addEventListener("click", (event) => {
+    this._popupCloseOverlay.addEventListener("click", (event) => {
       if (event.target === this._popupCloseOverlay) {
         this.close();
       }
-    }); */
+    });
   }
 
   /* removeEventListeners() {

@@ -15,7 +15,11 @@ export default class Section {
     this._container.innerHTML = "";
   } */
 
-  addItem(element) {
-    this._container.prepend(element);
+  addItem(element, onstart = false) {
+    if (onstart) {
+      this._container.prepend(element);
+    } else {
+      this._container.append(element);
+    }
   }
 }

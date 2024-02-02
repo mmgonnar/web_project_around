@@ -21,7 +21,7 @@ const addPopup = new PopupWithForm(popupAddSelector, () => {
   console.log("Funciona?");
 });
 //popupAdd.open();
-const imagePopup = new PopupWithImage(popupImageSelector, () => {});
+const imagePopup = new PopupWithImage(popupImageSelector);
 //imagePopup.open();
 
 //const card = new Card(name, link, templateSelector, imagePopup;)
@@ -86,12 +86,18 @@ const initialCards = [
 ];
 
 //Creates initial cards
+/*
 initialCards.forEach(function ({ name, link }) {
-  const cardTemplate = new Card(name, link, "#cards-template");
+  const cardTemplate = new Card(name, link, "#cards-template", function (
+    event
+  ) {
+    imagePopup.open(name, link);
+  });
 
   const cardElement = cardTemplate.generateCard();
   container.prepend(cardElement);
 });
+*/
 
 profileForm.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -117,13 +123,13 @@ buttonEdit.addEventListener("click", () => {
 buttonAdd.addEventListener("click", () => {
   addPopup.open();
 });
-
+/*
 buttonClose.addEventListener("click", () => {
   profilePopup.close();
   addPopup.close();
   imagePopup.close();
 });
-
+*/
 /* closeOverlay.forEach(function (overlay) {} => {
   profilePopup.close();
   popupAdd.close();
@@ -154,9 +160,12 @@ addForm.addEventListener("submit", function (event) {
   const cardTemplate = new Card(
     inputTitle.value,
     inputImage.value,
-    "#cards-template"
+    "#cards-template",
+    function (event) {
+      imagePopup.open(inputTitle.value, inputImage.value);
+    }
   );
-  container.prepend(cardTemplate.generateCard());
+  defaultCard.addItem(cardTemplate.generateCard(), true);
 
   addForm.reset();
   popupButtonSwitch(popupAdd);
@@ -177,11 +186,20 @@ const formValidatorNewCard = new FormValidator(validationConfig, addForm);
 formValidatorNewCard.enableValidation();
 
 //instancia Section?
-const defaultCard = new Section({
-  data: initialCards,
-  renderer: (item) => {
-    const card = new Card(item, "#cards-template");
-    const cardElement = card.generateCard();
-    defaultCard.addItem(cardElement);
+const defaultCard = new Section(
+  {
+    items: initialCards,
+    renderer: (item) => {
+      const card = new Card(item.name, item.link, "#cards-template", function (
+        event
+      ) {
+        imagePopup.open(item.link, item.name);
+      });
+      const cardElement = card.generateCard();
+      defaultCard.addItem(cardElement);
+    },
   },
-});
+  ".cards"
+);
+
+defaultCard.renderer();

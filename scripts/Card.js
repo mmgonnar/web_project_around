@@ -1,16 +1,11 @@
 import { openPopup } from "./utils.js";
 
 export default class Card {
-  constructor(name, link, templateSelector) {
+  constructor(name, link, templateSelector, handleCardClick) {
     this._name = name;
     this._link = link;
     this._templateSelector = templateSelector;
-    this.popup = popup;
-    this._handleClick = this._handleClick.bind(this);
-  }
-
-  _handleClick() {
-    this._popup.open(this._link, this._name);
+    this._handleClick = handleCardClick.bind(this);
   }
 
   getTemplate() {
@@ -35,9 +30,7 @@ export default class Card {
     });
 
     const buttonImage = cardElement.querySelector(".card__image");
-    buttonImage.addEventListener("click", () => {
-      openPopup(this);
-    });
+    buttonImage.addEventListener("click", this._handleClick);
   }
 
   generateCard() {
