@@ -5,7 +5,6 @@ export default class Card {
     this._name = name;
     this._link = link;
     this._templateSelector = templateSelector;
-    //this._handleCardClick = handleCardClick.bind(this);
     this._handleCardClick = handleCardClick;
   }
 

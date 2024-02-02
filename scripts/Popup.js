@@ -5,12 +5,10 @@ export default class Popup {
     this._popupCloseButton = this._popupElement.querySelector(".button_close");
     this._popupCloseOverlay =
       this._popupElement.querySelector(".popup__overlay");
-    this._popupElement.querySelector(".popup__overlay");
     this._handleEscClose = this._handleEscClose.bind(this);
     this.setEventListeners();
   }
 
-  //DRY
   open() {
     this._popupElement.classList.add("popup_show");
     document.addEventListener("keydown", this._handleEscClose);
@@ -37,10 +35,4 @@ export default class Popup {
       }
     });
   }
-
-  /* removeEventListeners() {
-    this._popupCloseButtonElement.removeEventListeners();
-  } */
 }
-
-//const popup = new Popup(".popup");

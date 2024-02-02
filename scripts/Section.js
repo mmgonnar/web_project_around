@@ -11,10 +11,6 @@ export default class Section {
     });
   }
 
-  /* clear() {
-    this._container.innerHTML = "";
-  } */
-
   addItem(element, onstart = false) {
     if (onstart) {
       this._container.prepend(element);
