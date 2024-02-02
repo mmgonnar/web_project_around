@@ -5,7 +5,8 @@ export default class Card {
     this._name = name;
     this._link = link;
     this._templateSelector = templateSelector;
-    this._handleClick = handleCardClick.bind(this);
+    //this._handleCardClick = handleCardClick.bind(this);
+    this._handleCardClick = handleCardClick;
   }
 
   getTemplate() {
@@ -30,7 +31,7 @@ export default class Card {
     });
 
     const buttonImage = cardElement.querySelector(".card__image");
-    buttonImage.addEventListener("click", this._handleClick);
+    buttonImage.addEventListener("click", this._handleCardClick);
   }
 
   generateCard() {
