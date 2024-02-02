@@ -8,7 +8,7 @@ import {
   overlaySelector,
 } from "./scripts/utils.js";
 import Section from "./scripts/Section.js";
-//import Popup from "./scripts/Popup.js";
+
 import PopupWithForm from "./scripts/PopupWithForm.js";
 import PopupWithImage from "./scripts/PopupWithImage.js";
 import UserInfo from "./scripts/UserInfo.js";
