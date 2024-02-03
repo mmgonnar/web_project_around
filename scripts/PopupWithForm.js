@@ -38,8 +38,8 @@ export default class PopupWithForm extends Popup {
   }
 
   close() {
-    super.close(); /*
+    super.close();
     const form = this._popupElement.querySelector(".popup__form");
-    form.reset(); */
+    form.reset();
   }
 }
