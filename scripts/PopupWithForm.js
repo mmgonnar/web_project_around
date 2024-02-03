@@ -5,35 +5,41 @@ export default class PopupWithForm extends Popup {
   constructor(popupSelector, submitCallback) {
     super(popupSelector);
     this._submitCallback = submitCallback;
-    this._form = this._popupElement.querySelector(".popup__form");
-    this._inputList = this._form.querySelectorAll(".popup__input");
   }
 
   _getInputValues() {
+    const form = this._popupElement.querySelector(".popup__form");
+    const inputs = form.querySelectorAll(".popup__input");
     const values = {};
-    this._inputList.forEach((input) => {
+    inputs.forEach((input) => {
       values[input.name] = input.value;
     });
     return values;
   }
 
   setInputValues() {
-    const inputName = this._inputList[0];
-    const inputJob = this._inputList[1];
+    super.setEventListeners();
+    const form = this._popupElement.querySelector(".popup__form");
+    const inputs = form.querySelectorAll(".popup__input");
+    const inputName = inputs[0];
+    const inputJob = inputs[1];
     inputName.value = profileName.textContent;
     inputJob.value = profileJob.textContent;
   }
 
   setEventListeners() {
     super.setEventListeners();
-    this._form.addEventListener("submit", (event) => {
-      event.preventDefault();
+    const form = this._popupElement.querySelector(".popup__form");
+    form.addEventListener("submit", (evt) => {
+      evt.preventDefault();
       this._submitCallback(this._getInputValues());
+      this.close();
     });
   }
 
   close() {
-    super.close();
-    this._form.reset();
+    super.close(); /*
+    const form = this._popupElement.querySelector(".popup__form");
+    form.reset(); */
   }
 }

@@ -59,11 +59,11 @@ const profilePopup = new PopupWithForm(popupProfileSelector, (data) => {
 
 const addPopup = new PopupWithForm(popupAddSelector, (data) => {
   const newCard = new Card(
-    data.name,
-    data.link,
+    data.title,
+    data.url,
     "#cards-template",
     function () {
-      imagePopup.open(data.link, data.name);
+      imagePopup.open(data.url, data.name);
     }
   );
   const cardElement = newCard.generateCard();
