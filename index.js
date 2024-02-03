@@ -53,6 +53,8 @@ cardSection.renderer();
 
 const userInfo = new UserInfo(".profile__name", ".profile__job");
 
+console.log(popupProfileSelector);
+
 const profilePopup = new PopupWithForm(popupProfileSelector, (data) => {
   userInfo.setUserInfo(data);
 });
@@ -69,6 +71,8 @@ const addPopup = new PopupWithForm(popupAddSelector, (data) => {
   const cardElement = newCard.generateCard();
   cardSection.addItem(cardElement, true);
 });
+
+console.log(addPopup);
 
 const imagePopup = new PopupWithImage(popupImageSelector);
 
