@@ -7,7 +7,6 @@ import {
   popupAddSelector,
   popupProfileSelector,
   popupImageSelector,
-  popupImageElement,
 } from "./scripts/const.js";
 import Card from "./scripts/Card.js";
 import FormValidator from "./scripts/FormValidator.js";
@@ -27,11 +26,8 @@ buttonEdit.addEventListener("click", () => {
 buttonAdd.addEventListener("click", () => {
   addPopup.open();
 });
-//Instancias
-/* function handleCardClick(link, name) {
-  imagePopup.open(link, name);
-} */
 
+//Renders Inital Cards
 const cardSection = new Section(
   {
     items: initialCards,
@@ -58,6 +54,7 @@ const profilePopup = new PopupWithForm(popupProfileSelector, (data) => {
   userInfo.setUserInfo(data);
 });
 
+//Adds new Card
 const addPopup = new PopupWithForm(popupAddSelector, (data) => {
   const newCard = new Card(
     data.title,
@@ -73,6 +70,7 @@ const addPopup = new PopupWithForm(popupAddSelector, (data) => {
 
 const imagePopup = new PopupWithImage(popupImageSelector);
 
+//Forms Validator
 const formValidatorProfile = new FormValidator(validationConfig, profileForm);
 formValidatorProfile.enableValidation();
 
