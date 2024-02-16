@@ -28,6 +28,11 @@ class Api {
         Authorization: this._token,
         "Content-Type": "application/json",
       },
+      method: "PATCH",
+      body: JSON.stringify({
+        name: name,
+        about: job,
+      }),
     }).then((response) => response.json());
   }
 }
