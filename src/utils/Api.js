@@ -30,8 +30,22 @@ class Api {
       },
       method: "PATCH",
       body: JSON.stringify({
-        name: name,
-        about: job,
+        name,
+        about,
+      }),
+    }).then((response) => response.json());
+  }
+
+  addCard(link, title) {
+    return fetch(this._url + "/cards", {
+      headers: {
+        Authorization: this._token,
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify({
+        name: title,
+        link,
       }),
     }).then((response) => response.json());
   }
