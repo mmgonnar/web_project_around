@@ -49,4 +49,15 @@ class Api {
       }),
     }).then((response) => response.json());
   }
+
+  deleteCard(idCard) {
+    return fetch(this._url + "/cards" + idCard, {
+      headers: {
+        Authorization: this._token,
+        "Content-Type": "application/json",
+      },
+      method: "DELETE",
+      }),
+    }).then((response) => response.json());
+  }
 }
