@@ -57,7 +57,16 @@ class Api {
         "Content-Type": "application/json",
       },
       method: "DELETE",
-      }),
+    }).then((response) => response.json());
+  }
+
+  likeCard(idCard) {
+    return fetch(this._url + "/cards/like" + idCard, {
+      headers: {
+        Authorization: this._token,
+        "Content-Type": "application/json",
+      },
+      method: "PUT",
     }).then((response) => response.json());
   }
 }
