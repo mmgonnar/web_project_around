@@ -16,6 +16,7 @@ import PopupWithForm from "./scripts/PopupWithForm.js";
 import PopupWithImage from "./scripts/PopupWithImage.js";
 import UserInfo from "./scripts/UserInfo.js";
 import "./pages/index.css";
+import api from "./scripts/Api.js";
 
 //Events
 buttonEdit.addEventListener("click", () => {
@@ -46,7 +47,10 @@ const cardSection = new Section(
   },
   ".cards"
 );
-cardSection.renderer();
+api.getCards().then(cards => {
+  cardSection.
+})
+//cardSection.renderer();
 
 const userInfo = new UserInfo(".profile__name", ".profile__job");
 
@@ -56,16 +60,30 @@ const profilePopup = new PopupWithForm(popupProfileSelector, (data) => {
 
 //Adds new Card
 const addPopup = new PopupWithForm(popupAddSelector, (data) => {
-  const newCard = new Card(
-    data.title,
-    data.url,
-    "#cards-template",
-    function () {
-      imagePopup.open(data.url, data.name);
-    }
-  );
-  const cardElement = newCard.generateCard();
-  cardSection.addItem(cardElement, true);
+
+  api.addCard(data.url, data.title).then(card => {
+
+    const newCard = new Card(
+      data.title,
+      data.url,
+      "#cards-template",
+      function () {
+        imagePopup.open(data.url, data.name, data.api);
+      },
+      (handleCardClick) => {
+        handleCardClick();
+      }
+
+      (handleDeleteCard) => {
+        handleDeleteCard();
+      }
+
+
+    );
+    const cardElement = newCard.generateCard();
+    cardSection.addItem(cardElement, true);
+  })
+
 });
 
 const imagePopup = new PopupWithImage(popupImageSelector);

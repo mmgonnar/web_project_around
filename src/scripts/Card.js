@@ -1,11 +1,29 @@
 import { openPopup } from "./utils.js";
 
 export default class Card {
-  constructor(name, link, templateSelector, handleCardClick) {
+  constructor(
+    name,
+    link,
+    templateSelector,
+    handleCardClick,
+    handleLike,
+    handleRemoveLike,
+    handleDeleteCard,
+    //data
+    { _id, likes, owner, createdAt }
+  ) {
     this._name = name;
     this._link = link;
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
+    this._handleLike = handleLike;
+    this._handleRemoveLike = handleRemoveLike;
+    this._handleDeleteCard = handleDeleteCard;
+    //this._data;
+    this._id = id;
+    this._likes = likes;
+    this._owner = owner;
+    this._createdAt = createdAt;
   }
 
   getTemplate() {
