@@ -9,8 +9,7 @@ export default class Card {
     handleLike,
     handleRemoveLike,
     handleDeleteCard,
-    //data
-    { _id, likes, owner, createdAt }
+    { id, likes, owner, createdAt }
   ) {
     this._name = name;
     this._link = link;
@@ -19,7 +18,6 @@ export default class Card {
     this._handleLike = handleLike;
     this._handleRemoveLike = handleRemoveLike;
     this._handleDeleteCard = handleDeleteCard;
-    //this._data;
     this._id = id;
     this._likes = likes;
     this._owner = owner;
@@ -38,6 +36,14 @@ export default class Card {
   _setEventListeners(cardElement) {
     const buttonLike = cardElement.querySelector(".button_like");
     buttonLike.addEventListener("click", () => {
+      const isLiked = buttonLike.classList.contains("liked");
+
+      if (isLiked) {
+        this._handleRemoveLike();
+      } else {
+        this._handleLike();
+      }
+
       buttonLike.classList.toggle("liked");
     });
 

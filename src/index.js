@@ -16,8 +16,10 @@ import PopupWithForm from "./scripts/PopupWithForm.js";
 import PopupWithImage from "./scripts/PopupWithImage.js";
 import UserInfo from "./scripts/UserInfo.js";
 import "./pages/index.css";
-import api from "./scripts/Api.js";
+import { api } from "./utils/Api.js";
 
+console.log(api);
+console.log(initialCards);
 //Events
 buttonEdit.addEventListener("click", () => {
   profilePopup.setInputValues();
@@ -29,28 +31,58 @@ buttonAdd.addEventListener("click", () => {
 });
 
 //Renders Inital Cards
-const cardSection = new Section(
-  {
-    items: initialCards,
-    renderer: (data) => {
-      const card = new Card(
-        data.name,
-        data.link,
-        "#cards-template",
-        function () {
-          imagePopup.open(data.link, data.name);
-        }
-      );
-      const cardElement = card.generateCard();
-      cardSection.addItem(cardElement);
+api.getCards().then((cards) => {
+  const cardSection = new Section(
+    {
+      items: cards,
+      renderer: ({
+        likes,
+        _id,
+        name,
+        link,
+        createdAt,
+        owner: { name: owner, about, avatar, _id: ownerId, cohort },
+      }) => {
+        const card = new Card(
+          name,
+          link,
+          "#cards-template",
+          function () {
+            imagePopup.open(link, name);
+          },
+          function () {
+            console.log("Diste like...");
+            return null;
+          },
+          function () {
+            console.log("Quitaste like...");
+            return null;
+          },
+          function () {
+            console.log("Click al basurero...");
+            return null;
+          },
+          {
+            id: _id,
+            likes,
+            owner,
+            createdAt,
+          }
+        );
+
+        const cardElement = card.generateCard();
+
+        cardSection.addItem(cardElement);
+      },
     },
-  },
-  ".cards"
-);
-api.getCards().then(cards => {
-  cardSection.
-})
-//cardSection.renderer();
+    ".cards"
+  );
+
+  cardSection.renderer();
+
+  // const data = cardSection.renderer(cards);
+  // console.log(data);
+});
 
 const userInfo = new UserInfo(".profile__name", ".profile__job");
 
@@ -59,32 +91,31 @@ const profilePopup = new PopupWithForm(popupProfileSelector, (data) => {
 });
 
 //Adds new Card
-const addPopup = new PopupWithForm(popupAddSelector, (data) => {
+// const addPopup = new PopupWithForm(popupAddSelector, (data) => {
 
-  api.addCard(data.url, data.title).then(card => {
+//   api.addCard(data.url, data.title).then(card => {
 
-    const newCard = new Card(
-      data.title,
-      data.url,
-      "#cards-template",
-      function () {
-        imagePopup.open(data.url, data.name, data.api);
-      },
-      (handleCardClick) => {
-        handleCardClick();
-      }
+//     const newCard = new Card(
+//       data.title,
+//       data.url,
+//       "#cards-template",
+//       function () {
+//         imagePopup.open(data.url, data.name, data.api);
+//       },
+//       (handleCardClick) => {
+//         handleCardClick();
+//       }
 
-      (handleDeleteCard) => {
-        handleDeleteCard();
-      }
+//       (handleDeleteCard) => {
+//         handleDeleteCard();
+//       }
 
+//     );
+//     const cardElement = newCard.generateCard();
+//     cardSection.addItem(cardElement, true);
+//   })
 
-    );
-    const cardElement = newCard.generateCard();
-    cardSection.addItem(cardElement, true);
-  })
-
-});
+// });
 
 const imagePopup = new PopupWithImage(popupImageSelector);
 
