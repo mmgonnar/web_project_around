@@ -31,7 +31,10 @@ export default class PopupWithForm extends Popup {
     }
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this._submitCallback(this._getInputValues());
+      // se pone el texto de guardando
+      this._submitCallback(this._getInputValues()).finally(() => {
+        //se vuelve a poner guardar
+      });
       this.close();
     });
   }

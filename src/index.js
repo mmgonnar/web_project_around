@@ -50,16 +50,16 @@ api.getCards().then((cards) => {
           function () {
             imagePopup.open(link, name);
           },
-          function addLikeCallback() {
-            let likes = 0;
-            return function () {
-              likes++;
-              console.log("Dar like...");
-            };
-            const likeCallback = addLikeCallback();
-            likeCallback();
+          function addLikeCallback(cardId, buttonLike, counterNode) {
+            console.log("Dar like...");
+            api.likeCard(cardId).then((data) => {
+              //console.log(data);
+              buttonLike.classList.add("liked");
+              counterNode.textContent = data.likes.length;
+            });
           },
           function removeLikeCallback() {
+            console.log("Quitar like...");
             let likes = 0;
 
             return function () {
@@ -70,6 +70,10 @@ api.getCards().then((cards) => {
                 console.log("No tienes likes");
               }
             };
+
+            const unlikeCallback = removeLikeCallback();
+
+            unlikeCallback();
           },
           function () {
             console.log("Click al bote de basura...");
@@ -104,31 +108,33 @@ const profilePopup = new PopupWithForm(popupProfileSelector, (data) => {
 });
 
 //Adds new Card
-// const addPopup = new PopupWithForm(popupAddSelector, (data) => {
+/* const addPopup = new PopupWithForm(popupAddSelector, (data) => {
 
-//   api.addCard(data.url, data.title).then(card => {
+   return api.addCard(data.url, data.title).then(card => {
 
-//     const newCard = new Card(
-//       data.title,
-//       data.url,
-//       "#cards-template",
-//       function () {
-//         imagePopup.open(data.url, data.name, data.api);
-//       },
-//       (handleCardClick) => {
-//         handleCardClick();
-//       }
+     const newCard = new Card(
+       data.title,
+       data.url,
+       "#cards-template",
+       function () {
+         imagePopup.open(data.url, data.name, data.api);
+       },
+       (handleCardClick) => {
+         handleCardClick();
+       }
 
-//       (handleDeleteCard) => {
-//         handleDeleteCard();
-//       }
+       (handleDeleteCard) => {
+         handleDeleteCard();
+       }
 
-//     );
-//     const cardElement = newCard.generateCard();
-//     cardSection.addItem(cardElement, true);
-//   })
+     );
+     const cardElement = newCard.generateCard();
+     cardSection.addItem(cardElement, true);
+     addPopup.close()
+  return Promise.resolve();
+   })
 
-// });
+ }); */
 
 const imagePopup = new PopupWithImage(popupImageSelector);
 

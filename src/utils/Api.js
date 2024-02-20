@@ -54,7 +54,7 @@ class Api {
   }
 
   deleteCard(idCard) {
-    return fetch(this._url + "/cards" + idCard, {
+    return fetch(this._url + "/cards/" + idCard, {
       headers: {
         Authorization: this._token,
         "Content-Type": "application/json",
@@ -64,7 +64,7 @@ class Api {
   }
 
   likeCard(idCard) {
-    return fetch(this._url + "/cards/like" + idCard, {
+    return fetch(this._url + "/cards/likes/" + idCard, {
       headers: {
         Authorization: this._token,
         "Content-Type": "application/json",
@@ -74,7 +74,7 @@ class Api {
   }
 
   deleteLikeCard(idCard) {
-    return fetch(this._url + "/cards/like" + idCard, {
+    return fetch(this._url + "/cards/likes/" + idCard, {
       headers: {
         Authorization: this._token,
         "Content-Type": "application/json",

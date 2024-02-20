@@ -41,10 +41,10 @@ export default class Card {
       if (isLiked) {
         this._handleRemoveLike();
       } else {
-        this._handleLike();
+        this._handleLike(this._id, buttonLike);
       }
 
-      buttonLike.classList.toggle("liked");
+      //  buttonLike.classList.toggle("liked");
     });
 
     const buttonDelete = cardElement.querySelector(".button_delete");
