@@ -50,16 +50,29 @@ api.getCards().then((cards) => {
           function () {
             imagePopup.open(link, name);
           },
-          function () {
-            console.log("Diste like...");
-            return null;
+          function addLikeCallback() {
+            let likes = 0;
+            return function () {
+              likes++;
+              console.log("Dar like...");
+            };
+            const likeCallback = addLikeCallback();
+            likeCallback();
+          },
+          function removeLikeCallback() {
+            let likes = 0;
+
+            return function () {
+              if (likes > 0) {
+                likes--;
+                console.log("Quitar like...");
+              } else {
+                console.log("No tienes likes");
+              }
+            };
           },
           function () {
-            console.log("Quitaste like...");
-            return null;
-          },
-          function () {
-            console.log("Click al basurero...");
+            console.log("Click al bote de basura...");
             return null;
           },
           {
