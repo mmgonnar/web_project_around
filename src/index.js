@@ -8,6 +8,7 @@ import {
   popupProfileSelector,
   popupImageSelector,
   popupAvatarSelector,
+  popupDeleteSelector,
 } from "./scripts/const.js";
 import Card from "./scripts/Card.js";
 import FormValidator from "./scripts/FormValidator.js";
@@ -136,8 +137,9 @@ const addPopup = new PopupWithForm(popupAddSelector, (data) => {
 
 const imagePopup = new PopupWithImage(popupImageSelector);
 const avatarPopup = new PopupWithForm(popupAvatarSelector);
+const delConfirmationPopup = PopupWithForm(popupDelSelector);
 
-avatarPopup.open();
+delConfirmationPopup.open();
 
 //Forms Validator
 const formValidatorProfile = new FormValidator(validationConfig, profileForm);
