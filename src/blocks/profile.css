@@ -27,49 +27,20 @@
 }
 
 .profile__overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0);
   transition: background-color 0.3s ease;
   width: 100%;
   height: 100%;
   position: absolute;
 }
 
-/*.profile__avatar:hover .profile__overlay {
+.profile__container:hover .profile__overlay {
   background-color: rgba(0, 0, 0, 0.7);
-}/*
+}
 
-/* .profile__overlay {
-  background-color: rgba(0, 0, 0, 0.7);
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: background-color 0.3s ease;
-  display: flex;
-} */
-
-/* .profile__avatar:hover {
-  background: url(../images/edit_avatar_button.svg);
-  background-color: rgba(0, 0, 0, 0.7);
-  transition: background-color 0.3s ease;
-} */
-
-/* .profile__avatar:hover .button_edit-avatar {
+.profile__container:hover .button_edit-avatar {
   display: block;
-} */
-
-/* .profile__avatar:hover {
-  content: url(/src/images/edit_avatar_button.svg);
-  background-color: rgba(0, 0, 0, 0.7);
-  transition: background-color 0.3s ease;
-  position: absolute;
-  width: 26px;
-  height: 26px;
-  top: 0;
-  left: 0;
-} */
+}
 
 .profile__info {
   display: flex;
@@ -173,64 +144,3 @@
     padding: 0;
   }
 }
-
-/*
-@media screen and (min-width: 600px) {
-  .profile {
-    width: 100%;
-    flex-direction: row;
-    gap: 30px;
-  }
-
-  .profile__info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .profile__info-container {
-    justify-content: left;
-    padding: 0;
-  }
-
-  .profile__name {
-    font-size: 1.7em;
-  }
-
-  .profile__job {
-    font-weight: 400;
-    font-size: 1.1em;
-    padding: 0;
-  }
-}
-
-@media screen and (min-width: 880px) {
-  .profile {
-    width: 880px;
-  }
-
-  .profile__avatar {
-    margin: 0;
-  }
-
-  .profile__info {
-    width: 65%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .profile__info-container {
-    width: 100%;
-  }
-
-  .profile__name {
-    font-size: 2.6em;
-  }
-
-  .profile__job {
-    font-weight: 400;
-    font-size: 1.1em;
-    padding: 0;
-  }
-} */
