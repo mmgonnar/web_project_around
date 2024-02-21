@@ -28,11 +28,15 @@
     <main class="content">
       <!--- Profile --->
       <section class="profile">
-        <img
+        <div class="profile__container">
+          <img
           src="<%=require('./images/profile.png')%>"
           alt="profile__avatar"
           class="profile__avatar"
         />
+          <button class="button button_edit-avatar"></button>
+          <div class="profile__overlay"></div>
+        </div>
         <div class="profile__info">
           <div class="profile__info-container">
             <p class="profile__name">Jacques Cousteau</p>

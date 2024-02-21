@@ -13,6 +13,32 @@
   border: 1px solid #fff;
 }
 
+.button_edit-avatar {
+  background: url(../images/edit_avatar_button.svg);
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: background-color 0.3s ease;
+  width: 26px;
+  height: 26px;
+  border: none;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  z-index: 1;
+}
+
+/* .button_edit-avatar {
+  background: url(../images/edit_avatar_button.svg);
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: background-color 0.3s ease;
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+} */
+
 .button_add {
   background: url(../images/add_button.svg) no-repeat center;
   width: 288px;
@@ -101,5 +127,12 @@
   .button_close {
     top: -10%;
     right: -5%;
+  }
+}
+
+@media screen and (min-width: 880px) {
+  .button_edit-avatar {
+    top: 40%;
+    left: 32%;
   }
 }

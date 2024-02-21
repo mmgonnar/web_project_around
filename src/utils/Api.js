@@ -88,17 +88,3 @@ export const api = new Api(
   "https://around.nomoreparties.co/v1/web_es_11",
   "728c172f-3008-42b7-a44c-cc238ba60a2f"
 );
-
-/**
- *
- * fetch("https://around.nomoreparties.co/v1/web_es_11/cards", {
-    headers: {
-      authorization: "728c172f-3008-42b7-a44c-cc238ba60a2f",
-    },
-  })
-    .then((res) => res.json())
-    .then((result) => {
-      return result;
-    })
-    .catch((error) => console.log(error))
- */
