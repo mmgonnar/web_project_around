@@ -66,8 +66,8 @@
   rotate: 90deg;
   transform: rotate(90deg);
   position: absolute;
-  top: -13%;
-  right: 0%;
+  bottom: 105%;
+  left: 92%;
 }
 
 .button_submit {
@@ -117,8 +117,8 @@
   }
 
   .button_close {
-    top: -10%;
-    right: -5%;
+    left: 100%;
+    bottom: 103%;
   }
 }
 

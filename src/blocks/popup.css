@@ -159,6 +159,11 @@
   height: 252px;
 }
 
+.popup__content-confirmation {
+  width: 288px;
+  height: 181px;
+}
+
 @media screen and (min-width: 600px) {
   .popup__content {
     width: 430px;
@@ -182,5 +187,9 @@
   .popup__content-avatar {
     width: 433px;
     height: 252px;
+  }
+  .popup__content-confirmation {
+    width: 433px;
+    height: 181px;
   }
 }

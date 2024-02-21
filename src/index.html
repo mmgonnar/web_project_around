@@ -212,6 +212,30 @@
         </div>
       </div>
     </div>
+    <!------------- PopUp Confirmation ---------->
+    <div class="popup popup_confirmation">
+      <div class="popup__overlay"></div>
+      <div class="popup__content popup__content-confirmation">
+        <div class="popup__container">
+          <button class="button button_close"></button>
+          <span class="popup__title">Are you sure?</span>
+          <form
+            class="popup__form popup__form_add"
+            id="form-add-place"
+            novalidate
+          >
+            <fieldset class="popup__set">
+              <button
+                type="submit"
+                class="button button_submit button_submit-disabled"
+              >
+                Yes
+              </button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
     <!------------- Template -------------->
     <template class="cards" id="cards-template">
       <div class="card">

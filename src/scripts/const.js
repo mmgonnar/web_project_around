@@ -10,7 +10,7 @@ export const popupProfileSelector = ".popup_edit";
 export const popupAddSelector = ".popup_add";
 export const popupImageSelector = ".popup_image";
 export const popupAvatarSelector = ".popup_avatar";
-export const popupDelConfirmationSelector = ".popup_delete";
+export const popupConfirmationSelector = ".popup_confirmation";
 
 import Chicago from "../images/places/chicago.png";
 import Arizona from "../images/places/arizona.png";
