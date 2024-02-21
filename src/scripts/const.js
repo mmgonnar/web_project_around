@@ -1,4 +1,5 @@
 export const buttonEdit = document.querySelector(".button_edit");
+export const buttonEditAvatar = document.querySelector(".button_edit-avatar");
 export const popupProfile = document.querySelector(".popup_edit");
 export const buttonAdd = document.querySelector(".button_add");
 export const profileName = document.querySelector(".profile__name");

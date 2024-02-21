@@ -1,5 +1,6 @@
 import {
   buttonEdit,
+  buttonEditAvatar,
   buttonAdd,
   profileForm,
   addForm,
@@ -30,6 +31,10 @@ buttonEdit.addEventListener("click", () => {
 
 buttonAdd.addEventListener("click", () => {
   addPopup.open();
+});
+
+buttonEditAvatar.addEventListener("click", () => {
+  avatarPopup.open();
 });
 
 //Renders Inital Cards
@@ -136,10 +141,10 @@ const addPopup = new PopupWithForm(popupAddSelector, (data) => {
 });
 
 const imagePopup = new PopupWithImage(popupImageSelector);
-//const avatarPopup = new PopupWithForm(popupAvatarSelector);
+const avatarPopup = new PopupWithForm(popupAvatarSelector);
 //avatarPopup.open();
 const confirmationPopup = new PopupWithForm(popupConfirmationSelector);
-confirmationPopup.open();
+//confirmationPopup.open();
 
 //Forms Validator
 const formValidatorProfile = new FormValidator(validationConfig, profileForm);
