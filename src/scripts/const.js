@@ -9,6 +9,7 @@ export const popupImageElement = document.querySelector(".popup__element");
 export const popupProfileSelector = ".popup_edit";
 export const popupAddSelector = ".popup_add";
 export const popupImageSelector = ".popup_image";
+export const popupAvatarSelector = ".popup_avatar";
 
 import Chicago from "../images/places/chicago.png";
 import Arizona from "../images/places/arizona.png";

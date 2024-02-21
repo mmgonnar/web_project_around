@@ -7,6 +7,7 @@ import {
   popupAddSelector,
   popupProfileSelector,
   popupImageSelector,
+  popupAvatarSelector,
 } from "./scripts/const.js";
 import Card from "./scripts/Card.js";
 import FormValidator from "./scripts/FormValidator.js";
@@ -53,7 +54,6 @@ api.getCards().then((cards) => {
           function addLikeCallback(cardId, buttonLike, counterNode) {
             console.log("Dar like...");
             api.likeCard(cardId).then((data) => {
-              //console.log(data);
               buttonLike.classList.add("liked");
               counterNode.textContent = data.likes.length;
             });
@@ -108,9 +108,8 @@ const profilePopup = new PopupWithForm(popupProfileSelector, (data) => {
 });
 
 //Adds new Card
-/* const addPopup = new PopupWithForm(popupAddSelector, (data) => {
-
-   return api.addCard(data.url, data.title).then(card => {
+const addPopup = new PopupWithForm(popupAddSelector, (data) => {
+  /* return api.addCard(data.url, data.title).then(card => {
 
      const newCard = new Card(
        data.title,
@@ -132,11 +131,13 @@ const profilePopup = new PopupWithForm(popupProfileSelector, (data) => {
      cardSection.addItem(cardElement, true);
      addPopup.close()
   return Promise.resolve();
-   })
-
- }); */
+   }) */
+});
 
 const imagePopup = new PopupWithImage(popupImageSelector);
+const avatarPopup = new PopupWithForm(popupAvatarSelector);
+
+avatarPopup.open();
 
 //Forms Validator
 const formValidatorProfile = new FormValidator(validationConfig, profileForm);

@@ -154,6 +154,11 @@
   position: relative;
 }
 
+.popup__content-avatar {
+  width: 288px;
+  height: 252px;
+}
+
 @media screen and (min-width: 600px) {
   .popup__content {
     width: 430px;
@@ -173,5 +178,9 @@
 
   .popup__title_img {
     bottom: -275px;
+  }
+  .popup__content-avatar {
+    width: 433px;
+    height: 252px;
   }
 }
