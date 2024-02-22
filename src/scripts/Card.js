@@ -33,6 +33,15 @@ export default class Card {
     return templateSelector;
   }
 
+  handleDeleteCard(cardElement) {
+    const popupAvatar = cardElement.querySelector(".popup_confirmation");
+
+    openPopup(popupAvatar);
+
+    const card = cardElement.closest(".card");
+    card.remove();
+  }
+
   _setEventListeners(cardElement) {
     const buttonLike = cardElement.querySelector(".button_like");
     buttonLike.addEventListener("click", () => {
@@ -49,8 +58,7 @@ export default class Card {
 
     const buttonDelete = cardElement.querySelector(".button_delete");
     buttonDelete.addEventListener("click", () => {
-      const card = buttonDelete.closest(".card");
-      card.remove();
+      this._handleDeleteCard();
     });
 
     const buttonImage = cardElement.querySelector(".card__image");

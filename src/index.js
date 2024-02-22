@@ -21,8 +21,6 @@ import UserInfo from "./scripts/UserInfo.js";
 import "./pages/index.css";
 import { api } from "./utils/Api.js";
 
-console.log(api);
-console.log(initialCards);
 //Events
 buttonEdit.addEventListener("click", () => {
   profilePopup.setInputValues();
@@ -81,7 +79,7 @@ api.getCards().then((cards) => {
 
             unlikeCallback();
           },
-          function () {
+          function deleteCard() {
             console.log("Click al bote de basura...");
             return null;
           },

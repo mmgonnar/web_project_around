@@ -22,6 +22,7 @@ export default class FormValidator {
   _toggleButton(form, config) {
     const inputs = Array.from(form.querySelectorAll(config.inputSelector));
     const submitButton = form.querySelector(config.submitButtonSelector);
+    console.log(submitButton);
 
     if (inputs.every((item) => item.validity.valid)) {
       submitButton.disabled = false;
