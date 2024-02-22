@@ -55,14 +55,14 @@ api.getCards().then((cards) => {
           function () {
             imagePopup.open(link, name);
           },
-          function addLikeCallback(cardId, buttonLike, counterNode) {
+          function (cardId, buttonLike, counterNode) {
             console.log("Dar like...");
             api.likeCard(cardId).then((data) => {
               buttonLike.classList.add("liked");
               counterNode.textContent = data.likes.length;
             });
           },
-          function removeLikeCallback() {
+          function () {
             console.log("Quitar like...");
             let likes = 0;
 
@@ -79,8 +79,7 @@ api.getCards().then((cards) => {
 
             unlikeCallback();
           },
-          function deleteCard() {
-            console.log("Click al bote de basura...");
+          function () {
             return null;
           },
           {

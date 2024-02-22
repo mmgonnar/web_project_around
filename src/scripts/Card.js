@@ -1,4 +1,5 @@
 import { openPopup } from "./utils.js";
+import { confirmationPopup } from "./PopupWithConfirmation.js";
 
 export default class Card {
   constructor(
@@ -16,8 +17,8 @@ export default class Card {
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
     this._handleLike = handleLike;
-    this._handleRemoveLike = handleRemoveLike;
-    this._handleDeleteCard = handleDeleteCard;
+    this._handleRemove = handleRemoveLike;
+    this._handleDelete = handleDeleteCard;
     this._id = id;
     this._likes = likes;
     this._owner = owner;
@@ -33,11 +34,8 @@ export default class Card {
     return templateSelector;
   }
 
-  handleDeleteCard(cardElement) {
-    const popupAvatar = cardElement.querySelector(".popup_confirmation");
-
-    openPopup(popupAvatar);
-
+  handleDelete(cardElement) {
+    confirmationPopup.open();
     const card = cardElement.closest(".card");
     card.remove();
   }
@@ -58,7 +56,7 @@ export default class Card {
 
     const buttonDelete = cardElement.querySelector(".button_delete");
     buttonDelete.addEventListener("click", () => {
-      this._handleDeleteCard();
+      confirmationPopup.open();
     });
 
     const buttonImage = cardElement.querySelector(".card__image");
