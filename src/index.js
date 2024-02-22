@@ -111,36 +111,30 @@ const profilePopup = new PopupWithForm(popupProfileSelector, (data) => {
 });
 
 //Adds new Card
-const addPopup = new PopupWithForm(popupAddSelector, (data) => {
-  /* return api.addCard(data.url, data.title).then(card => {
-
-     const newCard = new Card(
-       data.title,
-       data.url,
-       "#cards-template",
-       function () {
-         imagePopup.open(data.url, data.name, data.api);
-       },
-       (handleCardClick) => {
-         handleCardClick();
-       }
-
-       (handleDeleteCard) => {
-         handleDeleteCard();
-       }
-
-     );
-     const cardElement = newCard.generateCard();
-     cardSection.addItem(cardElement, true);
-     addPopup.close()
-  return Promise.resolve();
-   }) */
-});
+const addPopup = new PopupWithForm(
+  popupAddSelector,
+  (data) => {
+    return api.addCard(data.url, data.title).then((card) => {
+      const newCard = new Card(
+        data.title,
+        data.url,
+        "#cards-template",
+        function () {
+          imagePopup.open(data.url, data.name, data.api);
+        }
+      );
+      const cardElement = newCard.generateCard();
+      cardSection.addItem(cardElement, true);
+      addPopup.close();
+      return Promise.resolve();
+    });
+  }
+);
 
 const imagePopup = new PopupWithImage(popupImageSelector);
-const avatarPopup = new PopupWithForm(popupAvatarSelector);
+const avatarPopup = new PopupWithForm(popupAvatarSelector, () => {});
 //avatarPopup.open();
-const confirmationPopup = new PopupWithForm(popupConfirmationSelector);
+//const confirmationPopup = new PopupWithForm(popupConfirmationSelector);
 //confirmationPopup.open();
 
 //Forms Validator

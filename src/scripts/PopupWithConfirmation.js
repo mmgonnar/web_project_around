@@ -1,8 +1,9 @@
 import Popup from "./Popup.js";
 
 class PopupWithConfirmation extends Popup {
-  constructor(popupSelector) {
+  constructor(popupSelector, submitCallback) {
     super(popupSelector);
+    this._submitCallback = submitCallback;
   }
   open() {
     super.open();
@@ -17,30 +18,22 @@ class PopupWithConfirmation extends Popup {
     } */
   }
 
-  close() {
+  /* close() {
     super.close();
-    this._form.reset();
-  }
+  } */
 
   setEventListeners() {
     super.setEventListeners();
-  }
-
-  renderLoading(isLoading) {
-    if (isLoading) {
-      this._popupConfirmation.querySelector(".popup__button").textContent =
-        "Saving...";
+    if (!this._form) {
+      this._form = this._popupElement.querySelector(".popup__form");
     }
-
-    .addEventListener("submit", (evt) => {
+    this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this.renderLoading
-    })
+      this._submitCallback();
+    });
   }
 }
 
 export const confirmationPopup = new PopupWithConfirmation(
-  ".popup_type_confirmation"
+  ".popup_confirmation"
 );
-
-export { confirmationPopup };

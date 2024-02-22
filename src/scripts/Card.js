@@ -37,7 +37,7 @@ export default class Card {
   handleDelete(cardElement) {
     confirmationPopup.open();
     const card = cardElement.closest(".card");
-    card.remove();
+    /* card.remove(); */
   }
 
   _setEventListeners(cardElement) {
@@ -56,7 +56,8 @@ export default class Card {
 
     const buttonDelete = cardElement.querySelector(".button_delete");
     buttonDelete.addEventListener("click", () => {
-      confirmationPopup.open();
+      /* onfirmationPopup.open(); */
+      this.handleDelete(cardElement);
     });
 
     const buttonImage = cardElement.querySelector(".card__image");
