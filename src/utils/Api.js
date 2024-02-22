@@ -33,7 +33,20 @@ class Api {
       method: "PATCH",
       body: JSON.stringify({
         name,
-        about,
+        job,
+      }),
+    }).then((response) => response.json());
+  }
+
+  updateAvatar(avatar) {
+    return fetch(this._url + "/user/me/avatar", {
+      headers: {
+        Authorization: this._token,
+        "Content-Type": "application/json",
+      },
+      method: "PATCH",
+      body: JSON.stringify({
+        avatar
       }),
     }).then((response) => response.json());
   }
