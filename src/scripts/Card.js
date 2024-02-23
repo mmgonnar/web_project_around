@@ -10,7 +10,8 @@ export default class Card {
     handleLike,
     handleRemoveLike,
   /*   handleDeleteCard, */
-    { id, likes, owner, createdAt }
+    { id, likes, owner, createdAt },
+    cardId
   ) {
     this._name = name;
     this._link = link;
@@ -23,6 +24,7 @@ export default class Card {
     this._likes = likes;
     this._owner = owner;
     this._createdAt = createdAt;
+    this._cardId = cardId;
   }
 
   getTemplate() {
@@ -67,6 +69,8 @@ export default class Card {
   generateCard() {
     const cardElement = this.getTemplate();
     this._cardElement = cardElement;
+
+    cardElement.id = this._id;
 
     const cardImage = cardElement.querySelector(".card__image");
     const cardTitle = cardElement.querySelector(".card__title-strong");

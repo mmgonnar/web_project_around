@@ -32,7 +32,7 @@ export const confirmationPopup = new PopupWithConfirmation(
   (card) => {
     console.log(card)
 
-    return api.deleteCard(card)
+    return api.deleteCard(card.id)
       .then(() => {
         console.log("La tarjeta se borró");
         card.remove();
