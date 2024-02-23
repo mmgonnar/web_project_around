@@ -11,7 +11,7 @@ export default class UserInfo {
     return {
       name: this._userName.textContent,
       job: this._userJob.textContent,
-      /* avatar: this._userAvatar.src, */
+      avatar: this._userAvatar.src
     };
   }
 
@@ -23,7 +23,5 @@ export default class UserInfo {
 
   updateAvatarUrl(avatarUrl) {
     this._userAvatar.src = avatarUrl;
-    console.log(this._userAvatar.src);
-    /* userInfo.getUserInfo(data);  */
   }
 }

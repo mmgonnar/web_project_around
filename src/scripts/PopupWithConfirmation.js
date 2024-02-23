@@ -12,9 +12,10 @@ class PopupWithConfirmation extends Popup {
     this._card = card;
   }
 
-  /* close() {
+  close() {
     super.close();
-  } */
+    this._form.removeEventListener("submit", this._submitCallback);
+  }
 
   setEventListeners() {
     super.setEventListeners();
