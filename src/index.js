@@ -74,10 +74,6 @@ api.getCards().then((cards) => {
                 console.log("No tienes likes");
               }
             };
-
-            const unlikeCallback = removeLikeCallback();
-
-            unlikeCallback();
           },
           function () {
             return null;
@@ -87,6 +83,7 @@ api.getCards().then((cards) => {
             likes,
             owner,
             createdAt,
+            avatar,
           }
         );
 
@@ -107,14 +104,17 @@ api.getCards().then((cards) => {
 const userInfo = new UserInfo(".profile__name", ".profile__job");
 
 const profilePopup = new PopupWithForm(popupProfileSelector, (data) => {
-  userInfo.setUserInfo(data);
+  return api.updateUser(data.name, data.job).then((data) => {
+    console.log("funcionó?")
+    /* userInfo.getUserInfo(data);  */
+  });
 });
 
 //Adds new Card
 const addPopup = new PopupWithForm(
   popupAddSelector,
   (data) => {
-    return api.addCard(data.url, data.title).then((card) => {
+    return api.addCard(data.url, data.title).then(() => {
       const newCard = new Card(
         data.title,
         data.url,
@@ -132,7 +132,18 @@ const addPopup = new PopupWithForm(
 );
 
 const imagePopup = new PopupWithImage(popupImageSelector);
-const avatarPopup = new PopupWithForm(popupAvatarSelector, () => {});
+const avatarPopup = new PopupWithForm(popupAvatarSelector, () => {
+
+  return api.updateAvatar(avatarPopup).then((data) => {
+    userInfo.setUserInfo(data);
+    avatarPopup.close();
+  });
+  /* return new Promise((resolve, reject) => {
+    setTimeout(() =>{
+      resolve();
+    }, 1000);
+    }) */
+  });
 //avatarPopup.open();
 //const confirmationPopup = new PopupWithForm(popupConfirmationSelector);
 //confirmationPopup.open();

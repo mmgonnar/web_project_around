@@ -1,21 +1,14 @@
 import Popup from "./Popup.js";
+import { api } from "../utils/api.js";
 
 class PopupWithConfirmation extends Popup {
   constructor(popupSelector, submitCallback) {
     super(popupSelector);
     this._submitCallback = submitCallback;
   }
-  open() {
+  open(card) {
     super.open();
-    /* if (this._popupConfirmation) {
-      this._popupConfirmation.addEventListener("submit", (evt) => {
-        evt.preventDefault();
-        this._handleSubmit();
-      });
-    } else {
-      console.log("No confirmation form");
-      return;
-    } */
+    this._card = card;
   }
 
   /* close() {
@@ -29,11 +22,23 @@ class PopupWithConfirmation extends Popup {
     }
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this._submitCallback();
+      this._submitCallback(this._card);
     });
   }
 }
 
 export const confirmationPopup = new PopupWithConfirmation(
-  ".popup_confirmation"
+  ".popup_confirmation",
+  (card) => {
+    console.log(card)
+
+    return api.deleteCard(card)
+      .then(() => {
+        console.log("La tarjeta se borró");
+        card.remove();
+      })
+      .catch((error) => {
+        console.error("Error al borrar la tarjeta:", error);
+      });
+  }
 );

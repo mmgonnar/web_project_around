@@ -4,7 +4,6 @@ import { profileJob, profileName } from "./const.js";
 export default class PopupWithForm extends Popup {
   constructor(popupSelector, submitCallback) {
     super(popupSelector);
-    console.log(submitCallback);
     this._submitCallback = submitCallback;
 
   }
@@ -33,7 +32,6 @@ export default class PopupWithForm extends Popup {
     }
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      console.log(this._submitCallback);
       if (this._submitCallback) {
         this.renderLoading(true);
       }
@@ -41,16 +39,16 @@ export default class PopupWithForm extends Popup {
       this._submitCallback(this._getInputValues()).finally(() => {
         this.renderLoading(false);
         //se vuelve a poner guardar
-      }),
-      this.close();
+        this.close();
+      })
     });
   }
 
   renderLoading(isLoading) {
     if (isLoading) {
-      this._popupConfirmation.querySelector(".button_submit").textContent =
+      this._form.querySelector(".button_submit").textContent =
         "Saving...";
-    }
+    } else {}
   }
 
   close() {

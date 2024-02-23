@@ -9,7 +9,7 @@ export default class Card {
     handleCardClick,
     handleLike,
     handleRemoveLike,
-    handleDeleteCard,
+  /*   handleDeleteCard, */
     { id, likes, owner, createdAt }
   ) {
     this._name = name;
@@ -18,7 +18,7 @@ export default class Card {
     this._handleCardClick = handleCardClick;
     this._handleLike = handleLike;
     this._handleRemove = handleRemoveLike;
-    this._handleDelete = handleDeleteCard;
+    /* this._handleDelete = handleDeleteCard; */
     this._id = id;
     this._likes = likes;
     this._owner = owner;
@@ -35,8 +35,8 @@ export default class Card {
   }
 
   handleDelete(cardElement) {
-    confirmationPopup.open();
     const card = cardElement.closest(".card");
+    confirmationPopup.open(card);
     /* card.remove(); */
   }
 

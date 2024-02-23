@@ -1,11 +1,11 @@
-class Api {
+;class Api {
   constructor(url, token) {
     this._url = url;
     this._token = token;
   }
 
   getUserInfo() {
-    return fetch(this._url + "/user/me", {
+    return fetch(this._url + "/users/me", {
       headers: {
         Autorization: this._token,
         "Content-Type": "application/json",
@@ -25,7 +25,7 @@ class Api {
   }
 
   updateUser(name, job) {
-    return fetch(this._url + "/user/me", {
+    return fetch(this._url + "/users/me", {
       headers: {
         Authorization: this._token,
         "Content-Type": "application/json",
@@ -39,7 +39,7 @@ class Api {
   }
 
   updateAvatar(avatar) {
-    return fetch(this._url + "/user/me/avatar", {
+    return fetch(this._url + "/users/me/avatar", {
       headers: {
         Authorization: this._token,
         "Content-Type": "application/json",
@@ -52,7 +52,6 @@ class Api {
   }
 
   addCard(link, title) {
-    // https://around.nomoreparties.co/v1/web_es_11/cards
     return fetch(this._url + "/cards", {
       headers: {
         Authorization: this._token,
