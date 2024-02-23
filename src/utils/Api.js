@@ -7,7 +7,7 @@ class Api {
   getUserInfo() {
     return fetch(this._url + "/users/me", {
       headers: {
-        Autorization: this._token,
+        Authorization: this._token,
         "Content-Type": "application/json",
       },
     }).then((response) => response.json());
@@ -16,7 +16,7 @@ class Api {
   getCards() {
     return fetch(this._url + "/cards", {
       headers: {
-        Autorization: this._token,
+        Authorization: this._token,
         "Content-Type": "application/json",
       },
     })
@@ -27,7 +27,7 @@ class Api {
   updateUser(name, job) {
     return fetch(this._url + "/users/me", {
       headers: {
-        Autorization: this._token,
+        Authorization: this._token,
         "Content-Type": "application/json",
       },
       method: "PATCH",
@@ -41,7 +41,7 @@ class Api {
   updateAvatar(avatar) {
     return fetch(this._url + "/users/me/avatar", {
       headers: {
-        Autorization: this._token,
+        Authorization: this._token,
         "Content-Type": "application/json",
       },
       method: "PATCH",
@@ -54,7 +54,7 @@ class Api {
   addCard(link, title) {
     return fetch(this._url + "/cards", {
       headers: {
-        Autorization: this._token,
+        Authorization: this._token,
         "Content-Type": "application/json",
       },
       method: "POST",
@@ -66,9 +66,11 @@ class Api {
   }
 
   deleteCard(idCard) {
+    console.log(idCard);
+    console.log(this._url + "/cards/" + idCard)
     return fetch(this._url + "/cards/" + idCard, {
       headers: {
-        Autorization: this._token,
+        Authorization: this._token,
         "Content-Type": "application/json",
       },
       method: "DELETE",
@@ -78,7 +80,7 @@ class Api {
   likeCard(idCard) {
     return fetch(this._url + "/cards/likes/" + idCard, {
       headers: {
-        Autorization: this._token,
+        Authorization: this._token,
         "Content-Type": "application/json",
       },
       method: "PUT",
@@ -88,7 +90,7 @@ class Api {
   deleteLikeCard(idCard) {
     return fetch(this._url + "/cards/likes/" + idCard, {
       headers: {
-        Autorization: this._token,
+        Authorization: this._token,
         "Content-Type": "application/json",
       },
       method: "DELETE",
