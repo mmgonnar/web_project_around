@@ -49,12 +49,21 @@ api.getCards().then((cards) => {
         owner: { name: owner, about, avatar, _id: ownerId, cohort },
       }) => {
         const card = new Card(
-          name,
-          link,
-          "#cards-template",
+          name,//name
+          link,//link
+          "#cards-template",//templateSelector
           function () {
             imagePopup.open(link, name);
-          },
+          },//handleCardClick
+          _id,//cardId
+          {
+            id: _id,
+            likes,
+            owner,
+            createdAt,
+            avatar,
+          },//array cardsData
+          //handleLike
           function (cardId, buttonLike, counterNode) {
             console.log("Dar like...");
             api.likeCard(cardId).then((data) => {
@@ -62,6 +71,10 @@ api.getCards().then((cards) => {
               counterNode.textContent = data.likes.length;
             });
           },
+          () => {},//handleDeleteCard
+          () => {},//handleRemoveCard?
+
+          /*
           function () {
             console.log("Quitar like...");
             let likes = 0;
@@ -74,17 +87,8 @@ api.getCards().then((cards) => {
                 console.log("No tienes likes");
               }
             };
-          },
-          function () {
-            return null;
-          },
-          {
-            id: _id,
-            likes,
-            owner,
-            createdAt,
-            avatar,
-          }
+          } */
+
         );
 
         const cardElement = card.generateCard();
@@ -114,14 +118,26 @@ const profilePopup = new PopupWithForm(popupProfileSelector, (data) => {
 const addPopup = new PopupWithForm(
   popupAddSelector,
   (data) => {
-    return api.addCard(data.url, data.title).then(() => {
+    return api.addCard(data.url, data.title).then((request) => {
       const newCard = new Card(
         data.title,
         data.url,
         "#cards-template",
         function () {
           imagePopup.open(data.url, data.name, data.api);
-        }
+        },
+        ()=> {},// cardId??
+        {
+          id: _id,
+          likes,
+          owner,
+          createdAt,
+          avatar,
+        },//array cardsData
+        () => {},//handleLike
+        () => {},//handleRemoveLike
+        () => {},//handleDeleteCard?
+
       );
       const cardElement = newCard.generateCard();
       cardSection.addItem(cardElement, true);

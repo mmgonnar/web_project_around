@@ -7,24 +7,24 @@ export default class Card {
     link,
     templateSelector,
     handleCardClick,
+    cardId,
+    { id, likes, owner, createdAt },
     handleLike,
     handleRemoveLike,
   /*   handleDeleteCard, */
-    { id, likes, owner, createdAt },
-    cardId
   ) {
     this._name = name;
     this._link = link;
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
-    this._handleLike = handleLike;
-    this._handleRemove = handleRemoveLike;
-    /* this._handleDelete = handleDeleteCard; */
+    this._cardId = cardId;
     this._id = id;
     this._likes = likes;
     this._owner = owner;
     this._createdAt = createdAt;
-    this._cardId = cardId;
+    this._handleLike = handleLike;
+    this._handleRemove = handleRemoveLike;
+    /* this._handleDelete = handleDeleteCard; */
   }
 
   getTemplate() {
@@ -70,7 +70,7 @@ export default class Card {
     const cardElement = this.getTemplate();
     this._cardElement = cardElement;
 
-    cardElement.id = this._id;
+    cardElement.id = this._cardId;
 
     const cardImage = cardElement.querySelector(".card__image");
     const cardTitle = cardElement.querySelector(".card__title-strong");

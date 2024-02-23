@@ -1,5 +1,6 @@
 import Popup from "./Popup.js";
 import { api } from "../utils/api.js";
+import { popupConfirmationSelector } from "./const.js";
 
 class PopupWithConfirmation extends Popup {
   constructor(popupSelector, submitCallback) {
@@ -30,12 +31,10 @@ class PopupWithConfirmation extends Popup {
 export const confirmationPopup = new PopupWithConfirmation(
   ".popup_confirmation",
   (card) => {
-    console.log(card)
-
     return api.deleteCard(card.id)
       .then(() => {
-        console.log("La tarjeta se borró");
         card.remove();
+        confirmationPopup.close();
       })
       .catch((error) => {
         console.error("Error al borrar la tarjeta:", error);

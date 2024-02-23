@@ -66,8 +66,6 @@ class Api {
   }
 
   deleteCard(idCard) {
-    console.log(idCard);
-    console.log(this._url + "/cards/" + idCard)
     return fetch(this._url + "/cards/" + idCard, {
       headers: {
         Authorization: this._token,
