@@ -1,4 +1,4 @@
-;class Api {
+class Api {
   constructor(url, token) {
     this._url = url;
     this._token = token;
@@ -16,18 +16,18 @@
   getCards() {
     return fetch(this._url + "/cards", {
       headers: {
-        Authorization: this._token,
+        Autorization: this._token,
         "Content-Type": "application/json",
       },
     })
       .then((response) => response.json())
-      .catch((evt) => console.log(evt));
+      .catch((error) => console.log(error));
   }
 
   updateUser(name, job) {
     return fetch(this._url + "/users/me", {
       headers: {
-        Authorization: this._token,
+        Autorization: this._token,
         "Content-Type": "application/json",
       },
       method: "PATCH",
@@ -41,7 +41,7 @@
   updateAvatar(avatar) {
     return fetch(this._url + "/users/me/avatar", {
       headers: {
-        Authorization: this._token,
+        Autorization: this._token,
         "Content-Type": "application/json",
       },
       method: "PATCH",
@@ -54,7 +54,7 @@
   addCard(link, title) {
     return fetch(this._url + "/cards", {
       headers: {
-        Authorization: this._token,
+        Autorization: this._token,
         "Content-Type": "application/json",
       },
       method: "POST",
@@ -68,7 +68,7 @@
   deleteCard(idCard) {
     return fetch(this._url + "/cards/" + idCard, {
       headers: {
-        Authorization: this._token,
+        Autorization: this._token,
         "Content-Type": "application/json",
       },
       method: "DELETE",
@@ -78,7 +78,7 @@
   likeCard(idCard) {
     return fetch(this._url + "/cards/likes/" + idCard, {
       headers: {
-        Authorization: this._token,
+        Autorization: this._token,
         "Content-Type": "application/json",
       },
       method: "PUT",
@@ -88,7 +88,7 @@
   deleteLikeCard(idCard) {
     return fetch(this._url + "/cards/likes/" + idCard, {
       headers: {
-        Authorization: this._token,
+        Autorization: this._token,
         "Content-Type": "application/json",
       },
       method: "DELETE",
