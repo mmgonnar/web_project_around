@@ -6,24 +6,27 @@ export default class Card {
     name,
     link,
     templateSelector,
+    counterSelector,
     handleCardClick,
     cardId,
-    { id, likes, owner, createdAt },
+    { id, likes, owner, createdAt, avatar, ownerId },
     handleLike,
-    handleRemoveLike,
-  /*   handleDeleteCard, */
+    handleRemoveLike
+    /*   handleDeleteCard, */
   ) {
     this._name = name;
     this._link = link;
     this._templateSelector = templateSelector;
+    this._counterSelector = counterSelector;
     this._handleCardClick = handleCardClick;
     this._cardId = cardId;
     this._id = id;
     this._likes = likes;
     this._owner = owner;
+    this._ownerId = ownerId;
     this._createdAt = createdAt;
     this._handleLike = handleLike;
-    this._handleRemove = handleRemoveLike;
+    this._handleRemoveLike = handleRemoveLike;
     /* this._handleDelete = handleDeleteCard; */
   }
 
@@ -44,13 +47,27 @@ export default class Card {
 
   _setEventListeners(cardElement) {
     const buttonLike = cardElement.querySelector(".button_like");
+    console.log(buttonLike);
     buttonLike.addEventListener("click", () => {
-      const isLiked = buttonLike.classList.contains("liked");
+      // Evaluación de owner sobre el like
+      // const isLiked = buttonLike.classList.contains("liked");
 
+      // Comparar en el arreglo de likes, si el ownerId ya aparece en uno de los objetos, entonces, significa que "isLiked", si no aparece, significa que no es "isLiked" y entonces, le damos otro evento
+      const isLiked = this._likes.some((elem) => elem._id === this._ownerId);
+      console.log(isLiked);
+
+      // const isLiked =
       if (isLiked) {
-        this._handleRemoveLike();
+        console.log("Quitar like...");
+        this._handleRemoveLike(this._id, buttonLike);
+
+        // this._updateLikes()
       } else {
+        console.log("Poner like...");
+        console.log(this._templateSelector);
+        // console.log(this._counterSelector);
         this._handleLike(this._id, buttonLike);
+        // this._updateLikes()
       }
 
       //  buttonLike.classList.toggle("liked");

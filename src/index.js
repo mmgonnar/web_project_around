@@ -48,31 +48,43 @@ api.getCards().then((cards) => {
         createdAt,
         owner: { name: owner, about, avatar, _id: ownerId, cohort },
       }) => {
+        const cardData = {
+          id: _id,
+          likes,
+          owner,
+          createdAt,
+          avatar,
+          ownerId,
+        };
+
         const card = new Card(
-          name,//name
-          link,//link
-          "#cards-template",//templateSelector
+          name, //name
+          link, //link
+          "#cards-template", //templateSelector
+          "#card__counter", //counterSelector
           function () {
             imagePopup.open(link, name);
-          },//handleCardClick
-          _id,//cardId
-          {
-            id: _id,
-            likes,
-            owner,
-            createdAt,
-            avatar,
-          },//array cardsData
+          }, //handleCardClick
+          _id, //cardId
+          cardData, //array cardsData
           //handleLike
           function (cardId, buttonLike, counterNode) {
-            console.log("Dar like...");
             api.likeCard(cardId).then((data) => {
+              const currentLikeNumber = data.likes;
+              console.log(currentLikeNumber);
               buttonLike.classList.add("liked");
-              counterNode.textContent = data.likes.length;
+              // counterNode.textContent = data.likes.length;
             });
           },
-          () => {},//handleDeleteCard
-          () => {},//handleRemoveCard?
+          // handleRemoveLike
+          function (cardId, buttonLike) {
+            api.deleteLikeCard(cardId).then((data) => {
+              const currentLikeNumber = data.likes;
+              console.log(currentLikeNumber);
+              console.log(buttonLike);
+              buttonLike.classList.remove("liked");
+            });
+          } //handleRemoveLike
 
           /*
           function () {
@@ -88,7 +100,6 @@ api.getCards().then((cards) => {
               }
             };
           } */
-
         );
 
         const cardElement = card.generateCard();
@@ -109,47 +120,42 @@ const userInfo = new UserInfo(".profile__name", ".profile__job");
 
 const profilePopup = new PopupWithForm(popupProfileSelector, (data) => {
   return api.updateUser(data.name, data.job).then((data) => {
-    console.log("funcionó?")
+    console.log("funcionó?");
     /* userInfo.getUserInfo(data);  */
   });
 });
 
 //Adds new Card
-const addPopup = new PopupWithForm(
-  popupAddSelector,
-  (data) => {
-    return api.addCard(data.url, data.title).then((request) => {
-      const newCard = new Card(
-        data.title,
-        data.url,
-        "#cards-template",
-        function () {
-          imagePopup.open(data.url, data.name, data.api);
-        },
-        ()=> {},// cardId??
-        {
-          id: _id,
-          likes,
-          owner,
-          createdAt,
-          avatar,
-        },//array cardsData
-        () => {},//handleLike
-        () => {},//handleRemoveLike
-        () => {},//handleDeleteCard?
-
-      );
-      const cardElement = newCard.generateCard();
-      cardSection.addItem(cardElement, true);
-      addPopup.close();
-      return Promise.resolve();
-    });
-  }
-);
+const addPopup = new PopupWithForm(popupAddSelector, (data) => {
+  return api.addCard(data.url, data.title).then((request) => {
+    const newCard = new Card(
+      data.title,
+      data.url,
+      "#cards-template",
+      function () {
+        imagePopup.open(data.url, data.name, data.api);
+      },
+      () => {}, // cardId??
+      {
+        id: _id,
+        likes,
+        owner,
+        createdAt,
+        avatar,
+      }, //array cardsData
+      () => {}, //handleLike
+      () => {}, //handleRemoveLike
+      () => {} //handleDeleteCard?
+    );
+    const cardElement = newCard.generateCard();
+    cardSection.addItem(cardElement, true);
+    addPopup.close();
+    return Promise.resolve();
+  });
+});
 
 const imagePopup = new PopupWithImage(popupImageSelector);
 const avatarPopup = new PopupWithForm(popupAvatarSelector, () => {
-
   return api.updateAvatar(avatarPopup).then((data) => {
     userInfo.setUserInfo(data);
     avatarPopup.close();
@@ -159,7 +165,7 @@ const avatarPopup = new PopupWithForm(popupAvatarSelector, () => {
       resolve();
     }, 1000);
     }) */
-  });
+});
 //avatarPopup.open();
 //const confirmationPopup = new PopupWithForm(popupConfirmationSelector);
 //confirmationPopup.open();
