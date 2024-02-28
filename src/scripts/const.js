@@ -13,6 +13,7 @@ export const popupAddSelector = ".popup_add";
 export const popupImageSelector = ".popup_image";
 export const popupAvatarSelector = ".popup_avatar";
 export const popupConfirmationSelector = ".popup_confirmation";
+export const counterNode = document.querySelector(".card__counter");
 
 
 import Chicago from "../images/places/chicago.png";

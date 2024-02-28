@@ -1,5 +1,6 @@
 import { openPopup } from "./utils.js";
 import { confirmationPopup } from "./PopupWithConfirmation.js";
+//import { api } from "../utils.js";
 
 export default class Card {
   constructor(
@@ -11,6 +12,7 @@ export default class Card {
     { id, likes, owner, createdAt },
     handleLike,
     handleRemoveLike,
+    user
   /*   handleDeleteCard, */
   ) {
     this._name = name;
@@ -24,7 +26,9 @@ export default class Card {
     this._createdAt = createdAt;
     this._handleLike = handleLike;
     this._handleRemove = handleRemoveLike;
+    this._user = user;
     /* this._handleDelete = handleDeleteCard; */
+    //console.log(this)
   }
 
   getTemplate() {
@@ -39,31 +43,40 @@ export default class Card {
   handleDelete(cardElement) {
     const card = cardElement.closest(".card");
     confirmationPopup.open(card);
-    /* card.remove(); */
   }
+
+  _handleRemoveLike() {}
 
   _setEventListeners(cardElement) {
     const buttonLike = cardElement.querySelector(".button_like");
     buttonLike.addEventListener("click", () => {
       const isLiked = buttonLike.classList.contains("liked");
+      //const isLiked2 = buttonLike.classList.contains("liked");
 
       if (isLiked) {
-        this._handleRemoveLike();
+        //this._handleLike(this, this._id, buttonLike);
+         this._handleRemoveLike(this, this._id, buttonLike);
       } else {
-        this._handleLike(this._id, buttonLike);
+        //buttonLike.classList.remove("liked")
+        this._handleLike(this, this._id, buttonLike);
       }
 
-      //  buttonLike.classList.toggle("liked");
+
+
     });
 
     const buttonDelete = cardElement.querySelector(".button_delete");
     buttonDelete.addEventListener("click", () => {
-      /* onfirmationPopup.open(); */
       this.handleDelete(cardElement);
     });
 
     const buttonImage = cardElement.querySelector(".card__image");
     buttonImage.addEventListener("click", this._handleCardClick);
+  }
+
+  _hasLikeOwner(){
+    console.log(this._hasLikeOwner)
+    return this._likes.some(like => like._id === this._user._id)
   }
 
   generateCard() {
@@ -75,6 +88,12 @@ export default class Card {
     const cardImage = cardElement.querySelector(".card__image");
     const cardTitle = cardElement.querySelector(".card__title-strong");
 
+    const buttonLike = cardElement.querySelector(".button_like");
+
+    if(this._hasLikeOwner()){
+      buttonLike.classList.add("liked");
+    }
+
     cardImage.src = this._link;
     cardImage.alt = this._name;
 
@@ -83,5 +102,9 @@ export default class Card {
     this._setEventListeners(cardElement);
 
     return cardElement;
+  }
+
+  setLikes(likes){
+    this._likes = likes;
   }
 }

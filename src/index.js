@@ -9,7 +9,11 @@ import {
   popupProfileSelector,
   popupImageSelector,
   popupAvatarSelector,
+  counterNode,
   popupConfirmationSelector,
+  profileName,
+  profileAvatar,
+  profileJob
 } from "./scripts/const.js";
 import Card from "./scripts/Card.js";
 import FormValidator from "./scripts/FormValidator.js";
@@ -20,6 +24,10 @@ import PopupWithImage from "./scripts/PopupWithImage.js";
 import UserInfo from "./scripts/UserInfo.js";
 import "./pages/index.css";
 import { api } from "./utils/Api.js";
+
+const userInfo = new UserInfo(".profile__name", ".profile__job", ".profile__avatar");
+//let user = new UserInfo(profileName, profileJob, profileAvatar);
+//console.log(userInfo)
 
 //Events
 buttonEdit.addEventListener("click", () => {
@@ -34,6 +42,14 @@ buttonAdd.addEventListener("click", () => {
 buttonEditAvatar.addEventListener("click", () => {
   avatarPopup.open();
 });
+
+
+
+await api.getUserInfo().then((data) => {
+  console.log(data);
+  //userInfo.setUserInfo()
+  //user = data;
+})
 
 //Renders Inital Cards
 api.getCards().then((cards) => {
@@ -52,6 +68,7 @@ api.getCards().then((cards) => {
           name,//name
           link,//link
           "#cards-template",//templateSelector
+
           function () {
             imagePopup.open(link, name);
           },//handleCardClick
@@ -64,16 +81,22 @@ api.getCards().then((cards) => {
             avatar,
           },//array cardsData
           //handleLike
-          function (cardId, buttonLike, counterNode) {
+          function (card, cardId, buttonLike, counterNode) {
             console.log("Dar like...");
+            const counterNode2 = document.querySelector(".card__counter");
+            console.log(counterNode2);
+
             api.likeCard(cardId).then((data) => {
               buttonLike.classList.add("liked");
-              counterNode.textContent = data.likes.length;
+              card.setLikes(data.likes);
+              counterNode2.textContent = data.likes.length;
+              if(counterNode2.length > 0) {
+
+              }
             });
           },
-          () => {},//handleDeleteCard
           () => {},//handleRemoveCard?
-
+          //user
           /*
           function () {
             console.log("Quitar like...");
@@ -105,12 +128,10 @@ api.getCards().then((cards) => {
   // console.log(data);
 });
 
-const userInfo = new UserInfo(".profile__name", ".profile__job");
 
 const profilePopup = new PopupWithForm(popupProfileSelector, (data) => {
   return api.updateUser(data.name, data.job).then((data) => {
-    console.log("funcionó?")
-    /* userInfo.getUserInfo(data);  */
+    userInfo.getUserInfo(data);
   });
 });
 
@@ -127,6 +148,10 @@ const addPopup = new PopupWithForm(
           imagePopup.open(data.url, data.name, data.api);
         },
         ()=> {},// cardId??
+        function (likes, _id, owner, createdAt, avatar) //array cardsData
+        {
+          console.log("Dar like...");
+        },
         {
           id: _id,
           likes,
@@ -148,11 +173,13 @@ const addPopup = new PopupWithForm(
 );
 
 const imagePopup = new PopupWithImage(popupImageSelector);
-const avatarPopup = new PopupWithForm(popupAvatarSelector, () => {
+const avatarPopup = new PopupWithForm(popupAvatarSelector, (inputValues) => {
 
-  return api.updateAvatar(avatarPopup).then((data) => {
-    userInfo.setUserInfo(data);
-    avatarPopup.close();
+  return api.updateAvatar(inputValues.url).then((data) => {
+    //console.log(data)
+    userInfo.updateAvatarUrl(inputValues.url);
+    //userInfo.setA(data);
+    //avatarPopup.close();
   });
   /* return new Promise((resolve, reject) => {
     setTimeout(() =>{
