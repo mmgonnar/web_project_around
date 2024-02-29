@@ -1,4 +1,4 @@
-import { openPopup } from "./utils.js";
+//import { openPopup } from "./utils.js";
 import { confirmationPopup } from "./PopupWithConfirmation.js";
 //import { api } from "../utils.js";
 
@@ -13,7 +13,7 @@ export default class Card {
     handleLike,
     handleRemoveLike,
     user
-  /*   handleDeleteCard, */
+    /*   handleDeleteCard, */
   ) {
     this._name = name;
     this._link = link;
@@ -45,24 +45,46 @@ export default class Card {
     confirmationPopup.open(card);
   }
 
-  _handleRemoveLike() {}
+  _handleRemoveLike() {
+    const counterNode = document.querySelector(".card__counter");
+    const isLiked = buttonLike.classList.contains("liked");
+
+    api.deleteLikeCard().then((data) => {
+      buttonLike.classList.remove("liked");
+      card.setLikes(data.likes);
+      counterNode.textContent = data.likes.length;
+      if (counterNode.length > 0) {
+      } else {
+      }
+    });
+  }
+
+  _handleLike() {
+    const counterNode = document.querySelector(".card__counter");
+    const isLiked = buttonLike.classList.contains("liked");
+
+    api.likeCard(cardId).then((data) => {
+      buttonLike.classList.add("liked");
+      card.setLikes(data.likes);
+      counterNode.textContent = data.likes.length;
+      if (counterNode.length > 0) {
+      } else {
+      }
+    });
+  }
 
   _setEventListeners(cardElement) {
     const buttonLike = cardElement.querySelector(".button_like");
     buttonLike.addEventListener("click", () => {
       const isLiked = buttonLike.classList.contains("liked");
-      //const isLiked2 = buttonLike.classList.contains("liked");
 
       if (isLiked) {
         //this._handleLike(this, this._id, buttonLike);
-         this._handleRemoveLike(this, this._id, buttonLike);
+        this._handleRemoveLike(this, this._id, buttonLike);
       } else {
         //buttonLike.classList.remove("liked")
         this._handleLike(this, this._id, buttonLike);
       }
-
-
-
     });
 
     const buttonDelete = cardElement.querySelector(".button_delete");
@@ -74,9 +96,8 @@ export default class Card {
     buttonImage.addEventListener("click", this._handleCardClick);
   }
 
-  _hasLikeOwner(){
-    console.log(this._hasLikeOwner)
-    return this._likes.some(like => like._id === this._user._id)
+  _hasLikeOwner() {
+    return this._likes.some((like) => like._id === this._user._id);
   }
 
   generateCard() {
@@ -89,9 +110,30 @@ export default class Card {
     const cardTitle = cardElement.querySelector(".card__title-strong");
 
     const buttonLike = cardElement.querySelector(".button_like");
+    const counterNode = document.querySelector(".card__counter");
 
-    if(this._hasLikeOwner()){
+    if (counterNode.length > 0) {
+      counterNode.textContent = this.likes.length;
+
+      buttonLike.addEventListener("click", () => {
+        if (buttonLike.classList.contains("liked")) {
+          this._likes = this._likes.filter(
+            (like) => like._id !== this._user._id
+          );
+        } else {
+          this._likes.push({ _id: this._user._id });
+        }
+
+        counterNode.textContent = this._likes.length;
+
+        buttonLike.classList.toggle("liked");
+      });
+    }
+
+    if (this._hasLikeOwner()) {
       buttonLike.classList.add("liked");
+    } else {
+      buttonLike.classList.remove("liked");
     }
 
     cardImage.src = this._link;
@@ -104,7 +146,7 @@ export default class Card {
     return cardElement;
   }
 
-  setLikes(likes){
+  setLikes(likes) {
     this._likes = likes;
   }
 }

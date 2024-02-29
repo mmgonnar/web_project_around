@@ -23,7 +23,8 @@ import PopupWithForm from "./scripts/PopupWithForm.js";
 import PopupWithImage from "./scripts/PopupWithImage.js";
 import UserInfo from "./scripts/UserInfo.js";
 import "./pages/index.css";
-import { api } from "./utils/Api.js";
+import Api from "./utils/api.js";
+//import Api from "./utils/Api.js";
 
 const userInfo = new UserInfo(".profile__name", ".profile__job", ".profile__avatar");
 //let user = new UserInfo(profileName, profileJob, profileAvatar);
@@ -43,13 +44,18 @@ buttonEditAvatar.addEventListener("click", () => {
   avatarPopup.open();
 });
 
-
+const api = new Api(
+  "https://around.nomoreparties.co/v1/web_es_11",
+  "728c172f-3008-42b7-a44c-cc238ba60a2f"
+);
 
 await api.getUserInfo().then((data) => {
   console.log(data);
   //userInfo.setUserInfo()
   //user = data;
 })
+
+
 
 //Renders Inital Cards
 api.getCards().then((cards) => {
@@ -81,7 +87,7 @@ api.getCards().then((cards) => {
             avatar,
           },//array cardsData
           //handleLike
-          function (card, cardId, buttonLike, counterNode) {
+          /* function (card, cardId, buttonLike, counterNode) {
             console.log("Dar like...");
             const counterNode2 = document.querySelector(".card__counter");
             console.log(counterNode2);
@@ -94,8 +100,8 @@ api.getCards().then((cards) => {
 
               }
             });
-          },
-          () => {},//handleRemoveCard?
+          } */
+          //() => {},//handleRemoveCard?
           //user
           /*
           function () {
