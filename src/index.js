@@ -44,7 +44,7 @@ buttonEditAvatar.addEventListener("click", () => {
   avatarPopup.open();
 });
 
-const api = new Api(
+export const api = new Api(
   "https://around.nomoreparties.co/v1/web_es_11",
   "728c172f-3008-42b7-a44c-cc238ba60a2f"
 );
@@ -85,38 +85,7 @@ api.getCards().then((cards) => {
             owner,
             createdAt,
             avatar,
-          },//array cardsData
-          //handleLike
-          /* function (card, cardId, buttonLike, counterNode) {
-            console.log("Dar like...");
-            const counterNode2 = document.querySelector(".card__counter");
-            console.log(counterNode2);
-
-            api.likeCard(cardId).then((data) => {
-              buttonLike.classList.add("liked");
-              card.setLikes(data.likes);
-              counterNode2.textContent = data.likes.length;
-              if(counterNode2.length > 0) {
-
-              }
-            });
-          } */
-          //() => {},//handleRemoveCard?
-          //user
-          /*
-          function () {
-            console.log("Quitar like...");
-            let likes = 0;
-
-            return function () {
-              if (likes > 0) {
-                likes--;
-                console.log("Quitar like...");
-              } else {
-                console.log("No tienes likes");
-              }
-            };
-          } */
+          }
 
         );
 

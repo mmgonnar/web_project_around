@@ -1,5 +1,6 @@
+import { api } from "../index.js";
 import Popup from "./Popup.js";
-import { api } from "../utils/api.js";
+//import { api } from "../utils/api.js";
 import { popupConfirmationSelector } from "./const.js";
 
 class PopupWithConfirmation extends Popup {
