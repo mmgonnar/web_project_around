@@ -13,7 +13,7 @@ import {
   popupConfirmationSelector,
   profileName,
   profileAvatar,
-  profileJob
+  profileJob,
 } from "./scripts/const.js";
 import Card from "./scripts/Card.js";
 import FormValidator from "./scripts/FormValidator.js";
@@ -26,7 +26,11 @@ import "./pages/index.css";
 import Api from "./utils/api.js";
 //import Api from "./utils/Api.js";
 
-const userInfo = new UserInfo(".profile__name", ".profile__job", ".profile__avatar");
+const userInfo = new UserInfo(
+  ".profile__name",
+  ".profile__job",
+  ".profile__avatar"
+);
 //let user = new UserInfo(profileName, profileJob, profileAvatar);
 //console.log(userInfo)
 
@@ -53,9 +57,7 @@ await api.getUserInfo().then((data) => {
   console.log(data);
   //userInfo.setUserInfo()
   //user = data;
-})
-
-
+});
 
 //Renders Inital Cards
 api.getCards().then((cards) => {
@@ -71,14 +73,14 @@ api.getCards().then((cards) => {
         owner: { name: owner, about, avatar, _id: ownerId, cohort },
       }) => {
         const card = new Card(
-          name,//name
-          link,//link
-          "#cards-template",//templateSelector
+          name, //name
+          link, //link
+          "#cards-template", //templateSelector
 
           function () {
             imagePopup.open(link, name);
-          },//handleCardClick
-          _id,//cardId
+          }, //handleCardClick
+          _id, //cardId
           {
             id: _id,
             likes,
@@ -86,7 +88,6 @@ api.getCards().then((cards) => {
             createdAt,
             avatar,
           }
-
         );
 
         const cardElement = card.generateCard();
@@ -103,7 +104,6 @@ api.getCards().then((cards) => {
   // console.log(data);
 });
 
-
 const profilePopup = new PopupWithForm(popupProfileSelector, (data) => {
   return api.updateUser(data.name, data.job).then((data) => {
     userInfo.getUserInfo(data);
@@ -111,45 +111,45 @@ const profilePopup = new PopupWithForm(popupProfileSelector, (data) => {
 });
 
 //Adds new Card
-const addPopup = new PopupWithForm(
-  popupAddSelector,
-  (data) => {
-    return api.addCard(data.url, data.title).then((request) => {
-      const newCard = new Card(
-        data.title,
-        data.url,
-        "#cards-template",
-        function () {
-          imagePopup.open(data.url, data.name, data.api);
-        },
-        ()=> {},// cardId??
-        function (likes, _id, owner, createdAt, avatar) //array cardsData
-        {
-          console.log("Dar like...");
-        },
-        {
-          id: _id,
-          likes,
-          owner,
-          createdAt,
-          avatar,
-        },//array cardsData
-        () => {},//handleLike
-        () => {},//handleRemoveLike
-        () => {},//handleDeleteCard?
-
-      );
-      const cardElement = newCard.generateCard();
-      cardSection.addItem(cardElement, true);
-      addPopup.close();
-      return Promise.resolve();
-    });
-  }
-);
+const addPopup = new PopupWithForm(popupAddSelector, (data) => {
+  return api.addCard(data.url, data.title).then((request) => {
+    const newCard = new Card(
+      data.title,
+      data.url,
+      "#cards-template",
+      function () {
+        imagePopup.open(data.url, data.name, data.api);
+      },
+      () => {}, // cardId??
+      function (
+        likes,
+        _id,
+        owner,
+        createdAt,
+        avatar //array cardsData
+      ) {
+        console.log("Dar like...");
+      },
+      {
+        id: _id,
+        likes,
+        owner,
+        createdAt,
+        avatar,
+      }, //array cardsData
+      () => {}, //handleLike
+      () => {}, //handleRemoveLike
+      () => {} //handleDeleteCard?
+    );
+    const cardElement = newCard.generateCard();
+    cardSection.addItem(cardElement, true);
+    addPopup.close();
+    return Promise.resolve();
+  });
+});
 
 const imagePopup = new PopupWithImage(popupImageSelector);
 const avatarPopup = new PopupWithForm(popupAvatarSelector, (inputValues) => {
-
   return api.updateAvatar(inputValues.url).then((data) => {
     //console.log(data)
     userInfo.updateAvatarUrl(inputValues.url);
@@ -161,7 +161,7 @@ const avatarPopup = new PopupWithForm(popupAvatarSelector, (inputValues) => {
       resolve();
     }, 1000);
     }) */
-  });
+});
 //avatarPopup.open();
 //const confirmationPopup = new PopupWithForm(popupConfirmationSelector);
 //confirmationPopup.open();
