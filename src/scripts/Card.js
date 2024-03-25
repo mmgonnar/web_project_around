@@ -12,11 +12,11 @@ export default class Card {
     handleCardClick,
     cardId,
     { id, likes, owner, createdAt }
-  ) //handleLike,
-  //handleRemoveLike,
-  //user
-  /*   handleDeleteCard, */
+  )
   {
+    console.log(owner);
+    console.log(id);
+
     this._name = name;
     this._link = link;
     this._templateSelector = templateSelector;
@@ -54,11 +54,10 @@ export default class Card {
     const buttonLike = this._cardElement.querySelector(".button_like");
     console.log(buttonLike);
 
-    api.deleteLikeCard(this._cardId).then((setLikes) => {
+    api.deleteLikeCard(this._cardId).then((data) => {
       buttonLike.classList.remove("liked");
       this.setLikes(data.likes || []);
       counterNode.textContent = data.likes ? data.likes.length : 0;
-      console.log(data.likes);
       if (data.likes) {
         counterNode.textContent = data.likes.length;
       } else {
@@ -107,7 +106,8 @@ export default class Card {
   }
 
   _hasLikeOwner() {
-    return this._likes.some((like) => like._id === this._owner._id);
+    //return this._likes.some((like) => like._id === this._owner._id);
+    const result = this._likes.some((like) => like._id === this._id);
   }
 
   generateCard() {
@@ -125,7 +125,25 @@ export default class Card {
 			buttonDelete.remove();
 		} */
 
-    if (this._likes.length > 0) {
+    counterNode.textContent = this._likes.length;
+    buttonLike.addEventListener("click", () => {
+      const verifyLike = this._hasLikeOwner();
+
+      if (verifyLike) {
+        this._likes = this._likes.filter((like) => like._id !== this._id);
+        buttonLike.classList.remove("liked");
+      } else {
+        this._likes.push({
+          name: this._owner,
+          _id: this._id,
+        });
+        buttonLike.classList.add("liked");
+        console.log(this._likes);
+      }
+      counterNode.textContent = this._likes.length;
+    });
+
+    /* if (this._likes.length > 0) {
       counterNode.textContent = this._likes.length;
 
       buttonLike.addEventListener("click", () => {
@@ -139,15 +157,15 @@ export default class Card {
 
         counterNode.textContent = this._likes.length;
 
-        buttonLike.classList.toggle("liked");
+        //buttonLike.classList.toggle("liked");
       });
-    }
+    } */
 
-    if (this._hasLikeOwner()) {
+    /* if (this._hasLikeOwner()) {
       buttonLike.classList.add("liked");
     } else {
       buttonLike.classList.remove("liked");
-    }
+    } */
 
     cardImage.src = this._link;
     cardImage.alt = this._name;
