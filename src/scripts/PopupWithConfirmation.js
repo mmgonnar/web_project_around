@@ -1,16 +1,13 @@
-import { api } from "../index.js";
+
 import Popup from "./Popup.js";
-//import { api } from "../utils/api.js";
-import { popupConfirmationSelector } from "./const.js";
 
 class PopupWithConfirmation extends Popup {
-  constructor(popupSelector, submitCallback) {
+  constructor(popupSelector) {
     super(popupSelector);
-    this._submitCallback = submitCallback;
   }
-  open(card) {
+  open(handleConfirmation) {
     super.open();
-    this._card = card;
+    this._submitCallback = handleConfirmation;
   }
 
   close() {
@@ -25,21 +22,12 @@ class PopupWithConfirmation extends Popup {
     }
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this._submitCallback(this._card);
+      this._submitCallback();
+      this.close();
     });
   }
 }
 
 export const confirmationPopup = new PopupWithConfirmation(
-  ".popup_confirmation",
-  (card) => {
-    return api.deleteCard(card.id)
-      .then(() => {
-        card.remove();
-        confirmationPopup.close();
-      })
-      .catch((error) => {
-        console.error("Error al borrar la tarjeta:", error);
-      });
-  }
+  ".popup_confirmation"
 );
