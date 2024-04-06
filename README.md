@@ -9,11 +9,14 @@ Around The U.S. is a simple web page that displays the profile of an explorer na
 - Jacques Cousteau's profile with an "Edit" button to update the profile information.
 - A list of attractive cards that can be liked with the "Like" button.
 
+
+
 ## Technologies Used
 
 - HTML
 - CSS
 - JavaScript
+
 
 ## Techniques Used
 
@@ -33,7 +36,7 @@ Around The U.S. is a simple web page that displays the profile of an explorer na
 
 #### How to Use
 
-1. Open the "index.html" page in your web browser.
+1. Open the "index.html" page in your web browser and type `npm run dev`.
 2. You can view Jacques Cousteau's profile along with his job information.
 3. Click the "Edit" button to change the name and job on the profile.
 4. Scroll down to see the list of fascinating cards around the United States.
@@ -46,7 +49,7 @@ Around The U.S. is a simple web page that displays the profile of an explorer na
 - [BEM Validator](https://nglazov.github.io/bem-validator-page/)
 - [Autoprefixer](https://autoprefixer.github.io/)
 - [HTML Validator](https://validator.w3.org/)
-- [Project link](https://epulvis.github.io/web_project_around)
+- [Project link](https://mmgonnar.github.io/web_project_around/) or [click here](https://mmgn-project05-js.netlify.app/)
 
 **Figma**
 
