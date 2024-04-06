@@ -13,6 +13,24 @@
   border: 1px solid #fff;
 }
 
+.button_edit-avatar {
+  background: url(../images/edit_avatar_button.svg);
+  transition: 0.3s;
+  width: 26px;
+  height: 26px;
+  border: none;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  z-index: 1;
+  display: none;
+}
+
+.button_edit-avatar:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
 .button_add {
   background: url(../images/add_button.svg) no-repeat center;
   width: 288px;
@@ -48,8 +66,8 @@
   rotate: 90deg;
   transform: rotate(90deg);
   position: absolute;
-  top: -13%;
-  right: 0%;
+  bottom: 105%;
+  left: 92%;
 }
 
 .button_submit {
@@ -99,7 +117,14 @@
   }
 
   .button_close {
-    top: -10%;
-    right: -5%;
+    left: 100%;
+    bottom: 103%;
+  }
+}
+
+@media screen and (min-width: 880px) {
+  .button_edit-avatar {
+    top: 40%;
+    left: 32%;
   }
 }

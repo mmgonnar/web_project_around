@@ -13,7 +13,6 @@
       content="Around The U.S. is a simple web page that displays the profile of an explorer named Jacques Cousteau."
     />
     <meta name="keywords" content="html, css, javascript" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" href="./images/favicon_nd.ico" />
     <title>Around The U.S.</title>
   </head>
@@ -29,11 +28,15 @@
     <main class="content">
       <!--- Profile --->
       <section class="profile">
-        <img
+        <div class="profile__container">
+          <img
           src="<%=require('./images/profile.png')%>"
           alt="profile__avatar"
           class="profile__avatar"
         />
+          <button class="button button_edit-avatar"></button>
+          <div class="profile__overlay"></div>
+        </div>
         <div class="profile__info">
           <div class="profile__info-container">
             <p class="profile__name">Jacques Cousteau</p>
@@ -170,17 +173,82 @@
         <span class="popup__title popup__title_img"></span>
       </div>
     </div>
+    <!------------- PopUp Avatar ---------->
+    <div class="popup popup_avatar">
+      <div class="popup__overlay"></div>
+      <div class="popup__content popup__content-avatar">
+        <div class="popup__container">
+          <button class="button button_close"></button>
+          <span class="popup__title">Change profile</span>
+          <form
+            class="popup__form popup__form_avatar"
+            id="form-avatar"
+            novalidate
+          >
+            <fieldset class="popup__set">
+              <div class="popup__container-input">
+                <input
+                  type="url"
+                  name="url"
+                  id="input-image"
+                  class="popup__input popup__input-image"
+                  placeholder="Image URL"
+                  minlength="6"
+                  required
+                  autocomplete="on"
+                />
+                <span class="popup__error" id="input__error-url"></span>
+              </div>
+            </fieldset>
+            <fieldset class="popup__set">
+              <button
+                type="submit"
+                class="button button_submit button_submit-disabled"
+              >
+                Save
+              </button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!------------- PopUp Confirmation ---------->
+    <div class="popup popup_confirmation">
+      <div class="popup__overlay"></div>
+      <div class="popup__content popup__content-confirmation">
+        <div class="popup__container">
+          <button class="button button_close"></button>
+          <span class="popup__title">Are you sure?</span>
+          <form
+            class="popup__form popup__form_add"
+            id="form-add-place"
+            novalidate
+          >
+            <fieldset class="popup__set">
+              <button
+                type="submit"
+                class="button button_submit button_submit-disabled"
+              >
+                Yes
+              </button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
     <!------------- Template -------------->
     <template class="cards" id="cards-template">
       <div class="card">
         <img class="card__image" alt=""/>
         <div class="card__info">
           <p class="card__title"><strong class="card__title-strong"></strong></p>
-          <button class="button button_like"></button>
+          <div class="card__likes">
+            <button class="button button_like"></button>
+          <p class="card__counter"></p>
+          </div>
           <button class="button button_delete"></button>
         </div>
       </div>
     </template>
-    <script type="module" src="./index.js"></script>
   </body>
 </html>

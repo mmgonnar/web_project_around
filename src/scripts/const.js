@@ -1,14 +1,12 @@
 export const buttonEdit = document.querySelector(".button_edit");
-export const popupProfile = document.querySelector(".popup_edit");
+export const buttonEditAvatar = document.querySelector(".button_edit-avatar");
 export const buttonAdd = document.querySelector(".button_add");
-export const profileName = document.querySelector(".profile__name");
-export const profileJob = document.querySelector(".profile__job");
 export const profileForm = document.querySelector(".popup__form");
 export const addForm = document.querySelector(".popup__form_add");
-export const popupImageElement = document.querySelector(".popup__element");
-export const popupProfileSelector = ".popup_edit";
 export const popupAddSelector = ".popup_add";
+export const popupProfileSelector = ".popup_edit";
 export const popupImageSelector = ".popup_image";
+export const popupAvatarSelector = ".popup_avatar";
 
 import Chicago from "../images/places/chicago.png";
 import Arizona from "../images/places/arizona.png";
