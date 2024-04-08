@@ -7,6 +7,8 @@ export const popupAddSelector = ".popup_add";
 export const popupProfileSelector = ".popup_edit";
 export const popupImageSelector = ".popup_image";
 export const popupAvatarSelector = ".popup_avatar";
+export const profileName = document.querySelector(".profile__name");
+export const profileJob = document.querySelector(".profile__job");
 
 import Chicago from "../images/places/chicago.png";
 import Arizona from "../images/places/arizona.png";
