@@ -25,6 +25,7 @@ export default class Api {
   }
 
   updateUser(name, job) {
+
     return fetch(this._url + "/users/me", {
       headers: {
         Authorization: this._token,
@@ -33,7 +34,7 @@ export default class Api {
       method: "PATCH",
       body: JSON.stringify({
         name,
-        job,
+        about:job,
       }),
     }).then((response) => response.json());
   }
@@ -60,7 +61,7 @@ export default class Api {
       method: "POST",
       body: JSON.stringify({
         name: title,
-        link,
+        link: link,
       }),
     }).then((response) => response.json());
   }

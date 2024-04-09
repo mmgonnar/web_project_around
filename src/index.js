@@ -20,6 +20,7 @@ import "./pages/index.css";
 import Api from "./utils/api.js";
 import { confirmationPopup } from "./scripts/PopupWithConfirmation.js";
 
+
 const userInfo = new UserInfo(
   ".profile__name",
   ".profile__job",
@@ -54,17 +55,18 @@ await api.getUserInfo().then((data) => {
     job: data.about,
     avatar: data.avatar,
   });
+
   //Renders Inital Cards
   api.getCards().then((cards) => {
-       cardSection = new Section(
+    cardSection = new Section(
       {
         items: cards,
         renderer: ({ likes, _id, name, link, createdAt, owner }) => {
+          const imagePopup = new PopupWithImage(popupImageSelector);
           const card = new Card(
             name, //name
             link, //link
             "#cards-template", //templateSelector
-
             function () {
               imagePopup.open(link, name);
             }, //handleCardClick
@@ -140,11 +142,11 @@ const addPopup = new PopupWithForm(popupAddSelector, (data) => {
   });
 });
 
-const imagePopup = new PopupWithImage(popupImageSelector);
+
+
 const avatarPopup = new PopupWithForm(popupAvatarSelector, (inputValues) => {
-  return api.updateAvatar(inputValues.url).then((data) => {
-    //console.log(data)
-    userInfo.updateAvatarUrl(inputValues.url);
+  return api.updateAvatar(inputValues["url-avatar"]).then((data) => {
+    userInfo.updateAvatarUrl(inputValues["url-avatar"]);
   });
 });
 
