@@ -86,6 +86,7 @@
 .popup__element {
   width: 240px;
   height: 299px;
+  object-fit: cover;
 }
 
 .popup__title_img {
