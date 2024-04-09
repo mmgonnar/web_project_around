@@ -61,7 +61,7 @@ export default class Api {
       method: "POST",
       body: JSON.stringify({
         name: title,
-        link,
+        link: link,
       }),
     }).then((response) => response.json());
   }
